@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADD8E6"
+    tools:context=".actividad_home">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" ADIVINAR EL ESCUDO"
+                android:textAlignment="center"
+                android:textColor="#00008B"
+                android:textSize="50sp"
+                android:translationY="40sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/clasificacion_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetLeft="40dp"
+                    android:insetRight="40dp"
+                    android:text="Clasificacion" />
+
+                <Button
+                    android:id="@+id/jugar_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetLeft="40dp"
+                    android:insetRight="40dp"
+                    android:text="Jugar" />
+
+                <Button
+                    android:id="@+id/miPerfil_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:insetLeft="40dp"
+                    android:insetRight="40dp"
+                    android:text="Mi perfil" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

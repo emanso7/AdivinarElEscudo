@@ -13,6 +13,16 @@
         android:theme="@style/Theme.AdivinarElEscudo"
         tools:targetApi="31">
         <activity
+            android:name=".actividad_perfil"
+            android:exported="false" />
+        <activity
+            android:name=".actividad_home"
+            android:exported="false" />
+        <activity
+            android:name=".actividad_registro"
+            android:exported="false"
+            android:theme="@style/Theme.AdivinarElEscudo" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

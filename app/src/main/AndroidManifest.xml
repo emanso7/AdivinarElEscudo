@@ -13,13 +13,13 @@
         android:theme="@style/Theme.AdivinarElEscudo"
         tools:targetApi="31">
         <activity
-            android:name=".actividad_perfil"
+            android:name=".ActividadPerfil"
             android:exported="false" />
         <activity
-            android:name=".actividad_home"
+            android:name=".ActividadHome"
             android:exported="false" />
         <activity
-            android:name=".actividad_registro"
+            android:name=".ActividadRegistro"
             android:exported="false"
             android:theme="@style/Theme.AdivinarElEscudo" />
         <activity

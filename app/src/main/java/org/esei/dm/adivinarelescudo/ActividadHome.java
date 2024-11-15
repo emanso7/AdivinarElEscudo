@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class actividad_home extends AppCompatActivity {
+public class ActividadHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +38,17 @@ public class actividad_home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
-                Intent intent = new Intent(actividad_home.this, actividad_jugar.class);
+                Intent intent = new Intent(ActividadHome.this, ActividadJugar.class);
                 startActivity(intent);
             }
         });*/
+        
         Button btperfil = (Button) this.findViewById(R.id.miPerfil_button);
         btperfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
-                Intent intent = new Intent(actividad_home.this, actividad_perfil.class);
+                Intent intent = new Intent(ActividadHome.this, ActividadPerfil.class);
                 startActivity(intent);
             }
         });

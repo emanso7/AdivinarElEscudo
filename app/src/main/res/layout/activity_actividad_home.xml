@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ADD8E6"
-    tools:context=".actividad_home">
+    tools:context=".ActividadHome">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:insetLeft="40dp"
                     android:insetRight="40dp"
-                    android:text="Clasificacion" />
+                    android:text="@string/classification_button" />
 
                 <Button
                     android:id="@+id/jugar_button"
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:insetLeft="40dp"
                     android:insetRight="40dp"
-                    android:text="Jugar" />
+                    android:text="@string/play_button" />
 
                 <Button
                     android:id="@+id/miPerfil_button"
@@ -62,14 +62,14 @@
                     android:layout_height="wrap_content"
                     android:insetLeft="40dp"
                     android:insetRight="40dp"
-                    android:text="Mi perfil" />
+                    android:text="@string/profile_button" />
 
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
         </LinearLayout>

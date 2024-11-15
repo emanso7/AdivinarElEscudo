@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class actividad_registro extends AppCompatActivity {
+public class ActividadRegistro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

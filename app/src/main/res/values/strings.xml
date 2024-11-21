@@ -6,12 +6,16 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <!--textos titulos-->
+    <string name="perfil_title">Mis Datos Personales</string>
     <!--botones-->
     <String name="nombre_boton">texto</String>
     <string name="classification_button">Clasificacion</string>
     <string name="play_button">Jugar</string>
     <string name="profile_button">Mi perfil</string>
     <string name="register_button">Registrar usuario</string>
+    <string name="menu">Menu</string>
+    <string name="edit">Editar</string>
 
 
     <string name="lorem_ipsum">

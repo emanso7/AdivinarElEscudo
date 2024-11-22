@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_azul_claro"
+    tools:context=".Actividad_register">
+
+    <!-- ScrollView para evitar problemas con pantallas pequeñas -->
+    <ScrollView
+        android:id="@+id/ScrollRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <LinearLayout
+            android:id="@+id/LayoutCrearCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título Registro -->
+            <TextView
+                android:id="@+id/text_titulo_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/crear_cuenta"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <!-- Campo Nombre y Apellidos -->
+            <LinearLayout
+                android:id="@+id/LayoutNombreApellidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/cuadradito_fondo"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textView_nombreApellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombreApellidos_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edit_text_nombreApellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/campo_fondo"
+                    android:hint="@string/nombreApellidos_hint"
+                    android:inputType="textPersonName"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Campo Correo Electrónico -->
+            <LinearLayout
+                android:id="@+id/LayoutCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/cuadradito_fondo"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textViewCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/correo_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edit_text_correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/campo_fondo"
+                    android:hint="@string/correo_hint"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Campo Nombre de Usuario -->
+            <LinearLayout
+                android:id="@id/LayoutUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/cuadradito_fondo"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textView_usuarioRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edit_text_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/campo_fondo"
+                    android:hint="@string/new_username_hint"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Campo Contraseña -->
+            <LinearLayout
+                android:id="@+id/LayoutContraseñaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/cuadradito_fondo"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textView_contraseñaRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edit_text_contraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/campo_fondo"
+                    android:hint="@string/new_password_hint"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+
+            <!-- Campo Repetir Contraseña -->
+                <TextView
+                    android:id="@+id/textView_repetirContraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_again_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edit_text_repetir_contraseña"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/campo_fondo"
+                    android:hint="@string/password_again_hint"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Condiciones de uso -->
+            <LinearLayout
+                android:id="@+id/LayoutCondicionesUso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/check_acepto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView_condicionesUso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:text="@string/conditios_label"
+                    android:textColor="@color/azul_oscuro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- Botón Registrarse -->
+            <Button
+                android:id="@+id/button_registrarse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:text="@string/register_label"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

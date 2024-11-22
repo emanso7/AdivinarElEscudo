@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'org.esei.dm.adivinarelescudo'
+    namespace 'com.example.myapplication'
     compileSdk 34
 
     defaultConfig {
-        applicationId "org.esei.dm.adivinarelescudo"
+        applicationId "com.example.myapplication"
         minSdk 33
         targetSdk 34
         versionCode 1

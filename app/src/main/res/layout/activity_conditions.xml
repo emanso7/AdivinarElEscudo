@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_azul_claro"
+    tools:context=".Actividad_conditions">
+
+    <!-- ScrollView para contenido extenso -->
+    <ScrollView
+        android:id="@+id/ScrollConditions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp">
+
+        <LinearLayout
+            android:id="@+id/LayoutCondiciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/textView_condiciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="CONDICIONES DE USO"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Contenido del texto de condiciones -->
+            <TextView
+                android:id="@+id/textView_todasCondiciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="\n 1. Al registrarte en esta aplicación, aceptas proporcionar datos verídicos como tu correo electrónico, nombre completo y contraseña.\n
+                2. Tu correo electrónico se utilizará para crear y gestionar tu cuenta, así como para enviarte notificaciones relacionadas con el juego.\n\n
+                3. La contraseña proporcionada será almacenada de forma segura mediante algoritmos de encriptación.\n\n
+                4. El nombre completo puede ser visible en clasificaciones o secciones del juego que incluyan datos de usuario, siempre que hayas aceptado estas condiciones.\n\n
+                5. Nos comprometemos a no compartir tus datos personales con terceros sin tu consentimiento, salvo en casos requeridos por ley.\n\n
+                6. Eres responsable de mantener la confidencialidad de tu contraseña. No compartas esta información con otras personas.\n\n
+                7. Cualquier actividad realizada desde tu cuenta será tu responsabilidad.\n\n
+                8. Nos reservamos el derecho de modificar estas condiciones en cualquier momento. Se te notificará sobre cualquier cambio significativo.\n\n
+                9. Al continuar usando esta aplicación, confirmas que aceptas estas condiciones y las actualizaciones futuras. \n"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <!-- Botón Volver -->
+
+            <Button
+                android:id="@+id/button_volver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Volver"
+                android:textStyle="bold"
+                android:backgroundTint="@color/azul_oscuro"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

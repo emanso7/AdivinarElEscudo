@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guess the Crest</string>
+    <string name="welcome_message">¡Welcome to Guess the Crest!</string>
+    <string name="username_label">Username:</string>
+    <string name="username_hint">Enter your Username</string>
+    <string name="password_label">Password:</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_button">Login</string>
+    <string name="no_account_text">If you do not have an account, click here</string>
+    <string name="idioma_español">Language (English)</string>
+    <string name="username_name">Username</string>
+    <string name="crear_cuenta">Create Account</string>
+    <string name="nombreApellidos_label">Name and Surname:</string>
+    <string name="nombreApellidos_hint">Enter your full name</string>
+    <string name="correo_label">Email:</string>
+    <string name="correo_hint">example@email.com</string>
+    <string name="new_username_hint">Enter your Username</string>
+    <string name="new_password_hint">Enter your Password</string>
+    <string name="password_again_label">Repeat Password:</string>
+    <string name="password_again_hint">Repeat Password</string>
+    <string name="conditios_label">I accept the terms of use</string>
+    <string name="register_label">Register</string>
+</resources>

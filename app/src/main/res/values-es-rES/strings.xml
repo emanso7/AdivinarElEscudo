@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Adivina el Escudo</string>
     <string name="welcome_message">¡Bienvenido a Adivina el Escudo!</string>
@@ -20,6 +21,4 @@
     <string name="password_again_hint">Repita su contraseña</string>
     <string name="conditios_label">Acepto las condiciones de uso</string>
     <string name="register_label">Registrarse</string>
-
-
 </resources>

@@ -7,7 +7,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <!--textos titulos-->
-    <string name="perfil_title">Mis Datos Personales</string>
+    <string name="perfil_title">Mi Perfil</string>
     <!--botones-->
     <String name="nombre_boton">texto</String>
     <string name="classification_button">Clasificacion</string>

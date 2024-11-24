@@ -12,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 
+import com.example.myapplication.R;
+
 import java.util.Locale;
 
 public class Actividad_login extends AppCompatActivity {
@@ -50,7 +52,6 @@ public class Actividad_login extends AppCompatActivity {
         Configuration config = new Configuration();
         config.setLocale(locale);
 
-        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
 
         // Reinicia la actividad para aplicar los cambios
         recreate();

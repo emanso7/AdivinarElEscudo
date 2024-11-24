@@ -20,6 +20,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.esei.dm.adivinarelescudo.R;
+
 public class Actividad_register extends AppCompatActivity {
 
     @Override

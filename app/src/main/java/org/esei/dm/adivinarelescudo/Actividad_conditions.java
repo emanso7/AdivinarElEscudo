@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package org.esei.dm.adivinarelescudo;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import org.esei.dm.adivinarelescudo.R;
+
 
 public class Actividad_conditions extends AppCompatActivity {
 

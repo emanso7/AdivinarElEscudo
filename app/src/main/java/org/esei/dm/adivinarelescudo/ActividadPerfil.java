@@ -40,8 +40,8 @@ public class ActividadPerfil extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //lanza actividad modificar datos(aun no creada)
-                /*Intent intent = new Intent(ActividadPerfil.this, ActividadModificarPerfil.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(ActividadPerfil.this, ActividadModificarPerfil.class);
+                startActivity(intent);
 
             }
         });

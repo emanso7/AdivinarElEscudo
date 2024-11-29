@@ -16,6 +16,9 @@
     <string name="register_button">Registrar usuario</string>
     <string name="menu">Menu</string>
     <string name="edit">Editar</string>
+    <string name="modificar_datos">Modificar Datos</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="acept_button">Aceptar</string>
 
 
     <string name="lorem_ipsum">

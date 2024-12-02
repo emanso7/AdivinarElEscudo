@@ -30,6 +30,7 @@ public class ActividadModificarPerfil extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ActividadModificarPerfil.this, ActividadPerfil.class);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -37,6 +38,7 @@ public class ActividadModificarPerfil extends AppCompatActivity {
         btAcept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //cargar nuevos datos en BD
                 Toast.makeText(ActividadModificarPerfil.this,"modifica", Toast.LENGTH_SHORT).show();
 
             }

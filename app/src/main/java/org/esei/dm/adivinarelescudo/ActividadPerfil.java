@@ -33,6 +33,7 @@ public class ActividadPerfil extends AppCompatActivity {
                 // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
                 Intent intent = new Intent(ActividadPerfil.this, ActividadHome.class);
                 startActivity(intent);
+                finish();
             }
         });
         Button btedit=(Button) this.findViewById(R.id.editar_button);

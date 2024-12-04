@@ -16,7 +16,7 @@ public class UserFacade {
     public UserFacade(Adivinar adivinar) {
         this.dbManager = adivinar.getDbManager();
     }
-    public static User readTask(Cursor cursor){
+    public static User readUser(Cursor cursor){
         User toret = null;
         if (cursor!=null){
             try {
@@ -114,7 +114,7 @@ public class UserFacade {
                             new String[]{email+""});
 
             if (cursor.moveToFirst()){
-                toret = readTask(cursor);
+                toret = readUser(cursor);
             }
             cursor.close();
         }

@@ -10,7 +10,7 @@
         android:id="@+id/dialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modificar Usuario"
+        android:text="@string/modify_user_label"
         android:textSize="20sp"
         android:textColor="@color/azul_oscuro"
         android:textStyle="bold"
@@ -20,7 +20,7 @@
         android:id="@+id/dialogEditUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nuevo nombre de usuario"
+        android:hint="@string/modify_user_hint"
         android:inputType="textPersonName"
         android:padding="8dp"
         android:background="@drawable/cuadradito_fondo" />

@@ -43,12 +43,12 @@ public class Actividad_perfil extends AppCompatActivity {
                 correoActivo.setText(userDetails.getEmail());
                 puntosActivo.setText(String.valueOf(userDetails.getPoints()));
             } else {
-                usuarioActivo.setText("Usuario no encontrado");
+                usuarioActivo.setText(getString(R.string.user_not_found));
                 correoActivo.setText("");
                 puntosActivo.setText("");
             }
         } else {
-            usuarioActivo.setText("Usuario no encontrado");
+            usuarioActivo.setText(getString(R.string.user_not_found));
             correoActivo.setText("");
             puntosActivo.setText("");
         }
@@ -75,13 +75,13 @@ public class Actividad_perfil extends AppCompatActivity {
         EditText input = dialogView.findViewById(R.id.dialogEditUsuario);
 
         // Configurar botones
-        builder.setPositiveButton("Guardar", (dialog, which) -> {
+        builder.setPositiveButton(getString(R.string.save), (dialog, which) -> {
             String nuevoUsuario = input.getText().toString().trim();
 
             if (!nuevoUsuario.isEmpty()) {
                 // Verificar si el nombre de usuario ya existe
                 if (userDatabase.isUsernameInUse(nuevoUsuario)) {
-                    Toast.makeText(this, "El nombre de usuario ya existe", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.user_exists), Toast.LENGTH_SHORT).show();
                 } else {
                     // Actualizar el nombre de usuario
                     userDatabase.updateUsername(nombreUsuarioActivo[0], nuevoUsuario);
@@ -91,14 +91,14 @@ public class Actividad_perfil extends AppCompatActivity {
                     usuarioActivo.setText(nuevoUsuario);
                     nombreUsuarioActivo[0] = nuevoUsuario;
 
-                    Toast.makeText(this, "Nombre de usuario actualizado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.user_modified), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(this, "El campo no puede estar vacío", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.field_empty), Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.cancel());
 
         // Mostrar el cuadro de diálogo
         builder.show();

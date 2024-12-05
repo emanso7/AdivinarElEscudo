@@ -69,7 +69,7 @@ public class Actividad_login extends AppCompatActivity {
             if (usuario.isEmpty() || contraseña.isEmpty()) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "Por favor, completa todos los campos",
+                        getString(R.string.empty_fail),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (userDatabase.checkUser(usuario, contraseña)) {
@@ -85,7 +85,7 @@ public class Actividad_login extends AppCompatActivity {
                 // Usuario o contraseña incorrectos
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "Usuario o contraseña incorrectos",
+                        getString(R.string.user_pass_fail),
                         Snackbar.LENGTH_SHORT
                 ).show();
             }

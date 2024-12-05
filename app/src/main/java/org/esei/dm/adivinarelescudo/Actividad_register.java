@@ -80,7 +80,7 @@ public class Actividad_register extends AppCompatActivity {
             if (!checkBoxAcepto.isChecked()) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "Debes aceptar las condiciones de uso",
+                        getString(R.string.accepted_conditions),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (TextUtils.isEmpty(nombre) ||
@@ -90,31 +90,31 @@ public class Actividad_register extends AppCompatActivity {
                     TextUtils.isEmpty(repetirContraseña)) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "No se han completado todos los campos",
+                        getString(R.string.empty_fail),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (!contraseña.equals(repetirContraseña)) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "Las contraseñas no coinciden",
+                        getString(R.string.password_diferent),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "El correo electrónico no es válido",
+                        getString(R.string.email_wrong),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (userDatabase.isEmailInUse(correo)) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "El correo electrónico ya está registrado",
+                        getString(R.string.email_exists),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (userDatabase.isUsernameInUse(usuario)) {
                 Snackbar.make(
                         findViewById(android.R.id.content),
-                        "El nombre de usuario ya está en uso",
+                        getString(R.string.user_exists),
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else {
@@ -122,14 +122,14 @@ public class Actividad_register extends AppCompatActivity {
                 if (result != -1) {
                     Snackbar.make(
                             findViewById(android.R.id.content),
-                            "Registro exitoso",
+                            getString(R.string.registered),
                             Snackbar.LENGTH_SHORT
                     ).show();
                     finish();
                 } else {
                     Snackbar.make(
                             findViewById(android.R.id.content),
-                            "Error al registrar, inténtalo de nuevo",
+                            getString(R.string.not_registered),
                             Snackbar.LENGTH_SHORT
                     ).show();
                 }

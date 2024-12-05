@@ -4,11 +4,11 @@
     <!-- Opción 1: Ver Perfil -->
     <item
         android:id="@+id/opcion_ver_perfil"
-        android:title="Ver Perfil"
+        android:title="@string/see_profile"
     />
     <!-- Opción 2: Cerrar Sesión -->
     <item
         android:id="@+id/opcion_cerrar_sesion"
-        android:title="Cerrar Sesión" /> <!-- Icono opcional -->
+        android:title="@string/option_log_out" /> <!-- Icono opcional -->
 
 </menu>

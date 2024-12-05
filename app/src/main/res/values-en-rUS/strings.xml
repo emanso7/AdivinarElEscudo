@@ -30,6 +30,38 @@
     <string name="puntos">Your points:</string>
     <string name="go_back">Back</string>
     <string name="modify_user">Modify User</string>
+    <string name="modify_user_label">Modify User:</string>
+    <string name="modify_user_hint">New Username</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_profile">See Profile</string>
+    <string name="option_log_out">Log Out</string>
+    <string name="empty_fail">Please, complete all the fields</string>
+    <string name="user_pass_fail">Incorrect Username or Password</string>
+    <string name="user_exists">Username already exists</string>
+    <string name="user_modified">Username updated</string>
+    <string name="field_empty">Field can´t be empty</string>
+    <string name="user_not_found">User not found</string>
+    <string name="accepted_conditions">You must accept the conditions</string>
+    <string name="password_diferent">Passwords do not match</string>
+    <string name="email_wrong">The email is not valid</string>
+    <string name="email_exists">Email already exists</string>
+    <string name="registered">Successful registration!</string>
+    <string name="not_registered">Error registering, please try again</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

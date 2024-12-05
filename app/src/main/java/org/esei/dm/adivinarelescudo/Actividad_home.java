@@ -28,26 +28,17 @@ public class Actividad_home extends AppCompatActivity {
 
         });
 
-        // Referencia al TextView
-        TextView textNombreUsuarioActivo = findViewById(R.id.usuario_textView);
-
-        // Obtener el nombre de usuario activo del Intent
-        String nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
-
-        // Establecer el texto en el TextView
-        if (nombreUsuarioActivo != null) {
-            textNombreUsuarioActivo.setText(nombreUsuarioActivo);
-        } else {
-            textNombreUsuarioActivo.setText("Usuario no encontrado");
-        }
-
         // Referencia al botón del perfil
         ImageButton buttonPerfil = findViewById(R.id.imagen_perfil);
 
         // Configurar la acción al pulsar el botón
         buttonPerfil.setOnClickListener(v -> {
-            // Iniciar la Actividad_perfil
+            // Nombre de usuario activo (ya obtenido al iniciar sesión)
+            String nombreUser = getIntent().getStringExtra("nombre_usuario_activo");
+
+            // Crear Intent y pasar el usuario activo
             Intent intent = new Intent(Actividad_home.this, Actividad_perfil.class);
+            intent.putExtra("nombre_usuario_activo", nombreUser);
             startActivity(intent);
         });
     }

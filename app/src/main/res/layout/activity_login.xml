@@ -137,7 +137,8 @@
                 android:id="@+id/button_inicio_sesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login_button" />
+                android:text="@string/login_button"
+                android:backgroundTint="@color/azul_oscuro"/>
         </LinearLayout>
     </LinearLayout>
 

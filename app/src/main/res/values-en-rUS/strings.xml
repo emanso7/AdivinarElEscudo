@@ -9,7 +9,7 @@
     <string name="login_button">Login</string>
     <string name="no_account_text">If you do not have an account, click here</string>
     <string name="idioma_español">Language (English)</string>
-    <string name="username_name">Username</string>
+    <string name="username_name">Username:</string>
     <string name="crear_cuenta">Create Account</string>
     <string name="nombreApellidos_label">Name and Surname:</string>
     <string name="nombreApellidos_hint">Enter your full name</string>
@@ -23,4 +23,13 @@
     <string name="register_label">Register</string>
     <string name="accept_conditions">I Accept the Conditions</string>
     <string name="conditions">\n 1. By registering in this application, you agree to provide true information such as your email, full name and password.\n \n 2. Your email will be used to create and manage your account, as well as to send you notifications related to the game.\n \n 3. The password provided will be stored securely using encryption algorithms.\n \n 4. The full name may be visible in leaderboards or sections of the game that include user data, provided you have agreed are conditions.\n \n 5. We undertake not to share your personal data with third parties without your consent, except in cases required by law.\n \n 6. You are responsible for maintaining the confidentiality of your password. Do not share this information with. other people.\n \n 7. Any activity carried out from your account will be your responsibility.\n \n 8. We reserve the right to modify these conditions at any time. You will be notified of any significant changes.\n \n 9. By continuing to use this application, you confirm that you accept these conditions and future updates. \n</string>
+    <string name="titulo_home">Guess the Embleme!</string>
+    <string name="button_jugar">Play</string>
+    <string name="button_clasificacion">See Classification</string>
+    <string name="mi_perfil">My profile</string>
+    <string name="puntos">Your points:</string>
+
+
+
+
 </resources>

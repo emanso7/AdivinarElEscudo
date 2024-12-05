@@ -75,6 +75,10 @@ public class Actividad_login extends AppCompatActivity {
             } else if (userDatabase.checkUser(usuario, contraseña)) {
                 // Usuario y contraseña correctos, ir a la actividad Home
                 Intent intent = new Intent(Actividad_login.this, Actividad_home.class);
+
+                // Añadir el nombre de usuario como extra al Intent
+                intent.putExtra("nombre_usuario_activo", usuario);
+
                 startActivity(intent);
                 finish();
             } else {

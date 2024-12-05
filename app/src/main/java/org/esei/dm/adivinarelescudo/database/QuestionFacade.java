@@ -23,6 +23,7 @@ public class QuestionFacade {
                 toret.setOption2(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP2)));
                 toret.setOption3(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP3)));
                 toret.setOption4(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP4)));
+                toret.setDificult(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD)));
 
             }catch (Exception e){
                 Log.e(QuestionFacade.class.getName(),"readQuestion" ,e);
@@ -87,9 +88,10 @@ public class QuestionFacade {
                             + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP1 + "=?, "
                             + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP2 + "=?, "
                             + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP3 + "=?, "
-                            + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP4 + "=? "
+                            + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP4 + "=?, "
+                            + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD + "=? "
                             + "WHERE "+DBManager.ADIVINAESCUDO_QUIZ_COLUMN_ID +"=?",
-                    new Object[]{question.getCorrect(), question.getPhoto(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(), question.getId()});
+                    new Object[]{question.getCorrect(), question.getPhoto(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getDificult(), question.getId()});
 
             writableDatabase.setTransactionSuccessful();
         }catch(SQLException exception){

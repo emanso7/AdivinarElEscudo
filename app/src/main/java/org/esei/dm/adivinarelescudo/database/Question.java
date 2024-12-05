@@ -8,12 +8,13 @@ public class Question {
     private String option2;
     private String option3;
     private String option4;
+    private String dificult;
 
     // Constructor vacío
     public Question() {
     }
 
-    public Question(Integer id, Integer correct, String photo, String option1, String option2, String option3, String option4) {
+    public Question(Integer id, Integer correct, String photo, String option1, String option2, String option3, String option4,String dificult) {
         this.id = id;
         this.correct = correct;
         this.photo = photo;
@@ -21,8 +22,8 @@ public class Question {
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
+        this.dificult = dificult;
     }
-
     public Integer getId() {
         return id;
     }
@@ -77,5 +78,13 @@ public class Question {
 
     public void setOption4(String option4) {
         this.option4 = option4;
+    }
+
+    public String getDificult() {
+        return dificult;
+    }
+
+    public void setDificult(String dificult) {
+        this.dificult = dificult;
     }
 }

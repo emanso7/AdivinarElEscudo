@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 public class DBManager extends SQLiteOpenHelper {
 
+
     private static String ADIVINAESCUDO_DATABASE_NAME = "adivina_db";
     private static int ADIVINAESCUDO_DATABASE_VERSION =1;
     public static final String ADIVINAESCUDO_USR_TABLE_NAME = "usuarios";
@@ -26,6 +27,7 @@ public class DBManager extends SQLiteOpenHelper {
     public static final String ADIVINAESCUDO_QUIZ_COLUMN_OP2 = "op2";
     public static final String ADIVINAESCUDO_QUIZ_COLUMN_OP3 = "op3";
     public static final String ADIVINAESCUDO_QUIZ_COLUMN_OP4 = "op4";
+    public static final String ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD = "dif";
 
     public DBManager(@Nullable Context context) {
         super(context, ADIVINAESCUDO_DATABASE_NAME, null,
@@ -50,7 +52,8 @@ public class DBManager extends SQLiteOpenHelper {
                     ADIVINAESCUDO_QUIZ_COLUMN_OP1 + " TEXT NOT NULL, " +
                     ADIVINAESCUDO_QUIZ_COLUMN_OP2 + " TEXT NOT NULL, " +
                     ADIVINAESCUDO_QUIZ_COLUMN_OP3 + " TEXT NOT NULL, " +
-                    ADIVINAESCUDO_QUIZ_COLUMN_OP4 + " TEXT NOT NULL" +
+                    ADIVINAESCUDO_QUIZ_COLUMN_OP4 + " TEXT NOT NULL, " +
+                    ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD + " TEXT NOT NULL" +
                     ")");
             db.setTransactionSuccessful();
 

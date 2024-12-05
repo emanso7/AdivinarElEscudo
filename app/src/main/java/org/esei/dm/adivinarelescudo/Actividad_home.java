@@ -1,4 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
-public class Actividad_home {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Actividad_home extends AppCompatActivity {
 }

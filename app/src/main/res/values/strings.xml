@@ -20,6 +20,8 @@
     <string name="password_again_hint">Repita su contraseña</string>
     <string name="conditios_label">Acepto las condiciones de uso</string>
     <string name="register_label">Registrarse</string>
+    <string name="accept_conditions">Acepto las Condiciones</string>
+    <string name="conditions">\n 1. Al registrarte en esta aplicación, aceptas proporcionar datos verídicos como tu correo electrónico, nombre completo y contraseña.\n \n 2. Tu correo electrónico se utilizará para crear y gestionar tu cuenta, así como para enviarte notificaciones relacionadas con el juego.\n \n 3. La contraseña proporcionada será almacenada de forma segura mediante algoritmos de encriptación.\n \n 4. El nombre completo puede ser visible en clasificaciones o secciones del juego que incluyan datos de usuario, siempre que hayas aceptado estas condiciones.\n \n 5. Nos comprometemos a no compartir tus datos personales con terceros sin tu consentimiento, salvo en casos requeridos por ley.\n \n 6. Eres responsable de mantener la confidencialidad de tu contraseña. No compartas esta información con otras personas.\n \n 7. Cualquier actividad realizada desde tu cuenta será tu responsabilidad.\n \n 8. Nos reservamos el derecho de modificar estas condiciones en cualquier momento. Se te notificará sobre cualquier cambio significativo.\n \n 9. Al continuar usando esta aplicación, confirmas que aceptas estas condiciones y las actualizaciones futuras. \n </string>
 
 
 </resources>

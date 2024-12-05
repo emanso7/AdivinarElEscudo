@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@color/background_azul_claro"
-    tools:context=".Actividad_register">
+    tools:context="org.esei.dm.adivinarelescudo.Actividad_register">
 
     <!-- ScrollView para evitar problemas con pantallas pequeñas -->
     <ScrollView
@@ -198,7 +198,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:clickable="true"
                     android:text="@string/conditios_label"
                     android:textColor="@color/azul_oscuro"
                     android:textSize="14sp" />

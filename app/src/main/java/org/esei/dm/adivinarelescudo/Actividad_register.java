@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,17 +21,33 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Actividad_register extends AppCompatActivity {
 
+    private UserDatabase userDatabase; // Base de datos de usuarios
+    private CheckBox checkBoxAcepto; // Checkbox para aceptar las condiciones
+
+    // Registrar el ActivityResultLauncher para manejar resultados
+    private final ActivityResultLauncher<Intent> conditionsLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    // Habilitar y marcar el checkbox al aceptar las condiciones
+                    checkBoxAcepto.setChecked(true);
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
+
+        // Ajustar la vista a los bordes del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.ScrollRegistro), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
         });
+
+        // Inicializar la base de datos
+        userDatabase = new UserDatabase(this);
+        userDatabase.open();
 
         // Referencias a los elementos del diseño
         EditText editNombre = findViewById(R.id.edit_text_nombreApellidos);
@@ -39,71 +55,93 @@ public class Actividad_register extends AppCompatActivity {
         EditText editUsuario = findViewById(R.id.edit_text_usuario);
         EditText editContraseña = findViewById(R.id.edit_text_contraseña);
         EditText editRepetirContraseña = findViewById(R.id.edit_text_repetir_contraseña);
-        CheckBox checkBoxAcepto = findViewById(R.id.check_acepto);
+        checkBoxAcepto = findViewById(R.id.check_acepto);
         Button botonRegistrarse = findViewById(R.id.button_registrarse);
-        TextView textCondicionesClickable = findViewById(R.id.textView_condicionesUso);
 
-
-        // Configurar el click del botón "Condiciones de Uso"
-        textCondicionesClickable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navegar a la actividad de condiciones de uso
+        // Configurar el OnTouchListener para el checkbox
+        checkBoxAcepto.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                // Abrir la actividad de condiciones de uso
                 Intent intent = new Intent(Actividad_register.this, Actividad_conditions.class);
-                startActivity(intent);
+                conditionsLauncher.launch(intent);
             }
+            return true; // Interceptamos el evento
         });
 
+        // Listener para el botón de registro
+        botonRegistrarse.setOnClickListener(v -> {
+            String nombre = editNombre.getText().toString().trim();
+            String correo = editCorreo.getText().toString().trim();
+            String usuario = editUsuario.getText().toString().trim();
+            String contraseña = editContraseña.getText().toString().trim();
+            String repetirContraseña = editRepetirContraseña.getText().toString().trim();
 
-// Configurar el click del botón Registrarse
-        botonRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Validar si se ha marcado el CheckBox
-                if (!checkBoxAcepto.isChecked()) {
+            // Validaciones
+            if (!checkBoxAcepto.isChecked()) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "Debes aceptar las condiciones de uso",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else if (TextUtils.isEmpty(nombre) ||
+                    TextUtils.isEmpty(correo) ||
+                    TextUtils.isEmpty(usuario) ||
+                    TextUtils.isEmpty(contraseña) ||
+                    TextUtils.isEmpty(repetirContraseña)) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "No se han completado todos los campos",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else if (!contraseña.equals(repetirContraseña)) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "Las contraseñas no coinciden",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "El correo electrónico no es válido",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else if (userDatabase.isEmailInUse(correo)) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "El correo electrónico ya está registrado",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else if (userDatabase.isUsernameInUse(usuario)) {
+                Snackbar.make(
+                        findViewById(android.R.id.content),
+                        "El nombre de usuario ya está en uso",
+                        Snackbar.LENGTH_SHORT
+                ).show();
+            } else {
+                long result = userDatabase.insertUser(nombre, usuario, contraseña, correo);
+                if (result != -1) {
                     Snackbar.make(
                             findViewById(android.R.id.content),
-                            "No se han aceptado las condiciones",
+                            "Registro exitoso",
                             Snackbar.LENGTH_SHORT
                     ).show();
-                } else if (TextUtils.isEmpty(editNombre.getText().toString()) ||
-                        TextUtils.isEmpty(editCorreo.getText().toString()) ||
-                        TextUtils.isEmpty(editUsuario.getText().toString()) ||
-                        TextUtils.isEmpty(editContraseña.getText().toString()) ||
-                        TextUtils.isEmpty(editRepetirContraseña.getText().toString())) {
-                    // Validar si algún campo está vacío
-                    Snackbar.make(
-                            findViewById(android.R.id.content),
-                            "No se han completado todos los campos",
-                            Snackbar.LENGTH_SHORT
-                    ).show();
-                } else if (!editContraseña.getText().toString().equals(editRepetirContraseña.getText().toString())) {
-                    // Validar si las contraseñas coinciden
-                    Snackbar.make(
-                            findViewById(android.R.id.content),
-                            "Las contraseñas no coinciden",
-                            Snackbar.LENGTH_SHORT
-                    ).show();
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(editCorreo.getText().toString()).matches()) {
-                    // Validar si el correo electrónico tiene un formato válido
-                    Snackbar.make(
-                            findViewById(android.R.id.content),
-                            "El correo electrónico no es válido",
-                            Snackbar.LENGTH_SHORT
-                    ).show();
-                } else {
-                    // Todo está correcto
-                    Snackbar.make(
-                            findViewById(android.R.id.content),
-                            "Registro Exitoso",
-                            Snackbar.LENGTH_SHORT
-                    ).show();
-
-                    // Finalizar la actividad y volver a la anterior
                     finish();
+                } else {
+                    Snackbar.make(
+                            findViewById(android.R.id.content),
+                            "Error al registrar, inténtalo de nuevo",
+                            Snackbar.LENGTH_SHORT
+                    ).show();
                 }
             }
         });
     }
-}
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (userDatabase != null) {
+            userDatabase.close();
+        }
+    }
+}

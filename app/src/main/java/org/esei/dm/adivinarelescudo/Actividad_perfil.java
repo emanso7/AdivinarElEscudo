@@ -15,6 +15,7 @@ import com.example.myapplication.R;
 public class Actividad_perfil extends AppCompatActivity {
 
     private UserDatabase userDatabase; // Base de datos de usuarios
+    private String nombreUsuarioActivo; // Variable para el usuario activo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class Actividad_perfil extends AppCompatActivity {
         TextView puntosActivo = findViewById(R.id.puntosActivo_textView);
 
         // Obtener el nombre de usuario activo del Intent
-        String nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
 
         if (nombreUsuarioActivo != null) {
             // Consultar los detalles del usuario
@@ -52,6 +53,7 @@ public class Actividad_perfil extends AppCompatActivity {
             correoActivo.setText("");
             puntosActivo.setText("");
         }
+
         Button buttonModificarUsuario = findViewById(R.id.button_modificar_usuario);
         Button buttonVolverHome = findViewById(R.id.button_volverHome);
 
@@ -63,11 +65,11 @@ public class Actividad_perfil extends AppCompatActivity {
     }
 
     private void mostrarDialogoModificarUsuario() {
-        // Inflar el diseño personalizado
+        // Crear el diálogo personalizado
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // Para que no se cierre al hacer clic fuera
-        final String[] nombreUsuarioActivo = {getIntent().getStringExtra("nombre_usuario_activo")};
-        // Inflar el diseño
+
+        // Inflar el diseño del cuadro de diálogo
         final View dialogView = getLayoutInflater().inflate(R.layout.activity_dialog_alert, null);
         builder.setView(dialogView);
 
@@ -83,14 +85,17 @@ public class Actividad_perfil extends AppCompatActivity {
                 if (userDatabase.isUsernameInUse(nuevoUsuario)) {
                     Toast.makeText(this, getString(R.string.user_exists), Toast.LENGTH_SHORT).show();
                 } else {
-                    // Actualizar el nombre de usuario
-                    userDatabase.updateUsername(nombreUsuarioActivo[0], nuevoUsuario);
+                    // Actualizar el nombre de usuario en la base de datos
+                    userDatabase.updateUsername(nombreUsuarioActivo, nuevoUsuario);
 
-                    // Actualizar la vista y el usuario activo
+                    // Actualizar la variable de usuario activo
+                    nombreUsuarioActivo = nuevoUsuario;
+
+                    // Actualizar la vista con el nuevo nombre de usuario
                     TextView usuarioActivo = findViewById(R.id.usuarioActivo_textView);
                     usuarioActivo.setText(nuevoUsuario);
-                    nombreUsuarioActivo[0] = nuevoUsuario;
 
+                    // Mostrar un mensaje de éxito
                     Toast.makeText(this, getString(R.string.user_modified), Toast.LENGTH_SHORT).show();
                 }
             } else {
@@ -103,9 +108,6 @@ public class Actividad_perfil extends AppCompatActivity {
         // Mostrar el cuadro de diálogo
         builder.show();
     }
-
-
-
 
     @Override
     protected void onDestroy() {

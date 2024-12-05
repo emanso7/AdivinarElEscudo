@@ -83,6 +83,14 @@ public class UserDatabase {
         return exists;
     }
 
+    public void updateUsername(String oldUsername, String newUsername) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, newUsername);
+
+        database.update(TABLE_USERS, values, COLUMN_USERNAME + "=?", new String[]{oldUsername});
+    }
+
+
     public UserDetails getUserDetails(String username) {
         Cursor cursor = database.query(
                 TABLE_USERS,

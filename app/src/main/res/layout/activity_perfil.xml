@@ -24,8 +24,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@drawable/border_rectangle"
-            >
+            android:background="@drawable/border_rectangle">
 
             <TextView
                 android:id="@+id/perfil_textView"
@@ -104,5 +103,30 @@
             android:padding="12dp"
             android:textColor="@color/azul_oscuro"
             android:textSize="18sp" />
+
+        <!-- Botón Modificar Usuario -->
+        <Button
+            android:id="@+id/button_modificar_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modify_user"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul_oscuro"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="1dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_volverHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/azul_oscuro"
+            android:text="@string/go_back"
+            android:textColor="@color/white"
+            android:textStyle="bold">
+
+        </Button>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

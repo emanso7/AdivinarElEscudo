@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Opción 1: Ver Perfil -->
+    <item
+        android:id="@+id/opcion_ver_perfil"
+        android:title="Ver Perfil"
+    />
+    <!-- Opción 2: Cerrar Sesión -->
+    <item
+        android:id="@+id/opcion_cerrar_sesion"
+        android:title="Cerrar Sesión" /> <!-- Icono opcional -->
+
+</menu>

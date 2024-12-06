@@ -12,12 +12,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="50dp">
+        tools:layout_editor_absoluteY="50dp"
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/image_escudo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             app:srcCompat="@drawable/campo_fondo" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

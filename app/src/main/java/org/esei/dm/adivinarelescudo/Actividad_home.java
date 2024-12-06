@@ -3,9 +3,11 @@ package org.esei.dm.adivinarelescudo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -27,6 +29,15 @@ public class Actividad_home extends AppCompatActivity {
 
         // Configurar el click para mostrar el menú desplegable
         buttonPerfil.setOnClickListener(v -> showPopupMenu(buttonPerfil));
+
+        Button botonJugar= findViewById(R.id.button_jugar);
+
+        // Configurar el click para ir a la actividad Jugar
+        botonJugar.setOnClickListener(v -> {
+            Intent intentJugar = new Intent(Actividad_home.this, Actividad_jugar.class);
+            intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+            startActivity(intentJugar);
+        });
     }
 
     // Método para mostrar el PopupMenu
@@ -42,10 +53,10 @@ public class Actividad_home extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId(); // Obtener el ID del ítem seleccionado
             if (itemId == opcionVerPerfil) {
-                // Abrir la actividad de perfil
+                // Abrir la actividad de perfil con resultado
                 Intent intentPerfil = new Intent(Actividad_home.this, Actividad_perfil.class);
                 intentPerfil.putExtra("nombre_usuario_activo", nombreUsuarioActivo);
-                startActivity(intentPerfil);
+                startActivityForResult(intentPerfil, 1);
                 return true;
             } else if (itemId == opcionCerrarSesion) {
                 // Cerrar sesión y volver al Login
@@ -60,5 +71,20 @@ public class Actividad_home extends AppCompatActivity {
 
         // Mostrar el menú
         popupMenu.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            // Recuperar el nombre de usuario modificado
+            String nombreUsuarioModificado = data.getStringExtra("nombre_usuario_modificado");
+
+            if (nombreUsuarioModificado != null) {
+                // Actualizar el nombre de usuario activo
+                nombreUsuarioActivo = nombreUsuarioModificado;
+            }
+        }
     }
 }

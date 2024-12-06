@@ -1,5 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,7 +59,12 @@ public class Actividad_perfil extends AppCompatActivity {
         Button buttonVolverHome = findViewById(R.id.button_volverHome);
 
         // Configurar botón "Volver"
-        buttonVolverHome.setOnClickListener(v -> finish());
+        buttonVolverHome.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.putExtra("nombre_usuario_modificado", nombreUsuarioActivo);
+            setResult(RESULT_OK, intent);
+            finish();
+        });
 
         // Configurar botón "Modificar Usuario"
         buttonModificarUsuario.setOnClickListener(v -> mostrarDialogoModificarUsuario());

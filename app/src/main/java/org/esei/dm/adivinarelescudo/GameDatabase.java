@@ -51,6 +51,16 @@ public class GameDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public boolean isTablaEscudosVacia() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_ESCUDOS, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+        return count == 0;
+    }
+
+
     // Método para obtener todos los escudos
     public Cursor obtenerEscudoPorID(int id) {
         SQLiteDatabase db = this.getReadableDatabase();

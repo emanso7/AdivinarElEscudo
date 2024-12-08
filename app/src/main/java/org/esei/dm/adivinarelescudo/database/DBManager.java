@@ -7,6 +7,11 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class DBManager extends SQLiteOpenHelper {
 
 
@@ -29,9 +34,12 @@ public class DBManager extends SQLiteOpenHelper {
     public static final String ADIVINAESCUDO_QUIZ_COLUMN_OP4 = "op4";
     public static final String ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD = "dif";
 
+    private Context context;
+
     public DBManager(@Nullable Context context) {
         super(context, ADIVINAESCUDO_DATABASE_NAME, null,
                 ADIVINAESCUDO_DATABASE_VERSION, null);
+        this.context = context;
 
     }
 
@@ -55,6 +63,7 @@ public class DBManager extends SQLiteOpenHelper {
                     ADIVINAESCUDO_QUIZ_COLUMN_OP4 + " TEXT NOT NULL, " +
                     ADIVINAESCUDO_QUIZ_COLUMN_DIFICULTAD + " TEXT NOT NULL" +
                     ")");
+            executeSqlFromFile(db, context, "data.sql");
             db.setTransactionSuccessful();
 
         }catch (SQLException exception){
@@ -68,4 +77,33 @@ public class DBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i(DBManager.class.getSimpleName(), "onUpgrade call!");
     }
+
+    private void executeSqlFromFile(SQLiteDatabase db, Context context, String fileName) {
+        try {
+            // Abre el archivo desde la carpeta assets
+            InputStream is = context.getAssets().open(fileName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            StringBuilder sqlBuilder = new StringBuilder();
+            String line;
+
+            // Lee el archivo línea por línea
+            while ((line = reader.readLine()) != null) {
+                sqlBuilder.append(line);
+
+                // Ejecuta la sentencia SQL cuando encuentre un ';'
+                if (line.trim().endsWith(";")) {
+                    db.execSQL(sqlBuilder.toString());
+                    sqlBuilder.setLength(0); // Reinicia el StringBuilder para la próxima sentencia
+                }
+            }
+
+            reader.close(); // Cierra el lector
+            is.close();     // Cierra el flujo de entrada
+        } catch (IOException e) {
+            Log.e(DBManager.class.getName(), "Error leyendo archivo SQL", e);
+        } catch (SQLException e) {
+            Log.e(DBManager.class.getName(), "Error ejecutando sentencia SQL", e);
+        }
+    }
+
 }

@@ -89,7 +89,7 @@ public class DBManager extends SQLiteOpenHelper {
                 sql.append(line);
                 if (line.endsWith(";")) {
                     db.execSQL(sql.toString());
-                    sql = new StringBuilder();   
+                    sql = new StringBuilder();
                 }
             }
             reader.close();

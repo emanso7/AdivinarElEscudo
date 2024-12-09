@@ -57,7 +57,7 @@
     <string name="embleme_error">No se pudo cargar el escudo</string>
     <string name="correct">¡Correcto! +1 Punto</string>
     <string name="incorrect">¡Incorrecto! 0 Puntos</string>
-    <string name="finished_points">¡Juego Terminado! Tu puntuación final: </string>
+    <string name="finished_points">Tu puntuación final con los obtenidos ahora es: </string>
 
 
 

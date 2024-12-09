@@ -1,10 +1,12 @@
 package org.esei.dm.adivinarelescudo;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -90,14 +92,16 @@ public class Actividad_easy extends AppCompatActivity {
             @SuppressLint("Range") byte[] imagen = cursor.getBlob(cursor.getColumnIndex(GameDatabase.COLUMN_IMAGEN));
             Bitmap bitmap = BitmapFactory.decodeByteArray(imagen, 0, imagen.length);
             imageViewEscudo.setImageBitmap(bitmap);
+            Log.d("Actividad_easy", "Escudo cargado con ID: " + escudoId);
         } else {
-            Toast.makeText(this, getString(R.string.embleme_error), Toast.LENGTH_SHORT).show();
+            Log.e("Actividad_easy", "No se encontró el escudo con ID: " + escudoId);
         }
 
         if (cursor != null) {
             cursor.close();
         }
     }
+
 
     private void validarRespuesta(String seleccion, String respuestaCorrecta) {
         if (seleccion.equals(respuestaCorrecta)) {
@@ -116,9 +120,16 @@ public class Actividad_easy extends AppCompatActivity {
     }
 
     private void mostrarResumenFinal() {
-        Toast.makeText(this, getString(R.string.finished_points) + puntajeActual, Toast.LENGTH_LONG).show();
-        finish(); // Finalizar la actividad
+        // Crear un Intent para ir a la actividad final
+        Intent intentFinal = new Intent(Actividad_easy.this, Actividad_final.class);
+        intentFinal.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+        intentFinal.putExtra("puntaje", puntajeActual); // Pasar el puntaje actual
+        startActivity(intentFinal);
+
+        // Finalizar la actividad actual
+        finish();
     }
+
 
     @Override
     protected void onDestroy() {

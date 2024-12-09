@@ -123,10 +123,16 @@ public class Actividad_profile extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
 
+        // Cargar los datos del usuario activo
+        cargarDatosUsuario();
+    }
+
+    private void cargarDatosUsuario() {
         // Referencias a los TextView
         TextView usuarioActivo = findViewById(R.id.usuarioActivo_textView);
         TextView correoActivo = findViewById(R.id.correoActivo_textView);
@@ -142,14 +148,11 @@ public class Actividad_profile extends AppCompatActivity {
                 correoActivo.setText(userDetails.getEmail());
                 puntosActivo.setText(String.valueOf(userDetails.getPoints()));
             } else {
+                // Si no se encuentra el usuario, limpiar los campos
                 usuarioActivo.setText(getString(R.string.user_not_found));
                 correoActivo.setText("");
                 puntosActivo.setText("");
             }
-        } else {
-            usuarioActivo.setText(getString(R.string.user_not_found));
-            correoActivo.setText("");
-            puntosActivo.setText("");
         }
     }
 

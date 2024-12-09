@@ -25,7 +25,42 @@ public class Preguntas_easy {
                 Arrays.asList("Sevilla", "Real Sociedad", "Real Madrid", "Betis"),
                 "Real Madrid"
         ));
-        // Agrega más preguntas aquí manualmente, asegurándote de que los IDs sean válidos.
+
+        preguntas.add(new Pregunta(
+                3, // ID del escudo
+                Arrays.asList("Valencia", "Celta", "Mallorca", "Athletic"),
+                "Valencia"
+        ));
+
+        preguntas.add(new Pregunta(
+                4, // ID del escudo
+                Arrays.asList("Sevilla", "Betis", "Villarreal", "Valencia"),
+                "Villarreal"
+        ));
+
+        preguntas.add(new Pregunta(
+                5, // ID del escudo
+                Arrays.asList("Athletic", "Celta", "Valencia", "Atlético Madrid"),
+                "Celta"
+        ));
+
+        preguntas.add(new Pregunta(
+                6, // ID del escudo
+                Arrays.asList("Mallorca", "Celta", "Villarreal", "Athletic"),
+                "Mallorca"
+        ));
+        preguntas.add(new Pregunta(
+                7, // ID del escudo
+                Arrays.asList("Atlético Madrid", "Real Sociedad", "Mallorca", "Athletic"),
+                "Atlético Madrid"
+        ));
+
+        preguntas.add(new Pregunta(
+                8, // ID del escudo
+                Arrays.asList("Athletic", "Betis", "Real Madrid", "Valencia"),
+                "Athletic"
+        ));
+
     }
 
     public List<Pregunta> getPreguntas() {

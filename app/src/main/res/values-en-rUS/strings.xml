@@ -57,7 +57,7 @@
     <string name="embleme_error">Can´t load the embleme</string>
     <string name="correct">¡Correct! +1 Point</string>
     <string name="incorrect">¡Incorrect! 0 Points</string>
-    <string name="finished_points">¡Game Finished! Your final points: </string>
+    <string name="finished_points">Your final points with those obtained now is: </string>
 
 
 

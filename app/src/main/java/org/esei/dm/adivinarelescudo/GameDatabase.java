@@ -1,10 +1,12 @@
 package org.esei.dm.adivinarelescudo;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class GameDatabase extends SQLiteOpenHelper {
 
@@ -47,9 +49,46 @@ public class GameDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOMBRE, nombre);
         values.put(COLUMN_IMAGEN, imagen);
-        db.insert(TABLE_ESCUDOS, null, values);
+
+        long resultado = db.insert(TABLE_ESCUDOS, null, values);
+
+        if (resultado == -1) {
+            Log.e("GameDatabase", "Error al insertar escudo: " + nombre);
+        } else {
+            Log.d("GameDatabase", "Escudo insertado: " + nombre);
+        }
         db.close();
     }
+
+    public void reiniciarTablaEscudos() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Eliminar todos los registros de la tabla
+        db.execSQL("DELETE FROM " + TABLE_ESCUDOS);
+
+        // Reiniciar el contador de IDs
+        db.execSQL("DELETE FROM sqlite_sequence WHERE name = '" + TABLE_ESCUDOS + "'");
+
+        Log.d("GameDatabase", "Tabla escudos reiniciada.");
+    }
+
+    public void imprimirTablaEscudos() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_ESCUDOS, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NOMBRE));
+                Log.d("GameDatabase", "ID: " + id + ", Nombre: " + nombre);
+            } while (cursor.moveToNext());
+        } else {
+            Log.d("GameDatabase", "La tabla escudos está vacía.");
+        }
+
+        cursor.close();
+    }
+
 
     public boolean isTablaEscudosVacia() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -66,5 +105,7 @@ public class GameDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_ESCUDOS + " WHERE " + COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
+
+
 
 }

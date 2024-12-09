@@ -5,21 +5,86 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.esei.dm.adivinarelescudo.Actividad_jugar">
+    tools:context="org.esei.dm.adivinarelescudo.Actividad_play"
+    android:background="@color/background_azul_claro">
 
     <LinearLayout
+        android:id="@+id/LayoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="50dp"
-        android:weightSum="1">
+        tools:layout_editor_absoluteY="50dp">
 
-        <ImageView
-            android:id="@+id/image_escudo"
+        <LinearLayout
+            android:id="@+id/LayoutOpciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            app:srcCompat="@drawable/campo_fondo" />
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imagen_opciones"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:backgroundTint="@color/background_azul_claro"
+                app:srcCompat="@mipmap/ic_apps" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/border_rectangle"
+            >
+
+            <TextView
+                android:id="@+id/titulo_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty_title"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutDificultades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_easy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:text="@string/difficulty_easy"
+                android:backgroundTint="@color/azul_oscuro"/>
+
+            <Button
+                android:id="@+id/button_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:text="@string/difficulty_medium" />
+
+            <Button
+                android:id="@+id/button_hard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@string/difficulty_hard"
+                android:backgroundTint="@color/azul_oscuro"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

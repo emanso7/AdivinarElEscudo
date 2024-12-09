@@ -2,7 +2,6 @@ package org.esei.dm.adivinarelescudo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -39,7 +38,7 @@ public class Actividad_home extends AppCompatActivity {
 
         // Configurar el click para ir a la actividad Jugar
         botonJugar.setOnClickListener(v -> {
-            Intent intentJugar = new Intent(Actividad_home.this, Actividad_jugar.class);
+            Intent intentJugar = new Intent(Actividad_home.this, Actividad_play.class);
             intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentJugar);
         });
@@ -48,7 +47,7 @@ public class Actividad_home extends AppCompatActivity {
     // Método para mostrar el PopupMenu
     private void showPopupMenu(ImageButton anchor) {
         PopupMenu popupMenu = new PopupMenu(this, anchor);
-        popupMenu.getMenuInflater().inflate(R.menu.menu_opciones, popupMenu.getMenu());
+        popupMenu.getMenuInflater().inflate(R.menu.menu_opciones_home, popupMenu.getMenu());
 
         // Variables para los IDs de las opciones del menú
         int opcionVerPerfil = R.id.opcion_ver_perfil;
@@ -59,7 +58,7 @@ public class Actividad_home extends AppCompatActivity {
             int itemId = item.getItemId(); // Obtener el ID del ítem seleccionado
             if (itemId == opcionVerPerfil) {
                 // Abrir la actividad de perfil con resultado
-                Intent intentPerfil = new Intent(Actividad_home.this, Actividad_perfil.class);
+                Intent intentPerfil = new Intent(Actividad_home.this, Actividad_profile.class);
                 intentPerfil.putExtra("nombre_usuario_activo", nombreUsuarioActivo);
                 startActivityForResult(intentPerfil, 1);
                 return true;

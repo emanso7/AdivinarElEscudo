@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-public class Actividad_perfil extends AppCompatActivity {
+public class Actividad_profile extends AppCompatActivity {
 
     private UserDatabase userDatabase; // Base de datos de usuarios
     private String nombreUsuarioActivo; // Variable para el usuario activo

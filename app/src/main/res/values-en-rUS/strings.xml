@@ -48,6 +48,15 @@
     <string name="email_exists">Email already exists</string>
     <string name="registered">Successful registration!</string>
     <string name="not_registered">Error registering, please try again</string>
+    <string name="difficulty_title">Select a difficulty:</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="back_home">Home</string>
+
+
+
+
 
 
 

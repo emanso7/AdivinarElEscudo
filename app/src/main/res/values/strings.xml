@@ -47,6 +47,11 @@
     <string name="email_exists">El correo electrónico ya existe</string>
     <string name="registered">Registro exitoso!</string>
     <string name="not_registered">Error al registrar, inténtalo de nuevo</string>
+    <string name="difficulty_title">Seleccione una dificultad:</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="back_home">Inicio</string>
 
 
 </resources>

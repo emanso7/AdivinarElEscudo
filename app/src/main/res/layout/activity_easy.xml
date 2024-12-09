@@ -26,6 +26,7 @@
                 android:id="@+id/imageViewEscudo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
 
@@ -41,13 +42,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/azul_oscuro"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Button" />
 
             <Button
                 android:id="@+id/button_option2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/azul_oscuro"
                 android:text="Button" />
 
         </LinearLayout>
@@ -64,7 +70,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/azul_oscuro"
                 android:layout_marginBottom="70dp"
+                android:layout_marginRight="20dp"
                 android:text="Button" />
 
             <Button
@@ -72,6 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/azul_oscuro"
                 android:layout_marginBottom="70dp"
                 android:text="Button" />
         </LinearLayout>

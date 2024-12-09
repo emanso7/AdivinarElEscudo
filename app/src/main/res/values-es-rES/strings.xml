@@ -53,6 +53,13 @@
     <string name="difficulty_medium">Medio</string>
     <string name="difficulty_hard">Difícil</string>
     <string name="back_home">Inicio</string>
+    <string name="finished">¡Juego Terminado!</string>
+    <string name="embleme_error">No se pudo cargar el escudo</string>
+    <string name="correct">¡Correcto! +1 Punto</string>
+    <string name="incorrect">¡Incorrecto! 0 Puntos</string>
+    <string name="finished_points">¡Juego Terminado! Tu puntuación final: </string>
+
+
 
 
 

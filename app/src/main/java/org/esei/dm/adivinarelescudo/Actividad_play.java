@@ -11,19 +11,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 
 public class Actividad_play extends AppCompatActivity {
-
+    private String nombreUsuarioActivo; // Usuario activo recibido desde Home
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
+        // Recuperar el nombre del usuario desde el Intent
+        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
         // Referencia al botón de opciones
         ImageButton imagenOpciones = findViewById(R.id.imagen_opciones);
         Button facilButton = findViewById(R.id.button_easy);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Actividad_play.this, Actividad_easy.class);
-            startActivity(intent);
+            Intent intentEasy = new Intent(Actividad_play.this, Actividad_easy.class);
+            intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+            startActivity(intentEasy);
         });
         // Configurar el clic para mostrar el menú
         imagenOpciones.setOnClickListener(v -> {

@@ -71,6 +71,8 @@ public class UserDatabase {
         return exists;
     }
 
+
+
     // Verificar si el nombre de usuario ya está en uso
     public boolean isUsernameInUse(String username) {
         Cursor cursor = database.query(TABLE_USERS,
@@ -89,6 +91,8 @@ public class UserDatabase {
 
         database.update(TABLE_USERS, values, COLUMN_USERNAME + "=?", new String[]{oldUsername});
     }
+
+
 
 
     public UserDetails getUserDetails(String username) {
@@ -116,5 +120,6 @@ public class UserDatabase {
         }
         return null; // Si no se encuentra el usuario
     }
+
 }
 

@@ -16,11 +16,14 @@ import com.example.myapplication.R;
 import java.util.List;
 
 public class Actividad_easy extends AppCompatActivity {
-
+    private String nombreUsuarioActivo; // Usuario activo recibido
     private List<Pregunta> preguntas; // Lista de preguntas
     private int preguntaActual = 0;  // Índice de la pregunta actual
+    private int puntajeActual; // Puntaje actual del usuario
     private ImageView imageViewEscudo;
     private Button option1, option2, option3, option4;
+
+    private UserDatabase userDatabase; // Instancia de UserDatabase
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,17 @@ public class Actividad_easy extends AppCompatActivity {
         option3 = findViewById(R.id.button_option3);
         option4 = findViewById(R.id.button_option4);
 
+        // Inicializar la base de datos
+        userDatabase = new UserDatabase(this);
+        userDatabase.open();
+
+        // Recuperar el nombre del usuario activo desde el Intent
+        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+
+        // Cargar el puntaje actual del usuario
+        UserDetails userDetails = userDatabase.getUserDetails(nombreUsuarioActivo);
+        puntajeActual = (userDetails != null) ? userDetails.getPoints() : 0;
+
         // Cargar las preguntas
         Preguntas_easy preguntasDificultad = new Preguntas_easy(this);
         preguntas = preguntasDificultad.getPreguntas();
@@ -45,8 +59,7 @@ public class Actividad_easy extends AppCompatActivity {
     private void mostrarPregunta() {
         if (preguntaActual >= preguntas.size()) {
             // Juego terminado
-            Toast.makeText(this, "¡Juego terminado!", Toast.LENGTH_SHORT).show();
-            finish();
+            mostrarResumenFinal(); // Mostrar resumen del puntaje
             return;
         }
 
@@ -78,7 +91,7 @@ public class Actividad_easy extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeByteArray(imagen, 0, imagen.length);
             imageViewEscudo.setImageBitmap(bitmap);
         } else {
-            Toast.makeText(this, "No se pudo cargar el escudo.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.embleme_error), Toast.LENGTH_SHORT).show();
         }
 
         if (cursor != null) {
@@ -88,13 +101,31 @@ public class Actividad_easy extends AppCompatActivity {
 
     private void validarRespuesta(String seleccion, String respuestaCorrecta) {
         if (seleccion.equals(respuestaCorrecta)) {
-            Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show();
+
+            // Incrementar el puntaje y actualizarlo en la base de datos
+            puntajeActual++;
+            userDatabase.updateScore(nombreUsuarioActivo, puntajeActual);
         } else {
-            Toast.makeText(this, "Incorrecto. La respuesta correcta era: " + respuestaCorrecta, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show();
         }
 
         // Pasar a la siguiente pregunta
         preguntaActual++;
         mostrarPregunta();
+    }
+
+    private void mostrarResumenFinal() {
+        Toast.makeText(this, getString(R.string.finished_points) + puntajeActual, Toast.LENGTH_LONG).show();
+        finish(); // Finalizar la actividad
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Cerrar la base de datos al destruir la actividad
+        if (userDatabase != null) {
+            userDatabase.close();
+        }
     }
 }

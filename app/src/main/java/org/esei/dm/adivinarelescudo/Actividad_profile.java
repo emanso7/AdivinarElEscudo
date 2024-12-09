@@ -122,4 +122,35 @@ public class Actividad_profile extends AppCompatActivity {
             userDatabase.close();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Referencias a los TextView
+        TextView usuarioActivo = findViewById(R.id.usuarioActivo_textView);
+        TextView correoActivo = findViewById(R.id.correoActivo_textView);
+        TextView puntosActivo = findViewById(R.id.puntosActivo_textView);
+
+        // Consultar los detalles del usuario
+        if (nombreUsuarioActivo != null) {
+            UserDetails userDetails = userDatabase.getUserDetails(nombreUsuarioActivo);
+
+            // Mostrar los datos del usuario
+            if (userDetails != null) {
+                usuarioActivo.setText(userDetails.getUsername());
+                correoActivo.setText(userDetails.getEmail());
+                puntosActivo.setText(String.valueOf(userDetails.getPoints()));
+            } else {
+                usuarioActivo.setText(getString(R.string.user_not_found));
+                correoActivo.setText("");
+                puntosActivo.setText("");
+            }
+        } else {
+            usuarioActivo.setText(getString(R.string.user_not_found));
+            correoActivo.setText("");
+            puntosActivo.setText("");
+        }
+    }
+
 }

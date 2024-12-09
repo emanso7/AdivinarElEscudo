@@ -1,4 +1,8 @@
 package org.esei.dm.adivinarelescudo;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 public class UserDetails {
     private String username;
     private String email;

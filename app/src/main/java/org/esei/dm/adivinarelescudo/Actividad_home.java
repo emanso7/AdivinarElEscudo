@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +15,11 @@ import com.example.myapplication.R;
 public class Actividad_home extends AppCompatActivity {
 
     private String nombreUsuarioActivo; // Usuario activo pasado desde Login
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        // Inicializar la base de datos
         // Verifica e inserta los datos iniciales si es necesario
         GameDatabase gameDatabase = new GameDatabase(this);
         if (gameDatabase.isTablaEscudosVacia()) {
@@ -42,6 +42,8 @@ public class Actividad_home extends AppCompatActivity {
             intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentJugar);
         });
+
+        
     }
 
     // Método para mostrar el PopupMenu

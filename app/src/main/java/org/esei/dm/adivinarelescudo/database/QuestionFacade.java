@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import org.esei.dm.adivinarelescudo.ActividadPruebaPreguntas;
 import org.esei.dm.adivinarelescudo.Adivinar;
 import org.esei.dm.adivinarelescudo.database.Question;
 
@@ -108,12 +109,12 @@ public class QuestionFacade {
 
         return toret;
     }
-
     public Question getQuestionsById(Integer id) {
         Question toret = null;
         if (id!=null){
             Cursor cursor =
-                    dbManager.getReadableDatabase().rawQuery("SELECT * FROM " + DBManager.ADIVINAESCUDO_QUIZ_TABLE_NAME
+                    dbManager.getReadableDatabase().rawQuery("SELECT * FROM "
+                                    + DBManager.ADIVINAESCUDO_QUIZ_TABLE_NAME
                                     + " WHERE "
                                     + DBManager.ADIVINAESCUDO_QUIZ_COLUMN_ID + " = ?",
                             new String[]{id+""});
@@ -126,5 +127,15 @@ public class QuestionFacade {
 
         return toret;
 
+    }
+
+
+    //seleccionar pregunta por un id concreto añadido para probar
+    public Cursor getQuestionById(Integer id) {
+        SQLiteDatabase db = dbManager.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " +DBManager.ADIVINAESCUDO_QUIZ_TABLE_NAME
+                        +" WHERE "
+                        +DBManager.ADIVINAESCUDO_QUIZ_COLUMN_ID + " = ?",
+                new String[]{id+""});
     }
 }

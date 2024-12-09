@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 
 public class EmblemsDetails {
 
-    public static void insertarEquiposIniciales(Context context) {
+    public static void insertarEquiposInicialesFacil(Context context) {
         GameDatabase gameDatabase = new GameDatabase(context);
 
         // Eliminar todos los registros de la tabla antes de insertar
@@ -53,7 +53,46 @@ public class EmblemsDetails {
 
     }
 
+    public static void insertarEquiposInicialesMedio(Context context) {
+        GameDatabase gameDatabase = new GameDatabase(context);
 
+        // Eliminar todos los registros de la tabla antes de insertar
+        SQLiteDatabase db = gameDatabase.getWritableDatabase();
+        db.execSQL("DELETE FROM " + GameDatabase.TABLE_ESCUDOS);
+
+        // Inserta el Granada
+        byte[] imagenGranada = convertirImagenAByteArray(R.drawable.granada, context);
+        gameDatabase.insertarEscudo("Granada", imagenGranada);
+
+        // Inserta el Zaragoza
+        byte[] imagenZaragoza = convertirImagenAByteArray(R.drawable.zaragoza, context);
+        gameDatabase.insertarEscudo("Zaragoza", imagenZaragoza);
+
+        // Inserta el Albacete
+        byte[] imagenAlbacete = convertirImagenAByteArray(R.drawable.albacete, context);
+        gameDatabase.insertarEscudo("Albacete", imagenAlbacete);
+
+        // Inserta el Cadiz
+        byte[] imagenCadiz = convertirImagenAByteArray(R.drawable.cadiz, context);
+        gameDatabase.insertarEscudo("Cadiz", imagenCadiz);
+
+        // Inserta el Cordoba
+        byte[] imagenCordoba = convertirImagenAByteArray(R.drawable.cordoba, context);
+        gameDatabase.insertarEscudo("Córdoba", imagenCordoba);
+
+        // Inserta el Oviedo
+        byte[] imagenOviedo = convertirImagenAByteArray(R.drawable.oviedo, context);
+        gameDatabase.insertarEscudo("Oviedo", imagenOviedo);
+
+        // Inserta el Gijón
+        byte[] imagenSporting = convertirImagenAByteArray(R.drawable.sporting_gijon, context);
+        gameDatabase.insertarEscudo("Sporting Gijón", imagenSporting);
+
+        // Inserta el Tenerife
+        byte[] imagenTenerife = convertirImagenAByteArray(R.drawable.tenerife, context);
+        gameDatabase.insertarEscudo("Tenerife", imagenTenerife);
+
+    }
 
     private static byte[] convertirImagenAByteArray(int resourceId, Context context) {
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceId);

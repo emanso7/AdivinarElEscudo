@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.esei.dm.adivinarelescudo.Actividad_easy"
+    android:background="@color/background_azul_claro">
+
+    <LinearLayout
+        android:id="@+id/LayoutPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <!-- Sección del escudo -->
+        <LinearLayout
+            android:id="@+id/LayoutEscudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.40"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViewEscudo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+        <!-- Primera fila de botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.30"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_option1"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:gravity="center"
+                android:text="Opción 1"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/button_option2"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:gravity="center"
+                android:text="Opción 2"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- Segunda fila de botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.30"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_option3"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:gravity="center"
+                android:text="Opción 3"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/button_option4"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:gravity="center"
+                android:text="Opción 4"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

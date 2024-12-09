@@ -17,7 +17,7 @@ import com.example.myapplication.R;
 
 import java.util.List;
 
-public class Actividad_easy extends AppCompatActivity {
+public class Actividad_medium extends AppCompatActivity {
     private String nombreUsuarioActivo; // Usuario activo recibido
     private List<Pregunta> preguntas; // Lista de preguntas
     private int preguntaActual = 0;  // Índice de la pregunta actual
@@ -30,7 +30,7 @@ public class Actividad_easy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_easy);
+        setContentView(R.layout.activity_medium);
 
         // Inicializar las vistas
         imageViewEscudo = findViewById(R.id.imageViewEscudo);
@@ -51,7 +51,7 @@ public class Actividad_easy extends AppCompatActivity {
         puntajeActual = (userDetails != null) ? userDetails.getPoints() : 0;
 
         // Cargar las preguntas
-        Preguntas_easy preguntasDificultad = new Preguntas_easy(this);
+        Preguntas_medium preguntasDificultad = new Preguntas_medium(this);
         preguntas = preguntasDificultad.getPreguntas();
 
         // Mostrar la primera pregunta
@@ -118,7 +118,7 @@ public class Actividad_easy extends AppCompatActivity {
 
     private void mostrarResumenFinal() {
         // Crear un Intent para ir a la actividad final
-        Intent intentFinal = new Intent(Actividad_easy.this, Actividad_final.class);
+        Intent intentFinal = new Intent(Actividad_medium.this, Actividad_final.class);
         intentFinal.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
         intentFinal.putExtra("puntaje", puntajeActual); // Pasar el puntaje actual
         startActivity(intentFinal);

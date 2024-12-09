@@ -22,9 +22,32 @@ public class Actividad_play extends AppCompatActivity {
         // Referencia al botón de opciones
         ImageButton imagenOpciones = findViewById(R.id.imagen_opciones);
         Button facilButton = findViewById(R.id.button_easy);
+        Button medioButton = findViewById(R.id.button_medium);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
+            // Inicializar la base de datos
+            // Verifica e inserta los datos iniciales si es necesario
+            GameDatabase gameDatabase = new GameDatabase(this);
+
+            gameDatabase.reiniciarTablaEscudos();
+            EmblemsDetails.insertarEquiposInicialesFacil(this);
+            gameDatabase.imprimirTablaEscudos();
+
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_easy.class);
+            intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+            startActivity(intentEasy);
+        });
+
+        medioButton.setOnClickListener(v -> {
+            // Inicializar la base de datos
+            // Verifica e inserta los datos iniciales si es necesario
+            GameDatabase gameDatabase = new GameDatabase(this);
+
+            gameDatabase.reiniciarTablaEscudos();
+            EmblemsDetails.insertarEquiposInicialesMedio(this);
+            gameDatabase.imprimirTablaEscudos();
+
+            Intent intentEasy = new Intent(Actividad_play.this, Actividad_medium.class);
             intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentEasy);
         });

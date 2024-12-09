@@ -19,13 +19,7 @@ public class Actividad_home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        // Inicializar la base de datos
-        // Verifica e inserta los datos iniciales si es necesario
-        GameDatabase gameDatabase = new GameDatabase(this);
 
-        gameDatabase.reiniciarTablaEscudos();
-        EmblemsDetails.insertarEquiposIniciales(this);
-        gameDatabase.imprimirTablaEscudos();
         // Obtener el usuario activo del Intent
         nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
 

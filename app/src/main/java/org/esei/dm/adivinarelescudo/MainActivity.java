@@ -1,6 +1,7 @@
 package org.esei.dm.adivinarelescudo;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import org.esei.dm.adivinarelescudo.database.DBManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        DBManager dbHelper = new DBManager(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
         Intent intent = new Intent(MainActivity.this, ActividadHome.class);
         startActivity(intent);
         finish();

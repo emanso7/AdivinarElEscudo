@@ -127,17 +127,17 @@ public class Prueba extends AppCompatActivity {
 
     //funcion validar respuesta
     public void validar(String resp,int puntuacionTest){
-        String puntos;
+        //String puntos;
         if(resp.equals(respuestaCorrecta)){
             //Toast.makeText(Prueba.this, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest+=5;
-            puntos = puntuacionTest+"";
+           // puntos = puntuacionTest+"";
             //Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
         }
         else {
            // Toast.makeText(Prueba.this, "RESPUESTA INCORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest-=5;
-            puntos = puntuacionTest+"";
+           // puntos = puntuacionTest+"";
            // Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
         }
         questionid++;

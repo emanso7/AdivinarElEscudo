@@ -13,82 +13,101 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:padding="16dp">
 
-        <!-- Sección del escudo -->
+        <!-- Sección del Escudo -->
         <LinearLayout
             android:id="@+id/LayoutEscudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.40"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <ImageView
                 android:id="@+id/imageViewEscudo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_image"
+                android:padding="16dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
 
-        <!-- Primera fila de botones -->
+        <!-- Contenedor de Botones -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.30"
+            android:orientation="vertical"
+            android:layout_weight="0.60"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:background="@drawable/button_background"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/button_option1"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="20dp"
-                android:backgroundTint="@color/azul_oscuro"
+            <!-- Primera Fila de Botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Opción 1"
-                android:textSize="15sp" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_option2"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:backgroundTint="@color/azul_oscuro"
+                <Button
+                    android:id="@+id/button_option1"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="Opción 1"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/button_option2"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="Opción 2"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Segunda Fila de Botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Opción 2"
-                android:textSize="15sp" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-        <!-- Segunda fila de botones -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.30"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <Button
+                    android:id="@+id/button_option3"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="Opción 3"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
 
-            <Button
-                android:id="@+id/button_option3"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="40dp"
-                android:backgroundTint="@color/azul_oscuro"
-                android:gravity="center"
-                android:text="Opción 3"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/button_option4"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginBottom="40dp"
-                android:backgroundTint="@color/azul_oscuro"
-                android:gravity="center"
-                android:text="Opción 4"
-                android:textSize="15sp" />
+                <Button
+                    android:id="@+id/button_option4"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="Opción 4"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

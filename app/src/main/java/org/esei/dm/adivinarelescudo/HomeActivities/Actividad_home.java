@@ -15,14 +15,33 @@ import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
 import org.esei.dm.adivinarelescudo.Database.AppDatabase;
 import org.esei.dm.adivinarelescudo.Database.EmblemsDetails;
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
+import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
 public class Actividad_home extends AppCompatActivity {
 
     private String nombreUsuarioActivo; // Usuario activo pasado desde Login
+    private SesionManager sesionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Inicializar el gestor de sesión
+        sesionManager = new SesionManager(this);
+
+        // Verificar si hay una sesión activa
+        if (!sesionManager.verificarSesion()) {
+            Intent intentLogin = new Intent(this, Actividad_login.class);
+            startActivity(intentLogin);
+            finish();
+            return;
+        }
+
+        // Obtener el usuario activo del Intent o de la sesión
+        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+        if (nombreUsuarioActivo == null || nombreUsuarioActivo.isEmpty()) {
+            nombreUsuarioActivo = sesionManager.getNombreUsuario();
+        }
 
         // Inicializar la base de datos
         AppDatabase appDatabase = new AppDatabase(this);
@@ -70,14 +89,15 @@ public class Actividad_home extends AppCompatActivity {
                 intentPerfil.putExtra("nombre_usuario_activo", nombreUsuarioActivo);
                 startActivityForResult(intentPerfil, 1);
                 return true;
-            } else if (itemId == opcionCerrarSesion) {
-                // Cerrar sesión y volver al Login
+            }  else if (itemId == opcionCerrarSesion) {
+                sesionManager.cerrarSesion(); // Cerrar la sesión
                 Intent intentLogin = new Intent(Actividad_home.this, Actividad_login.class);
                 intentLogin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentLogin);
                 finish();
                 return true;
             }
+
             return false;
         });
 
@@ -96,6 +116,8 @@ public class Actividad_home extends AppCompatActivity {
             if (nombreUsuarioModificado != null) {
                 // Actualizar el nombre de usuario activo
                 nombreUsuarioActivo = nombreUsuarioModificado;
+                // Guardar el nuevo nombre en la sesión
+                sesionManager.iniciarSesion(nombreUsuarioModificado);
             }
         }
     }

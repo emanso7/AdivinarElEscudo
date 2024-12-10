@@ -18,22 +18,40 @@ import com.google.android.material.snackbar.Snackbar;
 import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
 import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.Language.IdiomaManager;
+import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
 public class Actividad_login extends AppCompatActivity {
     private TextView registro;
     private EditText editUsuario, editContraseña;
     private Button iniciarSesion;
 
+    private SesionManager sesionManager;
     private AppDatabaseManager userDatabase; // Base de datos de usuarios
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Aplicar el idioma guardado antes de configurar el diseño
-        IdiomaManager.setLocale(this, IdiomaManager.getLocale(this));
+        // Configuración del idioma
+        IdiomaManager idiomaManager = new IdiomaManager(this);
+        String idiomaGuardado = idiomaManager.getSavedLanguage();
+        idiomaManager.setLocale(idiomaGuardado);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        // Inicializar el gestor de sesión
+        sesionManager = new SesionManager(this);
+
+        // Verificar si ya hay una sesión activa
+        if (sesionManager.isSesionActiva()) {
+            // Ir directamente a la actividad Home si hay sesión activa
+            String usuarioActivo = sesionManager.getNombreUsuario(); // Obtener el usuario guardado
+            Intent intent = new Intent(this, Actividad_home.class);
+            intent.putExtra("nombre_usuario_activo", usuarioActivo);
+            startActivity(intent);
+            finish(); // Cierra la actividad de login
+            return;
+        }
 
         // Ajustar el diseño para bordes del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -60,8 +78,15 @@ public class Actividad_login extends AppCompatActivity {
 
         // Botón para cambiar el idioma
         findViewById(R.id.button_idioma).setOnClickListener(view -> {
-            String newLanguage = IdiomaManager.getLocale(this).equals("es") ? "en" : "es";
-            IdiomaManager.setLocale(this, newLanguage);
+            IdiomaManager idiomaManager2 = new IdiomaManager(this);
+
+            // Alternar entre español e inglés
+            String idiomaActual = idiomaManager2.getSavedLanguage();
+            String nuevoIdioma = idiomaActual.equals("es") ? "en" : "es";
+
+            idiomaManager2.setLocale(nuevoIdioma);
+
+            // Reinicia la actividad para aplicar los cambios
             recreate();
         });
 
@@ -77,12 +102,12 @@ public class Actividad_login extends AppCompatActivity {
                         Snackbar.LENGTH_SHORT
                 ).show();
             } else if (userDatabase.checkUser(usuario, contraseña)) {
-                // Usuario y contraseña correctos, ir a la actividad Home
+                // Usuario y contraseña correctos, guardar sesión
+                sesionManager.iniciarSesion(usuario);
+
+                // Ir a la actividad Home
                 Intent intent = new Intent(Actividad_login.this, Actividad_home.class);
-
-                // Añadir el nombre de usuario como extra al Intent
                 intent.putExtra("nombre_usuario_activo", usuario);
-
                 startActivity(intent);
                 finish();
             } else {

@@ -1,18 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login">
+    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login"
+    android:background="@color/background_azul_claro">
 
     <LinearLayout
         android:id="@+id/LayoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/background_azul_claro">
+        android:padding="16dp">
 
         <!-- Layout Idioma -->
         <LinearLayout
@@ -27,7 +28,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="@string/idioma_español" />
+                android:textColor="@android:color/white"
+                android:text="@string/idioma_español"
+                android:layout_marginEnd="8dp"
+                android:elevation="4dp" />
         </LinearLayout>
 
         <!-- Layout Bienvenida -->
@@ -36,12 +40,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.5"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/text_view_bienvenida"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/welcome_message"
                 android:textColor="@color/azul_oscuro"
@@ -65,24 +70,28 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_marginBottom="16dp"
-                android:layout_weight="0.5"
+                android:background="@drawable/border_rectangle"
+                android:padding="12dp"
+                android:elevation="4dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/text_view_usuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/icon_usuario"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/username_label"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:src="@drawable/ic_usuario"
+                    android:contentDescription="@string/username_label" />
 
                 <EditText
                     android:id="@+id/edit_text_usuario"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/username_hint" />
+                    android:hint="@string/username_hint"
+                    android:background="@null"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <!-- Campo Contraseña -->
@@ -90,17 +99,19 @@
                 android:id="@+id/LayoutContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:background="@drawable/border_rectangle"
+                android:padding="12dp"
+                android:elevation="4dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/text_view_contraseña"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/icon_contraseña"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginEnd="8dp"
-                    android:textStyle="bold"
-                    android:text="@string/password_label"
-                    android:textSize="16sp" />
+                    android:src="@drawable/ic_password"
+                    android:contentDescription="@string/password_label" />
 
                 <EditText
                     android:id="@+id/edit_text_contraseña"
@@ -108,7 +119,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/password_hint"
-                    android:inputType="textPassword" />
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -126,20 +140,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:gravity="center"
                 android:text="@string/no_account_text"
                 android:clickable="true"
-                android:textStyle="bold"
                 android:textColor="@color/azul_oscuro"
-                android:textSize="12sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button_inicio_sesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/azul_oscuro"
                 android:text="@string/login_button"
-                android:backgroundTint="@color/azul_oscuro"/>
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:elevation="6dp" />
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

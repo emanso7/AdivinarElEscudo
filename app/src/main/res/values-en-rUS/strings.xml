@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Guess the Crest</string>
+    <string name="app_name">Guess the Embleme</string>
     <string name="welcome_message">¡Welcome to Guess the Embleme!</string>
     <string name="username_label">Username:</string>
     <string name="username_hint">Enter your Username</string>

@@ -2,7 +2,7 @@ package org.esei.dm.adivinarelescudo.database;
 
 public class Question {
     private Integer id; // Corresponde al campo _id
-    private Integer correct; // Índice de la opción correcta
+    private String correct; // Índice de la opción correcta
     private String photo; // URL o nombre del archivo de la foto
     private String option1;
     private String option2;
@@ -14,7 +14,7 @@ public class Question {
     public Question() {
     }
 
-    public Question(Integer id, Integer correct, String photo, String option1, String option2, String option3, String option4,String dificult) {
+    public Question(Integer id, String photo, String correct, String option1, String option2, String option3, String option4,String dificult) {
         this.id = id;
         this.correct = correct;
         this.photo = photo;
@@ -32,11 +32,11 @@ public class Question {
         this.id = id;
     }
 
-    public Integer getCorrect() {
+    public String getCorrect() {
         return correct;
     }
 
-    public void setCorrect(Integer correct) {
+    public void setCorrect(String correct) {
         this.correct = correct;
     }
 

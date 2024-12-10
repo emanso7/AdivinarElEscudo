@@ -32,22 +32,13 @@ public class ActividadHome extends AppCompatActivity {
                         Intent intent = new Intent(actividad_home.this, actividad_clasificacion.class);
                         startActivity(intent);
                     }
-                });
+                });*/
         Button btJugar = (Button) this.findViewById(R.id.jugar_button);
         btJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
-                Intent intent = new Intent(ActividadHome.this, ActividadJugar.class);
-                startActivity(intent);
-            }
-        });*/
-        Button btJugar = (Button) this.findViewById(R.id.jugar_button);
-        btJugar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
-                Intent intent = new Intent(ActividadHome.this, Prueba.class);
+                Intent intent = new Intent(ActividadHome.this, ActividadSeleccionDificultad.class);
                 startActivity(intent);
             }
         });

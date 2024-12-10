@@ -128,14 +128,4 @@ public class QuestionFacade {
         return toret;
 
     }
-
-
-    //seleccionar pregunta por un id concreto añadido para probar
-    public Cursor getQuestionById(Integer id) {
-        SQLiteDatabase db = dbManager.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " +DBManager.ADIVINAESCUDO_QUIZ_TABLE_NAME
-                        +" WHERE "
-                        +DBManager.ADIVINAESCUDO_QUIZ_COLUMN_ID + " = ?",
-                new String[]{id+""});
-    }
 }

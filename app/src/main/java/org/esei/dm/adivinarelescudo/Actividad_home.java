@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
+import org.esei.dm.adivinarelescudo.Database.AppDatabase;
+import org.esei.dm.adivinarelescudo.Database.EmblemsDetails;
+
 public class Actividad_home extends AppCompatActivity {
 
     private String nombreUsuarioActivo; // Usuario activo pasado desde Login
@@ -20,6 +23,13 @@ public class Actividad_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Inicializar la base de datos
+        AppDatabase appDatabase = new AppDatabase(this);
+
+        // Verificar si la tabla escudos está vacía e insertar datos iniciales si es necesario
+        if (appDatabase.isTablaEscudosVacia()) {
+            EmblemsDetails.insertarEquipos(this);
+        }
         // Obtener el usuario activo del Intent
         nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
 

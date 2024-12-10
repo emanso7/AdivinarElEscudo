@@ -1,34 +1,30 @@
 package org.esei.dm.adivinarelescudo.Database;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
 public class UserDetails {
     private String username;
     private String email;
-    private int points;
-    private String fullName;
+    private int puntaje;
+    private String name;
 
-    public UserDetails(String username, String email, int points, String fullName) {
+    public UserDetails( String name, String username, String email, int puntaje) {
         this.username = username;
         this.email = email;
-        this.points = points;
-        this.fullName = fullName;
+        this.puntaje = puntaje;
+        this.name=name;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public String getName(){
+        return name;
+    }
     public String getEmail() {
         return email;
     }
 
     public int getPoints() {
-        return points;
-    }
-
-    public String getFullName() {
-        return fullName;
+        return puntaje;
     }
 }

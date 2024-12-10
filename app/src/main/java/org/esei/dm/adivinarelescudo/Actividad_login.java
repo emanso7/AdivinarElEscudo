@@ -15,12 +15,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+
 public class Actividad_login extends AppCompatActivity {
     private TextView registro;
     private EditText editUsuario, editContraseña;
     private Button iniciarSesion;
 
-    private UserDatabase userDatabase; // Base de datos de usuarios
+    private AppDatabaseManager userDatabase; // Base de datos de usuarios
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class Actividad_login extends AppCompatActivity {
         iniciarSesion = findViewById(R.id.button_inicio_sesion);
 
         // Inicializar la base de datos
-        userDatabase = new UserDatabase(this);
+        userDatabase = new AppDatabaseManager(this);
         userDatabase.open();
 
         // Redirigir al registro si el usuario no tiene cuenta

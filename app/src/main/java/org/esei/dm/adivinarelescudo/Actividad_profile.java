@@ -13,9 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
+import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.Database.UserDetails;
+
 public class Actividad_profile extends AppCompatActivity {
 
-    private UserDatabase userDatabase; // Base de datos de usuarios
+    private AppDatabaseManager userDatabase; // Base de datos de usuarios
     private String nombreUsuarioActivo; // Variable para el usuario activo
 
     @Override
@@ -24,7 +27,7 @@ public class Actividad_profile extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
 
         // Inicializar la base de datos
-        userDatabase = new UserDatabase(this);
+        userDatabase = new AppDatabaseManager(this);
         userDatabase.open();
 
         // Referencias a los TextView

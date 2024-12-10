@@ -11,87 +11,43 @@ import java.io.ByteArrayOutputStream;
 
 public class EmblemsDetails {
 
-    public static void insertarEquiposInicialesFacil(Context context) {
-        GameDatabase gameDatabase = new GameDatabase(context);
+    public static void insertarEquipos(Context context) {
+        AppDatabase appDatabase = new AppDatabase(context);
+        SQLiteDatabase db = appDatabase.getWritableDatabase();
 
-        // Eliminar todos los registros de la tabla antes de insertar
-        SQLiteDatabase db = gameDatabase.getWritableDatabase();
-        db.execSQL("DELETE FROM " + GameDatabase.TABLE_ESCUDOS);
-        // Inserta el FC Barcelona
-        byte[] imagenBarcelona = convertirImagenAByteArray(R.drawable.fc_barcelona, context);
-        gameDatabase.insertarEscudo("FC Barcelona", imagenBarcelona);
+        // Eliminar todos los registros de la tabla escudos para empezar de cero
+        db.execSQL("DELETE FROM " + AppDatabase.TABLE_ESCUDOS);
 
-        // Inserta el Real Madrid
-        byte[] imagenMadrid = convertirImagenAByteArray(R.drawable.real_madrid, context);
-        gameDatabase.insertarEscudo("Real Madrid", imagenMadrid);
-
-        // Inserta el Valencia
-        byte[] imagenValencia = convertirImagenAByteArray(R.drawable.valencia, context);
-        gameDatabase.insertarEscudo("Valencia", imagenValencia);
-
-        // Inserta el Villarreal
-        byte[] imagenVillarreal = convertirImagenAByteArray(R.drawable.villarreal, context);
-        gameDatabase.insertarEscudo("Villarreal", imagenVillarreal);
-
-        // Inserta el Celta
-        byte[] imagenCelta = convertirImagenAByteArray(R.drawable.celta, context);
-        gameDatabase.insertarEscudo("Celta", imagenCelta);
-
-        // Inserta el Mallorca
-        byte[] imagenMallorca = convertirImagenAByteArray(R.drawable.mallorca, context);
-        gameDatabase.insertarEscudo("Mallorca", imagenMallorca);
-
-        // Inserta el Atlético
-        byte[] imagenAtletico = convertirImagenAByteArray(R.drawable.atletico, context);
-        gameDatabase.insertarEscudo("Atlético Madrid", imagenAtletico);
-
-        // Inserta el Atlhetic
-        byte[] imagenAthletic = convertirImagenAByteArray(R.drawable.athletic, context);
-        gameDatabase.insertarEscudo("Athletic", imagenAthletic);
+        // Inserta escudos de la dificultad "fácil"
+        insertarEscudo(db, "FC Barcelona", convertirImagenAByteArray(R.drawable.fc_barcelona, context), "fácil");
+        insertarEscudo(db, "Real Madrid", convertirImagenAByteArray(R.drawable.real_madrid, context), "fácil");
+        insertarEscudo(db, "Valencia", convertirImagenAByteArray(R.drawable.valencia, context), "fácil");
+        insertarEscudo(db, "Villarreal", convertirImagenAByteArray(R.drawable.villarreal, context), "fácil");
+        insertarEscudo(db, "Athletic", convertirImagenAByteArray(R.drawable.athletic, context), "fácil");
+        insertarEscudo(db, "Atlético", convertirImagenAByteArray(R.drawable.atletico, context), "fácil");
+        insertarEscudo(db, "Celta", convertirImagenAByteArray(R.drawable.celta, context), "fácil");
+        insertarEscudo(db, "Mallorca", convertirImagenAByteArray(R.drawable.mallorca, context), "fácil");
 
 
 
+
+        // Inserta escudos de la dificultad "medio"
+        insertarEscudo(db, "Granada", convertirImagenAByteArray(R.drawable.granada, context), "medio");
+        insertarEscudo(db, "Real Zaragoza", convertirImagenAByteArray(R.drawable.zaragoza, context), "medio");
+        insertarEscudo(db, "Albacete", convertirImagenAByteArray(R.drawable.albacete, context), "medio");
+        insertarEscudo(db, "Cádiz", convertirImagenAByteArray(R.drawable.cadiz, context), "medio");
+        insertarEscudo(db, "Córdoba", convertirImagenAByteArray(R.drawable.cordoba, context), "medio");
+        insertarEscudo(db, "Oviedo", convertirImagenAByteArray(R.drawable.oviedo, context), "medio");
+        insertarEscudo(db, "Sporting Gijón", convertirImagenAByteArray(R.drawable.sporting_gijon, context), "medio");
+        insertarEscudo(db, "Tenerife", convertirImagenAByteArray(R.drawable.tenerife, context), "medio");
+
+
+        db.close(); // Cerrar la base de datos
     }
 
-    public static void insertarEquiposInicialesMedio(Context context) {
-        GameDatabase gameDatabase = new GameDatabase(context);
-
-        // Eliminar todos los registros de la tabla antes de insertar
-        SQLiteDatabase db = gameDatabase.getWritableDatabase();
-        db.execSQL("DELETE FROM " + GameDatabase.TABLE_ESCUDOS);
-
-        // Inserta el Granada
-        byte[] imagenGranada = convertirImagenAByteArray(R.drawable.granada, context);
-        gameDatabase.insertarEscudo("Granada", imagenGranada);
-
-        // Inserta el Zaragoza
-        byte[] imagenZaragoza = convertirImagenAByteArray(R.drawable.zaragoza, context);
-        gameDatabase.insertarEscudo("Zaragoza", imagenZaragoza);
-
-        // Inserta el Albacete
-        byte[] imagenAlbacete = convertirImagenAByteArray(R.drawable.albacete, context);
-        gameDatabase.insertarEscudo("Albacete", imagenAlbacete);
-
-        // Inserta el Cadiz
-        byte[] imagenCadiz = convertirImagenAByteArray(R.drawable.cadiz, context);
-        gameDatabase.insertarEscudo("Cadiz", imagenCadiz);
-
-        // Inserta el Cordoba
-        byte[] imagenCordoba = convertirImagenAByteArray(R.drawable.cordoba, context);
-        gameDatabase.insertarEscudo("Córdoba", imagenCordoba);
-
-        // Inserta el Oviedo
-        byte[] imagenOviedo = convertirImagenAByteArray(R.drawable.oviedo, context);
-        gameDatabase.insertarEscudo("Oviedo", imagenOviedo);
-
-        // Inserta el Gijón
-        byte[] imagenSporting = convertirImagenAByteArray(R.drawable.sporting_gijon, context);
-        gameDatabase.insertarEscudo("Sporting Gijón", imagenSporting);
-
-        // Inserta el Tenerife
-        byte[] imagenTenerife = convertirImagenAByteArray(R.drawable.tenerife, context);
-        gameDatabase.insertarEscudo("Tenerife", imagenTenerife);
-
+    private static void insertarEscudo(SQLiteDatabase db, String nombre, byte[] imagen, String dificultad) {
+        String sql = "INSERT INTO " + AppDatabase.TABLE_ESCUDOS + " (nombre, imagen, dificultad) VALUES (?, ?, ?)";
+        db.execSQL(sql, new Object[]{nombre, imagen, dificultad});
     }
 
     private static byte[] convertirImagenAByteArray(int resourceId, Context context) {

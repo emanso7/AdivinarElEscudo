@@ -1,6 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
-import org.esei.dm.adivinarelescudo.Database;
+import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,14 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.room.Database;
 
 import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Actividad_register extends AppCompatActivity {
 
-    private UserDatabase userDatabase; // Base de datos de usuarios
+    private AppDatabaseManager userDatabase; // Base de datos de usuarios
     private CheckBox checkBoxAcepto; // Checkbox para aceptar las condiciones
 
     // Registrar el ActivityResultLauncher para manejar resultados
@@ -49,7 +48,7 @@ public class Actividad_register extends AppCompatActivity {
         });
 
         // Inicializar la base de datos
-        userDatabase = new UserDatabase(this);
+        userDatabase = new AppDatabaseManager(this);
         userDatabase.open();
 
         // Referencias a los elementos del diseño

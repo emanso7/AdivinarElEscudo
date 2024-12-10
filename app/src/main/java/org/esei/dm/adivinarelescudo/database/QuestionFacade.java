@@ -19,6 +19,8 @@ public class QuestionFacade {
         if (cursor!=null){
             try {
                 toret = new Question();
+                //mantener este orden
+                toret.setCorrect(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_CORRECT)));
                 toret.setPhoto(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_PHOTO)));
                 toret.setOption1(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP1)));
                 toret.setOption2(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_QUIZ_COLUMN_OP2)));

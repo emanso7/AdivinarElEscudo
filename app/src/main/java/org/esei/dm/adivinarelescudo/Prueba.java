@@ -33,7 +33,7 @@ public class Prueba extends AppCompatActivity {
     private String respuestaCorrecta;
     private QuestionFacade questionFacade;
 
-    private int questionid = 1;
+    private int questionidFacil = 1;
     private int finfacil = 10;
     private int questionidMedia = 11;
     private int finMedia = 20;
@@ -62,12 +62,27 @@ public class Prueba extends AppCompatActivity {
         questionFacade = new QuestionFacade(app);
         int puntuacionTest = 0;
 
-        cargaPregunta(questionid, puntuacionTest);
+       
         //recibe dificultad de anterior actividad
         //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
+        String valorRecibido = getIntent().getStringExtra("clave");
+        switch (valorRecibido){
+            case "Facil":
+                cargapreguntadificultad(questionidFacil,puntuacionTest,finfacil);
+                break;
+
+            case "Dificil":
+                cargapreguntadificultad(questionidDificil,puntuacionTest,finDificil);
+                break;
+
+            case "Media":
+                cargapreguntadificultad(questionidMedia,puntuacionTest,finMedia);
+                break;
+        }
 
 
     }
+    //funcion que mete los textos en los botones
 //funcion que carga las preguntas segun la dificultad(Falta switch que reciba dificultad)
     private void cargapreguntadificultad(int id, int puntuacion, int fin) {
          if(id >fin){
@@ -85,47 +100,23 @@ public class Prueba extends AppCompatActivity {
             btnOption3.setText(question.getOption3());
             btnOption4.setText(question.getOption4());
 
-        jugar(question, puntuacion);
-    }
-    //funcion que mete los textos en los botones
-    private void cargaPregunta(int id,int puntuacion) {
-
-        if (id > finfacil) {
-            //Toast.makeText(this, "¡Has terminado la prueba!", Toast.LENGTH_LONG).show();
-            //return;
-            lanzaDialogo(puntuacion);
-            return;
-        }
-
-        Question question = questionFacade.getQuestionsById(id);
-        respuestaCorrecta=question.getCorrect();
-        cargaImagenDeAssets(question.getPhoto());
-
-
-        // Asignar valores a los botones
-        btnOption1.setText(question.getOption1());
-        btnOption2.setText(question.getOption2());
-        btnOption3.setText(question.getOption3());
-        btnOption4.setText(question.getOption4());
-
-        jugar(question,puntuacion);
-
-
+        jugar(question, puntuacion,fin,id);
     }
 
-    private void jugar(Question question,int puntuacionTest) {
+
+    private void jugar(Question question,int puntuacionTest,int fin,int id) {
         btnOption1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op1= question.getOption1();
-                validar(op1,puntuacionTest);
+                validar(op1,puntuacionTest,fin,id);
             }
         });
         btnOption2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op2 = question.getOption2();
-                validar(op2,puntuacionTest);
+                validar(op2,puntuacionTest,fin,id);
 
             }
         });
@@ -133,36 +124,29 @@ public class Prueba extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String op3= question.getOption3();
-                validar(op3,puntuacionTest);
+                validar(op3,puntuacionTest,fin,id);
             }
         });
         btnOption4.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op4= question.getOption4();
-                validar(op4,puntuacionTest);
+                validar(op4,puntuacionTest,fin,id);
 
             }
         });
     }
 
     //funcion validar respuesta
-    public void validar(String resp,int puntuacionTest){
-        //String puntos;
+    public void validar(String resp,int puntuacionTest,int fin,int id){
         if(resp.equals(respuestaCorrecta)){
-            //Toast.makeText(Prueba.this, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest+=5;
-           // puntos = puntuacionTest+"";
-            //Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
-        }
+           }
         else {
-           // Toast.makeText(Prueba.this, "RESPUESTA INCORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest-=5;
-           // puntos = puntuacionTest+"";
-           // Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
         }
-        questionid++;
-        cargaPregunta(questionid,puntuacionTest);
+        id++;
+        cargapreguntadificultad(id,puntuacionTest,fin);
     }
     //funcion que carga imagenes en el imageView
     private void cargaImagenDeAssets(String nombre) {

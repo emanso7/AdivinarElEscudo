@@ -62,7 +62,7 @@ public class Prueba extends AppCompatActivity {
         questionFacade = new QuestionFacade(app);
         int puntuacionTest = 0;
 
-       
+
         //recibe dificultad de anterior actividad
         //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
         String valorRecibido = getIntent().getStringExtra("clave");
@@ -178,6 +178,7 @@ public class Prueba extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Prueba.this, ActividadHome.class);
                 startActivity(intent);
+                finish();
             }
         });
         builder.create().show();

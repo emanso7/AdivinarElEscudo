@@ -5,7 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import org.esei.dm.adivinarelescudo.ActividadPruebaPreguntas;
+import org.esei.dm.adivinarelescudo.Prueba;
 import org.esei.dm.adivinarelescudo.Adivinar;
 import org.esei.dm.adivinarelescudo.database.Question;
 

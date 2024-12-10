@@ -1,5 +1,7 @@
 package org.esei.dm.adivinarelescudo;
 
+        import android.content.DialogInterface;
+        import android.content.Intent;
         import android.content.res.AssetManager;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
@@ -11,6 +13,7 @@ package org.esei.dm.adivinarelescudo;
         import android.widget.Toast;
 
         import androidx.activity.EdgeToEdge;
+        import androidx.appcompat.app.AlertDialog;
         import androidx.appcompat.app.AppCompatActivity;
         import androidx.core.graphics.Insets;
         import androidx.core.view.ViewCompat;
@@ -31,6 +34,11 @@ public class Prueba extends AppCompatActivity {
     private QuestionFacade questionFacade;
 
     private int questionid=1;
+    private int finfacil=10;
+    private int questionidMedia=11;
+    private int finMedia=20;
+    private int questionidDificil=21;
+    private int finDificil=30;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +69,10 @@ public class Prueba extends AppCompatActivity {
     //funcion que mete los textos en los botones
     private void cargaPregunta(int id,int puntuacion) {
 
-        if (id > 10) {
-            Toast.makeText(this, "¡Has terminado la prueba!", Toast.LENGTH_LONG).show();
+        if (id > finfacil) {
+            //Toast.makeText(this, "¡Has terminado la prueba!", Toast.LENGTH_LONG).show();
+            //return;
+            lanzaDialogo(puntuacion);
             return;
         }
 
@@ -119,19 +129,18 @@ public class Prueba extends AppCompatActivity {
     public void validar(String resp,int puntuacionTest){
         String puntos;
         if(resp.equals(respuestaCorrecta)){
-            Toast.makeText(Prueba.this, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Prueba.this, "RESPUESTA CORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest+=5;
             puntos = puntuacionTest+"";
-            Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(Prueba.this, "RESPUESTA INCORRECTA", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(Prueba.this, "RESPUESTA INCORRECTA", Toast.LENGTH_SHORT).show();
             puntuacionTest-=5;
             puntos = puntuacionTest+"";
-            Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this,"Tienes "+puntos,Toast.LENGTH_SHORT).show();
         }
         questionid++;
-       // return puntuacionTest;
         cargaPregunta(questionid,puntuacionTest);
     }
     //funcion que carga imagenes en el imageView
@@ -154,5 +163,18 @@ public class Prueba extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(this,"Error Loading image",Toast.LENGTH_SHORT).show();
         }
+    }
+    private void lanzaDialogo(int puntuacionFinal){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Test Acabado:");
+        builder.setMessage("Tu puntuacion es: "+puntuacionFinal+" puntos");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Prueba.this, ActividadHome.class);
+                startActivity(intent);
+            }
+        });
+        builder.create().show();
     }
 }

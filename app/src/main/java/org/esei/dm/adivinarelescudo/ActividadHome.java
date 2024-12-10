@@ -42,6 +42,15 @@ public class ActividadHome extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
+        Button btJugar = (Button) this.findViewById(R.id.jugar_button);
+        btJugar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
+                Intent intent = new Intent(ActividadHome.this, Prueba.class);
+                startActivity(intent);
+            }
+        });
         
         Button btperfil = (Button) this.findViewById(R.id.miPerfil_button);
         btperfil.setOnClickListener(new View.OnClickListener() {

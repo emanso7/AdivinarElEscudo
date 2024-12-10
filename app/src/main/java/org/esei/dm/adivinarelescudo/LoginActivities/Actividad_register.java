@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.LoginActivities;
 
 import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
 

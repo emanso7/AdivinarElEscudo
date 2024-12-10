@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.Language;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
 import android.os.Bundle;

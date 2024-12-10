@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.GameActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
+import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
 
 public class Actividad_play extends AppCompatActivity {
     private String nombreUsuarioActivo; // Usuario activo recibido desde Home

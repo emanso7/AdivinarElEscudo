@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.GameActivities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

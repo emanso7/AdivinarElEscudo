@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.LoginActivities;
 
 import android.os.Bundle;
 import android.view.View;

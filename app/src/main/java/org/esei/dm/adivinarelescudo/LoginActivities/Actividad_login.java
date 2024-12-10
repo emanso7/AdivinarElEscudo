@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.LoginActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
 import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.Language.IdiomaManager;
 
 public class Actividad_login extends AppCompatActivity {
     private TextView registro;

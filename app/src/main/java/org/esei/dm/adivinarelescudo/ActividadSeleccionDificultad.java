@@ -27,8 +27,26 @@ public class ActividadSeleccionDificultad extends AppCompatActivity {
         btFacil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // this.startActivity( new Intent( this, actividad_clasificacion.class ) );
                 Intent intent = new Intent(ActividadSeleccionDificultad.this, Prueba.class);
+                intent.putExtra("clave", "Facil");
+                startActivity(intent);
+            }
+        });
+        Button btMedia = (Button) this.findViewById(R.id.buttonMedia);
+        btMedia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActividadSeleccionDificultad.this, Prueba.class);
+                intent.putExtra("clave", "Media");
+                startActivity(intent);
+            }
+        });
+        Button btDificil= (Button) this.findViewById(R.id.buttonDificil);
+        btDificil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActividadSeleccionDificultad.this, Prueba.class);
+                intent.putExtra("clave", "Dificil");
                 startActivity(intent);
             }
         });

@@ -1,16 +1,18 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.Database;
 
-import static org.esei.dm.adivinarelescudo.Database.COLUMN_EMAIL;
-import static org.esei.dm.adivinarelescudo.Database.COLUMN_NAME;
-import static org.esei.dm.adivinarelescudo.Database.COLUMN_SCORE;
-import static org.esei.dm.adivinarelescudo.Database.COLUMN_USERNAME;
-import static org.esei.dm.adivinarelescudo.Database.TABLE_USERS;
+import static org.esei.dm.adivinarelescudo.Database.Database.COLUMN_EMAIL;
+import static org.esei.dm.adivinarelescudo.Database.Database.COLUMN_NAME;
+import static org.esei.dm.adivinarelescudo.Database.Database.COLUMN_SCORE;
+import static org.esei.dm.adivinarelescudo.Database.Database.COLUMN_USERNAME;
+import static org.esei.dm.adivinarelescudo.Database.Database.TABLE_USERS;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import UserDetails;
 
 public class UserDatabase {
     private Database dbHelper;

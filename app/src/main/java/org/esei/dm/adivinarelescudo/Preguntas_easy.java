@@ -1,7 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
 import android.content.Context;
-import android.database.Cursor;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.Database;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

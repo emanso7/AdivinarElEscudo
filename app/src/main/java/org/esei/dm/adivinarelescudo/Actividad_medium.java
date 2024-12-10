@@ -1,8 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -14,6 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
+import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.Database.Escudo;
+import org.esei.dm.adivinarelescudo.Database.UserDetails;
+import org.esei.dm.adivinarelescudo.Questions.Pregunta;
+import org.esei.dm.adivinarelescudo.Questions.Preguntas_medium;
+
 import java.util.List;
 
 public class Actividad_medium extends AppCompatActivity {
@@ -24,7 +28,7 @@ public class Actividad_medium extends AppCompatActivity {
     private ImageView imageViewEscudo;
     private Button option1, option2, option3, option4;
 
-    private UserDatabase userDatabase; // Instancia de UserDatabase
+    private AppDatabaseManager userDatabase; // Instancia de UserDatabase
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class Actividad_medium extends AppCompatActivity {
         option4 = findViewById(R.id.button_option4);
 
         // Inicializar la base de datos
-        userDatabase = new UserDatabase(this);
+        userDatabase = new AppDatabaseManager(this);
         userDatabase.open();
 
         // Recuperar el nombre del usuario activo desde el Intent
@@ -84,20 +88,19 @@ public class Actividad_medium extends AppCompatActivity {
     }
 
     private void cargarImagenEscudo(int escudoId) {
-        GameDatabase gameDatabase = new GameDatabase(this);
-        Cursor cursor = gameDatabase.obtenerEscudoPorID(escudoId);
+        // Usar AppDatabaseManager para obtener el escudo
+        Escudo escudo = userDatabase.getEscudoById(escudoId);
 
-        if (cursor != null && cursor.moveToFirst()) {
-            @SuppressLint("Range") byte[] imagen = cursor.getBlob(cursor.getColumnIndex(GameDatabase.COLUMN_IMAGEN));
-            Bitmap bitmap = BitmapFactory.decodeByteArray(imagen, 0, imagen.length);
+        if (escudo != null && escudo.getImagen() != null) {
+            // Convertir el byte array a Bitmap
+            Bitmap bitmap = BitmapFactory.decodeByteArray(escudo.getImagen(), 0, escudo.getImagen().length);
+            // Configurar la imagen en el ImageView
             imageViewEscudo.setImageBitmap(bitmap);
-        }
-
-        if (cursor != null) {
-            cursor.close();
+        } else {
+            // Si no se encuentra el escudo o no tiene imagen
+            Toast.makeText(this, getString(R.string.embleme_error), Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void validarRespuesta(String seleccion, String respuestaCorrecta) {
         if (seleccion.equals(respuestaCorrecta)) {

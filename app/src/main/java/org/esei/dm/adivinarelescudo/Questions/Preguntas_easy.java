@@ -1,6 +1,9 @@
-package org.esei.dm.adivinarelescudo;
+package org.esei.dm.adivinarelescudo.Questions;
 
 import android.content.Context;
+
+import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.Questions.Pregunta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,51 +14,51 @@ public class Preguntas_easy {
 
     public Preguntas_easy(Context context) {
         preguntas = new ArrayList<>();
-        GameDatabase gameDatabase = new GameDatabase(context);
-
+        AppDatabaseManager gameDatabase = new AppDatabaseManager(context);
+gameDatabase.open();
         // Configurar las 10 preguntas manualmente
         preguntas.add(new Pregunta(
-                1, // ID del escudo
-                Arrays.asList("FC Barcelona", "Real Madrid", "Atlético Madrid", "Valencia"),
+                gameDatabase.getEscudoIdByName("FC Barcelona"), // ID del escudo
+                Arrays.asList("Valencia", "Real Madrid", "Atlético Madrid", "FC Barcelona"),
                 "FC Barcelona"
         ));
         preguntas.add(new Pregunta(
-                2, // ID del escudo
+                gameDatabase.getEscudoIdByName("Real Madrid"), // ID del escudo
                 Arrays.asList("Sevilla", "Real Sociedad", "Real Madrid", "Betis"),
                 "Real Madrid"
         ));
 
         preguntas.add(new Pregunta(
-                3, // ID del escudo
+                gameDatabase.getEscudoIdByName("Valencia"), // ID del escudo
                 Arrays.asList("Valencia", "Celta", "Mallorca", "Athletic"),
                 "Valencia"
         ));
 
         preguntas.add(new Pregunta(
-                4, // ID del escudo
+                gameDatabase.getEscudoIdByName("Villarreal"), // ID del escudo
                 Arrays.asList("Sevilla", "Betis", "Villarreal", "Valencia"),
                 "Villarreal"
         ));
 
         preguntas.add(new Pregunta(
-                5, // ID del escudo
+                gameDatabase.getEscudoIdByName("Celta"), // ID del escudo
                 Arrays.asList("Athletic", "Celta", "Valencia", "Atlético Madrid"),
                 "Celta"
         ));
 
         preguntas.add(new Pregunta(
-                6, // ID del escudo
+                gameDatabase.getEscudoIdByName("Mallorca"), // ID del escudo
                 Arrays.asList("Mallorca", "Celta", "Villarreal", "Athletic"),
                 "Mallorca"
         ));
         preguntas.add(new Pregunta(
-                7, // ID del escudo
+                gameDatabase.getEscudoIdByName("Atlético"), // ID del escudo
                 Arrays.asList("Atlético Madrid", "Real Sociedad", "Mallorca", "Athletic"),
                 "Atlético Madrid"
         ));
 
         preguntas.add(new Pregunta(
-                8, // ID del escudo
+                gameDatabase.getEscudoIdByName("Athletic"), // ID del escudo
                 Arrays.asList("Athletic", "Betis", "Real Madrid", "Valencia"),
                 "Athletic"
         ));

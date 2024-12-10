@@ -199,6 +199,27 @@ public class AppDatabaseManager {
         return escudos;
     }
 
+    public int getEscudoIdByName(String nombre) {
+        Cursor cursor = database.query(
+                AppDatabase.TABLE_ESCUDOS,
+                new String[]{"id"}, // Solo necesitamos el ID
+                "nombre = ?", // Condición WHERE
+                new String[]{nombre},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
+            cursor.close();
+            return id; // Retorna el ID si se encuentra el escudo
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return -1; // Si no se encuentra, retorna un valor no válido
+    }
+
 
 
 

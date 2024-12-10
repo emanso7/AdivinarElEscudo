@@ -1,8 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -17,6 +15,8 @@ import com.example.myapplication.R;
 import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.Database.Escudo;
 import org.esei.dm.adivinarelescudo.Database.UserDetails;
+import org.esei.dm.adivinarelescudo.Questions.Pregunta;
+import org.esei.dm.adivinarelescudo.Questions.Preguntas_easy;
 
 import java.util.List;
 

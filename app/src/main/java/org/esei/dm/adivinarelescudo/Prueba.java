@@ -30,15 +30,16 @@ public class Prueba extends AppCompatActivity {
     private ImageView imageView;
     private Button btnOption1, btnOption2, btnOption3, btnOption4;
 
-    private String resp1, resp2, resp3,resp4,respuestaCorrecta;
+    private String respuestaCorrecta;
     private QuestionFacade questionFacade;
 
-    private int questionid=1;
-    private int finfacil=10;
-    private int questionidMedia=11;
-    private int finMedia=20;
-    private int questionidDificil=21;
-    private int finDificil=30;
+    private int questionid = 1;
+    private int finfacil = 10;
+    private int questionidMedia = 11;
+    private int finMedia = 20;
+    private int questionidDificil = 21;
+    private int finDificil = 30;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +60,33 @@ public class Prueba extends AppCompatActivity {
 
         Adivinar app = (Adivinar) getApplication();
         questionFacade = new QuestionFacade(app);
-        int puntuacionTest=0;
+        int puntuacionTest = 0;
 
-        cargaPregunta(questionid,puntuacionTest);
+        cargaPregunta(questionid, puntuacionTest);
+        //recibe dificultad de anterior actividad
+        //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
 
 
     }
+//funcion que carga las preguntas segun la dificultad(Falta switch que reciba dificultad)
+    private void cargapreguntadificultad(int id, int puntuacion, int fin) {
+         if(id >fin){
+            lanzaDialogo(puntuacion);
+            return;
+        }
 
+        Question question = questionFacade.getQuestionsById(id);
+        respuestaCorrecta=question.getCorrect();
+        cargaImagenDeAssets(question.getPhoto());
+
+        // Asignar valores a los botones
+            btnOption1.setText(question.getOption1());
+            btnOption2.setText(question.getOption2());
+            btnOption3.setText(question.getOption3());
+            btnOption4.setText(question.getOption4());
+
+        jugar(question, puntuacion);
+    }
     //funcion que mete los textos en los botones
     private void cargaPregunta(int id,int puntuacion) {
 

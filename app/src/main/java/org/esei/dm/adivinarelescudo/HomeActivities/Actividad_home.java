@@ -68,6 +68,13 @@ public class Actividad_home extends AppCompatActivity {
             startActivity(intentJugar);
         });
 
+        Button botonClasificacion = findViewById(R.id.button_clasificacion);
+
+        botonClasificacion.setOnClickListener(v -> {
+            Intent intentJugar = new Intent(Actividad_home.this, Actividad_classification.class);
+            intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+            startActivity(intentJugar);
+        });
         
     }
 

@@ -220,6 +220,27 @@ public class AppDatabaseManager {
         return -1; // Si no se encuentra, retorna un valor no válido
     }
 
+    // Método para obtener los 5 usuarios con más puntaje
+    public List<Usuario> obtenerTopUsuarios() {
+        List<Usuario> topUsuarios = new ArrayList<>();
+
+        // Consulta SQL para obtener los 5 usuarios con más puntaje
+        String query = "SELECT nombre, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 5";
+        Cursor cursor = database.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                @SuppressLint("Range") int puntaje = cursor.getInt(cursor.getColumnIndex("puntaje"));
+
+                // Agregar el usuario a la lista
+                topUsuarios.add(new Usuario(nombre, puntaje));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return topUsuarios;
+    }
 
 
 

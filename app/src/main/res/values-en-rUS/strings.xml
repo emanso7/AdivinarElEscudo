@@ -58,6 +58,11 @@
     <string name="correct">¡Correct! +1 Point</string>
     <string name="incorrect">¡Incorrect! 0 Points</string>
     <string name="finished_points">Your final points with those obtained now is: </string>
+    <string name="classification">Ranking</string>
+    <string name="user">Username</string>
+    <string name="points">Points</string>
+    <string name="rank">Rank</string>
+
 
 
 

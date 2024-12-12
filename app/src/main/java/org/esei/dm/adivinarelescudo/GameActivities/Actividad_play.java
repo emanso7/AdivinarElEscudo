@@ -24,6 +24,7 @@ public class Actividad_play extends AppCompatActivity {
         ImageButton imagenOpciones = findViewById(R.id.imagen_opciones);
         Button facilButton = findViewById(R.id.button_easy);
         Button medioButton = findViewById(R.id.button_medium);
+        Button dificilButton = findViewById(R.id.button_hard);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_easy.class);
@@ -33,6 +34,11 @@ public class Actividad_play extends AppCompatActivity {
         medioButton.setOnClickListener(v -> {
             Intent intentMedio = new Intent(Actividad_play.this, Actividad_medium.class);
             startActivity(intentMedio);
+        });
+
+        dificilButton.setOnClickListener(v -> {
+            Intent intentDificil = new Intent(Actividad_play.this, Actividad_hard.class);
+            startActivity(intentDificil);
         });
         // Configurar el clic para mostrar el menú
         imagenOpciones.setOnClickListener(v -> {

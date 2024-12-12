@@ -40,6 +40,7 @@
 
         <!-- Bloque de Nombre de Usuario -->
         <TextView
+            android:id="@+id/user_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -62,10 +63,11 @@
 
         <!-- Bloque de Correo Electrónico -->
         <TextView
+            android:id="@+id/email_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/correo_label"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -84,10 +86,11 @@
 
         <!-- Bloque de Puntos -->
         <TextView
+            android:id="@+id/points_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/puntos"
             android:textColor="@color/black"
             android:textSize="20sp"

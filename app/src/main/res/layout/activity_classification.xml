@@ -27,5 +27,23 @@
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:layout_weight="0.40"
-        android:background="@drawable/border_rectangle" />
+        android:background="@drawable/border_rectangle">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/vista_vacia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/no_users_message"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+
+    <!-- Vista para mostrar cuando no hay usuarios --><![CDATA[
+    />
+]]>
 </LinearLayout>

@@ -20,24 +20,19 @@ public class Actividad_play extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        // Recuperar el nombre del usuario desde el Intent
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
         // Referencia al botón de opciones
         ImageButton imagenOpciones = findViewById(R.id.imagen_opciones);
         Button facilButton = findViewById(R.id.button_easy);
         Button medioButton = findViewById(R.id.button_medium);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
-
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_easy.class);
-            intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentEasy);
         });
 
         medioButton.setOnClickListener(v -> {
 
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_medium.class);
-            intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentEasy);
         });
         // Configurar el clic para mostrar el menú

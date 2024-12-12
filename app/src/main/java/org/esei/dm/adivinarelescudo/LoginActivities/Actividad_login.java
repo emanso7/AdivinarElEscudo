@@ -45,9 +45,7 @@ public class Actividad_login extends AppCompatActivity {
         // Verificar si ya hay una sesión activa
         if (sesionManager.isSesionActiva()) {
             // Ir directamente a la actividad Home si hay sesión activa
-            String usuarioActivo = sesionManager.getNombreUsuario(); // Obtener el usuario guardado
             Intent intent = new Intent(this, Actividad_home.class);
-            intent.putExtra("nombre_usuario_activo", usuarioActivo);
             startActivity(intent);
             finish(); // Cierra la actividad de login
             return;
@@ -107,7 +105,6 @@ public class Actividad_login extends AppCompatActivity {
 
                 // Ir a la actividad Home
                 Intent intent = new Intent(Actividad_login.this, Actividad_home.class);
-                intent.putExtra("nombre_usuario_activo", usuario);
                 startActivity(intent);
                 finish();
             } else {

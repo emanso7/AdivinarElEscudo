@@ -59,5 +59,17 @@ public class UsuarioAdapter extends BaseAdapter {
         puntajeTextView.setText(String.valueOf(usuario.getPuntuacion()));
 
         return convertView;
+
     }
+
+    public void clear() {
+        usuarios.clear();
+        notifyDataSetChanged(); // Notificar al adaptador sobre los cambios
+    }
+
+    public void addAll(List<Usuario> nuevosUsuarios) {
+        usuarios.addAll(nuevosUsuarios);
+        notifyDataSetChanged(); // Notificar al adaptador sobre los cambios
+    }
+
 }

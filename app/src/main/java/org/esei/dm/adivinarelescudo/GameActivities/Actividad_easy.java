@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,13 +22,13 @@ import org.esei.dm.adivinarelescudo.Questions.Preguntas_easy;
 import java.util.List;
 
 public class Actividad_easy extends AppCompatActivity {
-    private String nombreUsuarioActivo; // Usuario activo recibido
     private List<Pregunta> preguntas; // Lista de preguntas
     private int preguntaActual = 0;  // Índice de la pregunta actual
     private int puntajeActual; // Puntaje actual del usuario
     private ImageView imageViewEscudo;
     private Button option1, option2, option3, option4;
 
+    private TextView puntosText;
     private AppDatabaseManager userDatabase; // Instancia de UserDatabase
 
     @Override
@@ -46,12 +47,10 @@ public class Actividad_easy extends AppCompatActivity {
         userDatabase = new AppDatabaseManager(this);
         userDatabase.open();
 
-        // Recuperar el nombre del usuario activo desde el Intent
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
 
-        // Cargar el puntaje actual del usuario
-        UserDetails userDetails = userDatabase.getUserDetails(nombreUsuarioActivo);
-        puntajeActual = (userDetails != null) ? userDetails.getPoints() : 0;
+        puntosText= findViewById(R.id.puntos_juego);
+
+        puntosText.setText(String.valueOf(puntajeActual)); // Muestra el puntaje inicial
 
         // Cargar las preguntas
         Preguntas_easy preguntasDificultad = new Preguntas_easy(this);
@@ -81,10 +80,10 @@ public class Actividad_easy extends AppCompatActivity {
         option4.setText(opciones.get(3));
 
         // Configurar los listeners para los botones
-        option1.setOnClickListener(v -> validarRespuesta(opciones.get(0), pregunta.getRespuestaCorrecta()));
-        option2.setOnClickListener(v -> validarRespuesta(opciones.get(1), pregunta.getRespuestaCorrecta()));
-        option3.setOnClickListener(v -> validarRespuesta(opciones.get(2), pregunta.getRespuestaCorrecta()));
-        option4.setOnClickListener(v -> validarRespuesta(opciones.get(3), pregunta.getRespuestaCorrecta()));
+        option1.setOnClickListener(v -> validarRespuesta(option1, opciones.get(0), pregunta.getRespuestaCorrecta()));
+        option2.setOnClickListener(v -> validarRespuesta(option2, opciones.get(1), pregunta.getRespuestaCorrecta()));
+        option3.setOnClickListener(v -> validarRespuesta(option3, opciones.get(2), pregunta.getRespuestaCorrecta()));
+        option4.setOnClickListener(v -> validarRespuesta(option4, opciones.get(3), pregunta.getRespuestaCorrecta()));
     }
 
     private void cargarImagenEscudo(int escudoId) {
@@ -104,27 +103,32 @@ public class Actividad_easy extends AppCompatActivity {
 
 
 
-    private void validarRespuesta(String seleccion, String respuestaCorrecta) {
+    private void validarRespuesta(Button botonSeleccionado, String seleccion, String respuestaCorrecta) {
         if (seleccion.equals(respuestaCorrecta)) {
-            Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show();
 
-            // Incrementar el puntaje y actualizarlo en la base de datos
-            puntajeActual++;
-            userDatabase.updateScore(nombreUsuarioActivo, puntajeActual);
+            // Incrementar el puntaje y actualizarlo
+            puntajeActual=puntajeActual+5;
+            puntosText.setText(String.valueOf(puntajeActual)); // Muestra el puntaje actualizado
+            botonSeleccionado.setBackgroundColor(getResources().getColor(R.color.correct_option)); // Pintar de verde
         } else {
-            Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show();
+            puntajeActual=puntajeActual-5;
+            puntosText.setText(String.valueOf(puntajeActual)); // Muestra el puntaje actualizado
         }
 
         // Pasar a la siguiente pregunta
         preguntaActual++;
         mostrarPregunta();
+
+        // Retrasar el paso a la siguiente pregunta para mostrar el color del botón
+        botonSeleccionado.postDelayed(() -> {
+            preguntaActual++;
+            mostrarPregunta();
+        }, 1000); // Retraso de 1 segundo
     }
 
     private void mostrarResumenFinal() {
         // Crear un Intent para ir a la actividad final
         Intent intentFinal = new Intent(Actividad_easy.this, Actividad_final.class);
-        intentFinal.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
-        intentFinal.putExtra("puntaje", puntajeActual); // Pasar el puntaje actual
         startActivity(intentFinal);
 
         // Finalizar la actividad actual

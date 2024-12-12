@@ -26,9 +26,6 @@ public class Actividad_final extends AppCompatActivity {
         TextView puntosTextView = findViewById(R.id.puntos_textView);
         Button buttonVolver = findViewById(R.id.button_volver);
 
-        // Recuperar datos desde el Intent
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
-        puntajeFinal = getIntent().getIntExtra("puntaje", 0);
 
         // Mostrar la puntuación en el TextView
         puntosTextView.setText(String.valueOf(puntajeFinal));
@@ -36,7 +33,6 @@ public class Actividad_final extends AppCompatActivity {
         // Configurar el botón para volver al inicio
         buttonVolver.setOnClickListener(v -> {
             Intent intent = new Intent(Actividad_final.this, Actividad_home.class);
-            intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar el usuario activo
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();

@@ -3,8 +3,11 @@ package org.esei.dm.adivinarelescudo.Database;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,6 +141,7 @@ public class AppDatabaseManager {
     }
 
 
+
     // Métodos para Escudos
 
     // Insertar un escudo
@@ -225,22 +229,23 @@ public class AppDatabaseManager {
         List<Usuario> topUsuarios = new ArrayList<>();
 
         // Consulta SQL para obtener los 5 usuarios con más puntaje
-        String query = "SELECT nombre, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 5";
+        String query = "SELECT nombre_usuario, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 5";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                @SuppressLint("Range") String nombreUsuario = cursor.getString(cursor.getColumnIndex("nombre_usuario"));
                 @SuppressLint("Range") int puntaje = cursor.getInt(cursor.getColumnIndex("puntaje"));
 
                 // Agregar el usuario a la lista
-                topUsuarios.add(new Usuario(nombre, puntaje));
+                topUsuarios.add(new Usuario(nombreUsuario, puntaje));
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         return topUsuarios;
     }
+
 
 
 

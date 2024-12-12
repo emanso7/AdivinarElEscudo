@@ -2,13 +2,9 @@ package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -19,7 +15,7 @@ import org.esei.dm.adivinarelescudo.Database.UserDetails;
 public class Actividad_details extends AppCompatActivity {
 
     private AppDatabaseManager userDatabase; // Base de datos de usuarios
-    private String nombreUsuarioActivo; // Variable para el usuario activo
+    private static String usuarioSeleccionado; // Usuario seleccionado
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +31,17 @@ public class Actividad_details extends AppCompatActivity {
         TextView correoActivo = findViewById(R.id.correoActivo_textView);
         TextView puntosActivo = findViewById(R.id.puntosActivo_textView);
 
-        // Obtener el nombre de usuario activo del Intent
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+        Button volver = findViewById(R.id.button_volverHome);
 
-        if (nombreUsuarioActivo != null) {
+
+        volver.setOnClickListener(v -> {
+            startActivity(new Intent(Actividad_details.this, Actividad_classification.class));
+            finish();
+        });
+
+        if (usuarioSeleccionado != null) {
             // Consultar los detalles del usuario
-            UserDetails userDetails = userDatabase.getUserDetails(nombreUsuarioActivo);
+            UserDetails userDetails = userDatabase.getUserDetails(usuarioSeleccionado);
 
             // Mostrar los datos del usuario
             if (userDetails != null) {
@@ -57,18 +58,17 @@ public class Actividad_details extends AppCompatActivity {
             correoActivo.setText("");
             puntosActivo.setText("");
         }
-
-        Button buttonVolverHome = findViewById(R.id.button_volverHome);
-
-        // Configurar botón "Volver"
-        buttonVolverHome.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.putExtra("nombre_usuario_modificado", nombreUsuarioActivo);
-            setResult(RESULT_OK, intent);
-            finish();
-        });
-
-
     }
 
+    public static void setUsuarioSeleccionado(String usuario) {
+        usuarioSeleccionado = usuario;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (userDatabase != null) {
+            userDatabase.close();
+        }
+    }
 }

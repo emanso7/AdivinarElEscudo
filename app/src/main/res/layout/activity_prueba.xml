@@ -5,41 +5,104 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prueba">
+    tools:context=".Prueba"
+    android:background="@color/background_azul_claro">
 
-    <LinearLayout
+     <LinearLayout
+        android:id="@+id/LayoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Sección del Escudo -->
+        <LinearLayout
+            android:id="@+id/LayoutEscudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.40"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
 
         <ImageView
             android:id="@+id/id_img_escudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_image"
+            android:padding="16dp"
             tools:srcCompat="@tools:sample/avatars" />
-
-        <Button
-            android:id="@+id/id_op1"
+             </LinearLayout>
+  <!-- Contenedor de Botones -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:orientation="vertical"
+            android:layout_weight="0.60"
+            android:gravity="center"
+            android:background="@drawable/button_background"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/id_op2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            <!-- Primera Fila de Botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/id_op3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+                <Button
+                    android:id="@+id/id_op1"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/id_op4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+                <Button
+                    android:id="@+id/id_op2"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Segunda Fila de Botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/id_op3"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/id_op4"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_background"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

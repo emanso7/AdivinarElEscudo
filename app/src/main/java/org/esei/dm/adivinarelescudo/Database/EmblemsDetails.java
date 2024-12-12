@@ -42,6 +42,18 @@ public class EmblemsDetails {
         insertarEscudo(db, "Tenerife", convertirImagenAByteArray(R.drawable.tenerife, context), "medio");
 
 
+        // Inserta escudos de la dificultad "difícil"
+        insertarEscudo(db, "Allariz", convertirImagenAByteArray(R.drawable.allariz, context), "difícil");
+        insertarEscudo(db, "Antela", convertirImagenAByteArray(R.drawable.antela, context), "difícil");
+        insertarEscudo(db, "Corgomo", convertirImagenAByteArray(R.drawable.corgomo, context), "difícil");
+        insertarEscudo(db, "Maside", convertirImagenAByteArray(R.drawable.maside, context), "difícil");
+        insertarEscudo(db, "Monterrei", convertirImagenAByteArray(R.drawable.monterrei, context), "difícil");
+        insertarEscudo(db, "Muinos", convertirImagenAByteArray(R.drawable.muinos, context), "difícil");
+        insertarEscudo(db, "Peroxa", convertirImagenAByteArray(R.drawable.peroja, context), "difícil");
+        insertarEscudo(db, "Viana", convertirImagenAByteArray(R.drawable.viana, context), "difícil");
+
+
+
         db.close(); // Cerrar la base de datos
     }
 

@@ -138,6 +138,7 @@ public class Actividad_hard extends AppCompatActivity {
     private void mostrarResumenFinal() {
         // Crear un Intent para ir a la actividad final
         Intent intentFinal = new Intent(Actividad_hard.this, Actividad_final.class);
+        intentFinal.putExtra("puntajeFinal", puntajeActual);
         startActivity(intentFinal);
 
         // Finalizar la actividad actual

@@ -18,47 +18,47 @@ public class Preguntas_hard {
         gameDatabase.open();
         // Configurar las 10 preguntas manualmente
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("allariz"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Allariz"), // ID del escudo
                 Arrays.asList("Maside", "Seixalbo", "Viana", "Allariz"),
                 "Allariz"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("corgomo"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Corgomo"), // ID del escudo
                 Arrays.asList("Melias", "Polígono", "Córgomo", "Loñoá"),
                 "Córgomo"
         ));
 
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("antela"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Antela"), // ID del escudo
                 Arrays.asList("Cartelle", "Antela", "Celanova", "Carballiño"),
                 "Antela"
         ));
 
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("peroxa"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Peroxa"), // ID del escudo
                 Arrays.asList("A Peroxa", "Velle", "Muiños", "Maceda"),
                 "A Peroxa"
         ));
 
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("maside"), // ID del escudo
-                Arrays.asList("Nogueira", "A Peroxa", "Seixalbo", "Maside Madrid"),
+                gameDatabase.getEscudoIdByName("Maside"), // ID del escudo
+                Arrays.asList("Nogueira", "A Peroxa", "Seixalbo", "Maside"),
                 "Maside"
         ));
 
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("monterrei"), // ID del escudo
-                Arrays.asList("Loñoá", "Macda", "Monterrei", "Polígono"),
+                gameDatabase.getEscudoIdByName("Monterrei"), // ID del escudo
+                Arrays.asList("Loñoá", "Maceda", "Monterrei", "Polígono"),
                 "Monterrei"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("muinos"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Muinos"), // ID del escudo
                 Arrays.asList("Melias", "Muiños", "Monterrei", "Carballiño"),
                 "Muiños"
         ));
 
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("viana"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Viana"), // ID del escudo
                 Arrays.asList("Viana", "Nogueira", "Allariz", "Melias"),
                 "Viana"
         ));

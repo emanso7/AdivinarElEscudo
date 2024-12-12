@@ -48,9 +48,8 @@ public class Actividad_home extends AppCompatActivity {
         AppDatabase appDatabase = new AppDatabase(this);
 
         // Verificar si la tabla escudos está vacía e insertar datos iniciales si es necesario
-        if (appDatabase.isTablaEscudosVacia()) {
             EmblemsDetails.insertarEquipos(this);
-        }
+
 
         // Referencia al botón del perfil
         ImageButton buttonPerfil = findViewById(R.id.imagen_perfil);

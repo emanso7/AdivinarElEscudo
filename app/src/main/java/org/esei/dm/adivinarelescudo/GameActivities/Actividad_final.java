@@ -7,9 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
 import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
+import org.esei.dm.adivinarelescudo.R;
 
 public class Actividad_final extends AppCompatActivity {
 

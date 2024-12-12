@@ -19,6 +19,8 @@ package org.esei.dm.adivinarelescudo;
         import androidx.core.view.ViewCompat;
         import androidx.core.view.WindowInsetsCompat;
 
+        import org.esei.dm.adivinarelescudo.GameActivities.Actividad_final;
+        import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
         import org.esei.dm.adivinarelescudo.database.Question;
         import org.esei.dm.adivinarelescudo.database.QuestionFacade;
 
@@ -39,6 +41,7 @@ public class Prueba extends AppCompatActivity {
     private int finMedia = 20;
     private int questionidDificil = 21;
     private int finDificil = 30;
+    private String nombreUsuarioActivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class Prueba extends AppCompatActivity {
         questionFacade = new QuestionFacade(app);
         int puntuacionTest = 0;
 
-
+        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
         //recibe dificultad de anterior actividad
         //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
         String valorRecibido = getIntent().getStringExtra("clave");
@@ -182,5 +185,11 @@ public class Prueba extends AppCompatActivity {
             }
         });
         builder.create().show();
+    }
+    public void actualizaPunuacionUsuario(int puntuacionFinal){
+        Intent intent = new Intent(Prueba.this, Actividad_home.class);
+        intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar el usuario activo
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

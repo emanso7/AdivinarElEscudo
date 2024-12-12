@@ -1,6 +1,7 @@
 package org.esei.dm.adivinarelescudo.LoginActivities;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.R;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Actividad_register extends AppCompatActivity {

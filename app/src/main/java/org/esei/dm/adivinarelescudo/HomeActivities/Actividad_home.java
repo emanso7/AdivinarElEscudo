@@ -9,11 +9,12 @@ import android.widget.PopupMenu;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
 import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
-import org.esei.dm.adivinarelescudo.Database.AppDatabase;
-import org.esei.dm.adivinarelescudo.Database.EmblemsDetails;
+import org.esei.dm.adivinarelescudo.R;
+import org.esei.dm.adivinarelescudo.database.AppDatabase;
+import org.esei.dm.adivinarelescudo.database.EmblemsDetails;
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 

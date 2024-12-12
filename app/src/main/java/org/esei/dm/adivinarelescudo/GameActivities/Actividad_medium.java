@@ -10,11 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.Escudo;
-import org.esei.dm.adivinarelescudo.Database.UserDetails;
+import org.esei.dm.adivinarelescudo.R;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.Escudo;
+import org.esei.dm.adivinarelescudo.database.UserDetails;
 import org.esei.dm.adivinarelescudo.Questions.Pregunta;
 import org.esei.dm.adivinarelescudo.Questions.Preguntas_medium;
 

@@ -12,11 +12,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.R;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.Language.IdiomaManager;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 

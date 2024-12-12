@@ -7,7 +7,9 @@ import android.widget.Button;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import org.esei.dm.adivinarelescudo.R;
+
+//import com.example.myapplication.R;
 
 public class Actividad_conditions extends AppCompatActivity {
 

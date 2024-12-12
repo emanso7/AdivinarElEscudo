@@ -11,11 +11,12 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.Usuario;
-import org.esei.dm.adivinarelescudo.Database.UsuarioAdapter;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.Usuario;
+import org.esei.dm.adivinarelescudo.database.UsuarioAdapter;
+import org.esei.dm.adivinarelescudo.R;
 
 import java.util.List;
 

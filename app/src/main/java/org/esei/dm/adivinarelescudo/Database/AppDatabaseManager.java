@@ -111,6 +111,27 @@ public class AppDatabaseManager {
         return null; // Si no se encuentra el usuario
     }
 
+    public int getUserPoints(String nombreUsuario) {
+        Cursor cursor = database.query(
+                AppDatabase.TABLE_USUARIOS,
+                new String[]{"puntaje"}, // Solo la columna de puntaje
+                "nombre_usuario = ?", // Condición WHERE
+                new String[]{nombreUsuario},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") int puntaje = cursor.getInt(cursor.getColumnIndex("puntaje"));
+            cursor.close();
+            return puntaje; // Devuelve directamente el puntaje
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return 0; // Retorna 0 si no se encuentra el usuario
+    }
 
     // Verificar si el correo está en uso
     public boolean isEmailInUse(String email) {

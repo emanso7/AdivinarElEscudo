@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guess the Embleme</string>
+    <string name="welcome_message">¡Welcome to Guess the Embleme!</string>
+    <string name="username_label">Username:</string>
+    <string name="username_hint">Enter your Username</string>
+    <string name="password_label">Password:</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_button">Login</string>
+    <string name="no_account_text">If you do not have an account, click here</string>
+    <string name="idioma_español">Language (English)</string>
+    <string name="username_name">Username:</string>
+    <string name="crear_cuenta">Create Account</string>
+    <string name="nombreApellidos_label">Name and Surname:</string>
+    <string name="nombreApellidos_hint">Enter your full name</string>
+    <string name="correo_label">Email:</string>
+    <string name="correo_hint">example@email.com</string>
+    <string name="new_username_hint">Enter your Username</string>
+    <string name="new_password_hint">Enter your Password</string>
+    <string name="password_again_label">Repeat Password:</string>
+    <string name="password_again_hint">Repeat Password</string>
+    <string name="conditios_label">I accept the terms of use</string>
+    <string name="register_label">Register</string>
+    <string name="accept_conditions">I Accept the Conditions</string>
+    <string name="conditions">\n 1. By registering in this application, you agree to provide true information such as your email, full name and password.\n \n 2. Your email will be used to create and manage your account, as well as to send you notifications related to the game.\n \n 3. The password provided will be stored securely using encryption algorithms.\n \n 4. The full name may be visible in leaderboards or sections of the game that include user data, provided you have agreed are conditions.\n \n 5. We undertake not to share your personal data with third parties without your consent, except in cases required by law.\n \n 6. You are responsible for maintaining the confidentiality of your password. Do not share this information with. other people.\n \n 7. Any activity carried out from your account will be your responsibility.\n \n 8. We reserve the right to modify these conditions at any time. You will be notified of any significant changes.\n \n 9. By continuing to use this application, you confirm that you accept these conditions and future updates. \n</string>
+    <string name="titulo_home">Guess the Embleme!</string>
+    <string name="button_jugar">Play</string>
+    <string name="button_clasificacion">See Classification</string>
+    <string name="mi_perfil">My profile</string>
+    <string name="puntos">Your points:</string>
+    <string name="go_back">Back</string>
+    <string name="modify_user">Modify User</string>
+    <string name="modify_user_label">Modify User:</string>
+    <string name="modify_user_hint">New Username</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_profile">See Profile</string>
+    <string name="option_log_out">Log Out</string>
+    <string name="empty_fail">Please, complete all the fields</string>
+    <string name="user_pass_fail">Incorrect Username or Password</string>
+    <string name="user_exists">Username already exists</string>
+    <string name="user_modified">Username updated</string>
+    <string name="field_empty">Field can´t be empty</string>
+    <string name="user_not_found">User not found</string>
+    <string name="accepted_conditions">You must accept the conditions</string>
+    <string name="password_diferent">Passwords do not match</string>
+    <string name="email_wrong">The email is not valid</string>
+    <string name="email_exists">Email already exists</string>
+    <string name="registered">Successful registration!</string>
+    <string name="not_registered">Error registering, please try again</string>
+    <string name="difficulty_title">Select a difficulty:</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="back_home">Home</string>
+    <string name="finished">¡Game Finished!</string>
+    <string name="embleme_error">Can´t load the embleme</string>
+    <string name="correct">¡Correct! +1 Point</string>
+    <string name="incorrect">¡Incorrect! 0 Points</string>
+    <string name="finished_points">Your final points with those obtained now is: </string>
+    <string name="classification">Ranking</string>
+    <string name="user">Username</string>
+    <string name="points">Points</string>
+    <string name="rank">Rank</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

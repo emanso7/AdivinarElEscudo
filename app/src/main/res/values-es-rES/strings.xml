@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Adivina el Escudo</string>
+    <string name="welcome_message">¡Bienvenido a Adivina el Escudo!</string>
+    <string name="username_label">Usuario:</string>
+    <string name="username_hint">Ingrese su usuario</string>
+    <string name="password_label">Contraseña:</string>
+    <string name="password_hint">Ingrese su contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="no_account_text">Si no dispone de cuenta, pulse aquí</string>
+    <string name="idioma_español">Idioma (Español)</string>
+    <string name="username_name">Nombre de Usuario:</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="nombreApellidos_label">Nombre y Apellidos:</string>
+    <string name="nombreApellidos_hint">Ingrese su nombre completo</string>
+    <string name="correo_label">Correo Electrónico:</string>
+    <string name="correo_hint">ejemplo@correo.com</string>
+    <string name="new_username_hint">Ingrese un nombre de usuario</string>
+    <string name="new_password_hint">Ingrese una contraseña</string>
+    <string name="password_again_label">Repetir Contraseña:</string>
+    <string name="password_again_hint">Repita su contraseña</string>
+    <string name="conditios_label">Acepto las condiciones de uso</string>
+    <string name="register_label">Registrarse</string>
+    <string name="accept_conditions">Acepto las Condiciones</string>
+    <string name="conditions">\n 1. Al registrarte en esta aplicación, aceptas proporcionar datos verídicos como tu correo electrónico, nombre completo y contraseña.\n \n 2. Tu correo electrónico se utilizará para crear y gestionar tu cuenta, así como para enviarte notificaciones relacionadas con el juego.\n \n 3. La contraseña proporcionada será almacenada de forma segura mediante algoritmos de encriptación.\n \n 4. El nombre completo puede ser visible en clasificaciones o secciones del juego que incluyan datos de usuario, siempre que hayas aceptado estas condiciones.\n \n 5. Nos comprometemos a no compartir tus datos personales con terceros sin tu consentimiento, salvo en casos requeridos por ley.\n \n 6. Eres responsable de mantener la confidencialidad de tu contraseña. No compartas esta información con otras personas.\n \n 7. Cualquier actividad realizada desde tu cuenta será tu responsabilidad.\n \n 8. Nos reservamos el derecho de modificar estas condiciones en cualquier momento. Se te notificará sobre cualquier cambio significativo.\n \n 9. Al continuar usando esta aplicación, confirmas que aceptas estas condiciones y las actualizaciones futuras. \n </string>
+    <string name="titulo_home">Adivina el Escudo!</string>
+    <string name="button_jugar">Jugar</string>
+    <string name="button_clasificacion">Ver Clasificación</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="puntos">Tus puntos:</string>
+    <string name="go_back">Volver</string>
+    <string name="modify_user">Modificar Usuario</string>
+    <string name="modify_user_label">Modificar Usuario:</string>
+    <string name="modify_user_hint">Nuevo nombre de usuario</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="see_profile">Ver Perfil</string>
+    <string name="option_log_out">Cerrar Sesión</string>
+    <string name="empty_fail">Por favor, completa todos los campos</string>
+    <string name="user_pass_fail">Usuario o Contraseña incorrectos</string>
+    <string name="user_exists">El nombre de usuario ya existe</string>
+    <string name="user_modified">Nombre de usuario actualizado</string>
+    <string name="field_empty">El campo no puede estar vacío</string>
+    <string name="user_not_found">Usuario no encontrado</string>
+    <string name="accepted_conditions">Debes aceptar las condiciones</string>
+    <string name="password_diferent">Las contraseñas no coinciden</string>
+    <string name="email_wrong">El correo electrónico no es válido</string>
+    <string name="email_exists">El correo electrónico ya existe</string>
+    <string name="registered">Registro exitoso!</string>
+    <string name="not_registered">Error al registrar, inténtalo de nuevo</string>
+    <string name="difficulty_title">Seleccione una dificultad:</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="back_home">Inicio</string>
+    <string name="finished">¡Juego Terminado!</string>
+    <string name="embleme_error">No se pudo cargar el escudo</string>
+    <string name="correct">¡Correcto! +1 Punto</string>
+    <string name="incorrect">¡Incorrecto! 0 Puntos</string>
+    <string name="finished_points">Tu puntuación final con los obtenidos ahora es: </string>
+    <string name="classification">Clasificación</string>
+    <string name="user">Usuario</string>
+    <string name="points">Puntos</string>
+    <string name="rank">Posición</string>
+
+
+
+
+
+
+
+
+
+
+
+</resources>

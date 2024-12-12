@@ -7,11 +7,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_icono_aplicacion"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_icono_aplicacion"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AdivinarElEscudo"
+        android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
             android:name=".ActividadSeleccionDificultad"
@@ -30,11 +30,41 @@
             android:exported="false" />
         <activity
             android:name=".ActividadRegistro"
-            android:exported="false"
-            android:theme="@style/Theme.AdivinarElEscudo" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" />
+
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_classification"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_medium"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_final"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_easy"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_play"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_profile"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_conditions"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_register"
+            android:exported="false" />
+        <activity
+            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

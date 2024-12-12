@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/background_azul_claro"
+    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_conditions">
+
+    <!-- ScrollView para contenido extenso -->
+    <ScrollView
+        android:id="@+id/ScrollConditions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp">
+
+        <LinearLayout
+            android:id="@+id/LayoutCondiciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/textView_condiciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="CONDICIONES DE USO"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Contenido del texto de condiciones -->
+            <TextView
+                android:id="@+id/textView_todasCondiciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/conditions"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <!-- Botón Volver -->
+
+            <Button
+                android:id="@+id/button_aceptar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/accept_conditions"
+                android:textStyle="bold"
+                android:backgroundTint="@color/azul_oscuro"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

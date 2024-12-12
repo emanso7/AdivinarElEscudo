@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/opcion_inicio"
+        android:title="@string/back_home" />
+
+    <item
+        android:id="@+id/opcion_cerrar_sesion"
+        android:title="@string/option_log_out" />
+
+</menu>

@@ -1,4 +1,6 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
+
+//import static android.os.Build.VERSION_CODES.R;//linea puesta por borja
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R; //linea puesta por borja
 
-import org.esei.dm.adivinarelescudo.Database.Usuario;
+import org.esei.dm.adivinarelescudo.R;//Añadido por emilio por probar
+import org.esei.dm.adivinarelescudo.database.Usuario;
 
 import java.util.List;
 

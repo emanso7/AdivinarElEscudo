@@ -25,12 +25,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        DBManager dbHelper = new DBManager(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+                 DBManager dbHelper = new DBManager(this);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        Intent intent = new Intent(MainActivity.this, ActividadHome.class);
-        startActivity(intent);
-        finish();
-    }
+                Intent intent = new Intent(org.esei.dm.adivinarelescudo.MainActivity.this, ActividadHome.class);
+                startActivity(intent);
+                finish();
+            }
+
+
 
 }

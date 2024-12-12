@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
 
 public class Escudo {
     private int id;

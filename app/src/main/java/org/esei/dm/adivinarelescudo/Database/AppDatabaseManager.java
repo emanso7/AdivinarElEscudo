@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;

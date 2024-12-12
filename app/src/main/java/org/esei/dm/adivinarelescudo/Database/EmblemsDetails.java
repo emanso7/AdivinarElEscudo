@@ -1,11 +1,13 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
+
+import org.esei.dm.adivinarelescudo.R;
 
 import java.io.ByteArrayOutputStream;
 

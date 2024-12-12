@@ -14,6 +14,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ActividadSeleccionDificultad"
             android:exported="false" />
         <activity
@@ -32,38 +35,34 @@
             android:name=".ActividadRegistro"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-
-        <activity
-            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_classification"
+            android:name=".HomeActivities.Actividad_classification"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_medium"
+            android:name=".GameActivities.Actividad_medium"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_final"
+            android:name=".GameActivities.Actividad_final"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_easy"
+            android:name=".GameActivities.Actividad_easy"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_play"
+            android:name=".GameActivities.Actividad_play"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_profile"
+            android:name=".HomeActivities.Actividad_profile"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home"
+            android:name=".HomeActivities.Actividad_home"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_conditions"
+            android:name=".LoginActivities.Actividad_conditions"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_register"
+            android:name=".LoginActivities.Actividad_register"
             android:exported="false" />
         <activity
-            android:name="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login"
+            android:name=".LoginActivities.Actividad_login"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

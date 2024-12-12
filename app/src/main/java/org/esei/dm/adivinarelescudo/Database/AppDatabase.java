@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
 
 import android.content.Context;
 import android.database.Cursor;

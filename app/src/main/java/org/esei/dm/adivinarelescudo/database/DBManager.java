@@ -18,10 +18,12 @@ public class DBManager extends SQLiteOpenHelper {
     private static String ADIVINAESCUDO_DATABASE_NAME = "adivina_db";
     private static int ADIVINAESCUDO_DATABASE_VERSION =1;
     public static final String ADIVINAESCUDO_USR_TABLE_NAME = "usuarios";
+    public static final String ADIVINAESCUDO_USR_COLUMN_ID = "id";
     public static final String ADIVINAESCUDO_USR_COLUMN_EMAIL = "email";
-    public static final String ADIVINAESCUDO_USR_COLUMN_NAME = "userName";
-    public static final String ADIVINAESCUDO_USR_COLUMN_PASSWORD = "password";
-    public static final String ADIVINAESCUDO_USR_COLUMN_POINTS = "points";
+    public static final String ADIVINAESCUDO_USR_COLUMN_USER_NAME = "nombre_usuario";
+    public static final String ADIVINAESCUDO_USR_COLUMN_NAME = "nombre";
+    public static final String ADIVINAESCUDO_USR_COLUMN_PASSWORD = "contraseña";
+    public static final String ADIVINAESCUDO_USR_COLUMN_POINTS = "puntaje";
 
     //tabla preguntas
     public static final String ADIVINAESCUDO_QUIZ_TABLE_NAME = "preguntas";
@@ -48,9 +50,11 @@ public class DBManager extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
             db.execSQL("CREATE TABLE IF NOT EXISTS " + ADIVINAESCUDO_USR_TABLE_NAME +"(" +
-                    ADIVINAESCUDO_USR_COLUMN_EMAIL +" TEXT PRIMARY KEY," +
+                    ADIVINAESCUDO_USR_COLUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     ADIVINAESCUDO_USR_COLUMN_NAME + " TEXT NOT NULL," +
+                    ADIVINAESCUDO_USR_COLUMN_USER_NAME + " TEXT NOT NULL UNIQUE," +
                     ADIVINAESCUDO_USR_COLUMN_PASSWORD + " TEXT NOT NULL, " +
+                    ADIVINAESCUDO_USR_COLUMN_EMAIL +" EXT NOT NULL UNIQUE ," +
                     ADIVINAESCUDO_USR_COLUMN_POINTS +" INTEGER NOT NULL"+
                     ")");
             db.execSQL("CREATE TABLE IF NOT EXISTS "+ADIVINAESCUDO_QUIZ_TABLE_NAME+"("+

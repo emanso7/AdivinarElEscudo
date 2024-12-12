@@ -1,4 +1,4 @@
-package org.esei.dm.adivinarelescudo.Database;
+package org.esei.dm.adivinarelescudo.database;
 
 public class UserDetails {
     private String username;

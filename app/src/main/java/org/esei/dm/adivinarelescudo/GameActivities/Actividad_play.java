@@ -31,9 +31,8 @@ public class Actividad_play extends AppCompatActivity {
         });
 
         medioButton.setOnClickListener(v -> {
-
-            Intent intentEasy = new Intent(Actividad_play.this, Actividad_medium.class);
-            startActivity(intentEasy);
+            Intent intentMedio = new Intent(Actividad_play.this, Actividad_medium.class);
+            startActivity(intentMedio);
         });
         // Configurar el clic para mostrar el menú
         imagenOpciones.setOnClickListener(v -> {

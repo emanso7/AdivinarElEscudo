@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.R;
 
@@ -79,6 +80,10 @@ public class Actividad_easy extends AppCompatActivity {
         option3.setText(opciones.get(2));
         option4.setText(opciones.get(3));
 
+
+        // Restaurar colores de los botones
+        restaurarColoresBotones();
+
         // Configurar los listeners para los botones
         option1.setOnClickListener(v -> validarRespuesta(option1, opciones.get(0), pregunta.getRespuestaCorrecta()));
         option2.setOnClickListener(v -> validarRespuesta(option2, opciones.get(1), pregunta.getRespuestaCorrecta()));
@@ -104,26 +109,29 @@ public class Actividad_easy extends AppCompatActivity {
 
 
     private void validarRespuesta(Button botonSeleccionado, String seleccion, String respuestaCorrecta) {
+        int correcto = ContextCompat.getColor(this, R.color.correct_option);
+        int incorrecto = ContextCompat.getColor(this, R.color.incorrect_option);
+
+
         if (seleccion.equals(respuestaCorrecta)) {
 
             // Incrementar el puntaje y actualizarlo
             puntajeActual=puntajeActual+5;
             puntosText.setText(String.valueOf(puntajeActual)); // Muestra el puntaje actualizado
-            botonSeleccionado.setBackgroundColor(getResources().getColor(R.color.correct_option)); // Pintar de verde
+            botonSeleccionado.setBackgroundColor(correcto); // Pintar de verde
         } else {
             puntajeActual=puntajeActual-5;
             puntosText.setText(String.valueOf(puntajeActual)); // Muestra el puntaje actualizado
+            botonSeleccionado.setBackgroundColor(incorrecto);
         }
 
-        // Pasar a la siguiente pregunta
-        preguntaActual++;
-        mostrarPregunta();
+
 
         // Retrasar el paso a la siguiente pregunta para mostrar el color del botón
         botonSeleccionado.postDelayed(() -> {
             preguntaActual++;
             mostrarPregunta();
-        }, 1000); // Retraso de 1 segundo
+        }, 1000); // Retraso
     }
 
     private void mostrarResumenFinal() {
@@ -135,6 +143,14 @@ public class Actividad_easy extends AppCompatActivity {
         finish();
     }
 
+    private void restaurarColoresBotones() {
+        // Restaurar el color de fondo predeterminado de los botones usando ContextCompat
+        int defaultColor = ContextCompat.getColor(this, R.color.default_option);
+        option1.setBackgroundColor(defaultColor);
+        option2.setBackgroundColor(defaultColor);
+        option3.setBackgroundColor(defaultColor);
+        option4.setBackgroundColor(defaultColor);
+    }
 
     @Override
     protected void onDestroy() {

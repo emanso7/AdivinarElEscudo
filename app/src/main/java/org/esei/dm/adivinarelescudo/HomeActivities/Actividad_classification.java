@@ -118,6 +118,7 @@ public class Actividad_classification extends AppCompatActivity {
                 Actividad_details.setUsuarioSeleccionado(usuarioSeleccionado.getNombre());
                 Intent intent = new Intent(this, Actividad_details.class);
                 startActivity(intent);
+                finish();
                 return true;
             }
         }

@@ -15,6 +15,7 @@ public class Preguntas_medium {
     public Preguntas_medium(Context context) {
         preguntas = new ArrayList<>();
         AppDatabaseManager gameDatabase = new AppDatabaseManager(context);
+        gameDatabase.open();
         // Configurar las 8 preguntas manualmente
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Granada"), // ID del escudo
@@ -22,7 +23,7 @@ public class Preguntas_medium {
                 "Granada"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("Zaragoza"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Real Zaragoza"), // ID del escudo
                 Arrays.asList("Deportivo La Coruña", "Real Zaragoza", "Real Valladolid", "Celta"),
                 "Real Zaragoza"
         ));
@@ -47,7 +48,7 @@ public class Preguntas_medium {
                 "Real Oviedo"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("Gijón"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Sporting Gijón"), // ID del escudo
                 Arrays.asList("Sporting Gijón", "Cádiz", "Zaragoza", "Granada"),
                 "Sporting Gijón"
         ));

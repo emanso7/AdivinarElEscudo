@@ -15,7 +15,7 @@ public class Preguntas_easy {
     public Preguntas_easy(Context context) {
         preguntas = new ArrayList<>();
         AppDatabaseManager gameDatabase = new AppDatabaseManager(context);
-gameDatabase.open();
+        gameDatabase.open();
         // Configurar las 10 preguntas manualmente
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("FC Barcelona"), // ID del escudo

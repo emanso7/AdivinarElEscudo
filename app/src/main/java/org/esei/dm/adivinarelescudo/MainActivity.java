@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+    
         DBManager dbHelper = new DBManager(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 

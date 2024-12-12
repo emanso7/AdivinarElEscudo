@@ -12,7 +12,7 @@ import org.esei.dm.adivinarelescudo.database.User;
 
 
 public class UserFacade {
-       private DBManager dbManager;
+    private DBManager dbManager;
     public UserFacade(Adivinar adivinar) {
         this.dbManager = adivinar.getDbManager();
     }
@@ -21,9 +21,11 @@ public class UserFacade {
         if (cursor!=null){
             try {
                 toret = new User();
-                toret.setEmail(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL)));
+                toret.setId(cursor.getInt(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_ID)));
                 toret.setUserName(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_NAME)));
+                toret.setUserName(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_USER_NAME)));
                 toret.setPassword(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_PASSWORD)));
+                toret.setEmail(cursor.getString(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL)));
                 toret.setPoints(cursor.getInt(cursor.getColumnIndexOrThrow(DBManager.ADIVINAESCUDO_USR_COLUMN_POINTS)));
 
             }catch (Exception e){
@@ -39,9 +41,11 @@ public class UserFacade {
             writableDatabase.execSQL(
                     "INSERT INTO " +DBManager.ADIVINAESCUDO_USR_TABLE_NAME +
                             "(" +
-                            DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL +
-                            ","+
                             DBManager.ADIVINAESCUDO_USR_COLUMN_NAME+
+                            ","+
+                            DBManager.ADIVINAESCUDO_USR_COLUMN_USER_NAME+
+                            ","+
+                            DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL +
                             ","+
                             DBManager.ADIVINAESCUDO_USR_COLUMN_PASSWORD+
                             ","+
@@ -64,8 +68,8 @@ public class UserFacade {
                     "DELETE FROM "
                             + DBManager.ADIVINAESCUDO_USR_TABLE_NAME
                             + " WHERE "
-                            + DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL +"=?"
-                    , new Object[]{user.getEmail()});
+                            + DBManager.ADIVINAESCUDO_USR_COLUMN_ID +"=?"
+                    , new Object[]{user.getId()});
             writableDatabase.setTransactionSuccessful();
         }catch(SQLException exception){
             Log.e(UserFacade.class.getName(), "removeUser", exception);
@@ -85,8 +89,8 @@ public class UserFacade {
                             + DBManager.ADIVINAESCUDO_USR_COLUMN_NAME + "=?, "
                             + DBManager.ADIVINAESCUDO_USR_COLUMN_PASSWORD + "=?, "
                             + DBManager.ADIVINAESCUDO_USR_COLUMN_POINTS + "=? "
-                            + "WHERE "+DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL +"=?",
-                    new Object[]{user.getUserName(), user.getPassword(), user.getPoints(), user.getEmail()});
+                            + "WHERE "+DBManager.ADIVINAESCUDO_USR_COLUMN_ID +"=?",
+                    new Object[]{user.getUserName(), user.getPassword(), user.getPoints(), user.getId()});
 
             writableDatabase.setTransactionSuccessful();
         }catch(SQLException exception){
@@ -106,12 +110,28 @@ public class UserFacade {
 
     public User getUsersByEmail(String email) {
         User toret = null;
-        if (email!=null){
+        if (email != null) {
             Cursor cursor =
                     dbManager.getReadableDatabase().rawQuery("SELECT * FROM " + DBManager.ADIVINAESCUDO_USR_TABLE_NAME
                                     + " WHERE "
                                     + DBManager.ADIVINAESCUDO_USR_COLUMN_EMAIL + " = ?",
-                            new String[]{email+""});
+                            new String[]{email + ""});
+
+            if (cursor.moveToFirst()) {
+                toret = readUser(cursor);
+            }
+            cursor.close();
+        }
+        return toret;
+    }
+    public User getUsersById(Integer id) {
+        User toret = null;
+        if (id!=null){
+            Cursor cursor =
+                    dbManager.getReadableDatabase().rawQuery("SELECT * FROM " + DBManager.ADIVINAESCUDO_USR_TABLE_NAME
+                                    + " WHERE "
+                                    + DBManager.ADIVINAESCUDO_USR_COLUMN_ID + " = ?",
+                            new String[]{id+""});
 
             if (cursor.moveToFirst()){
                 toret = readUser(cursor);

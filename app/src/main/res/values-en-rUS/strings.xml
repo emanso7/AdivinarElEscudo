@@ -62,6 +62,8 @@
     <string name="user">Username</string>
     <string name="points">Points</string>
     <string name="rank">Rank</string>
+    <string name="perfil_details">Profile</string>
+    <string name="no_users_message">There is no users yet</string>
 
 
 

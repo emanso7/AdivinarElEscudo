@@ -8,10 +8,11 @@ import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
 import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
+import org.esei.dm.adivinarelescudo.R;
 
 public class Actividad_play extends AppCompatActivity {
     private String nombreUsuarioActivo; // Usuario activo recibido desde Home
@@ -26,12 +27,18 @@ public class Actividad_play extends AppCompatActivity {
         ImageButton imagenOpciones = findViewById(R.id.imagen_opciones);
         Button facilButton = findViewById(R.id.button_easy);
         Button medioButton = findViewById(R.id.button_medium);
+        Button dificilButton=findViewById(R.id.button_hard);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
 
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_easy.class);
             intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentEasy);
+            /*
+            *  Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                intent.putExtra("clave", "Facil");
+                intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+                startActivity(intent);*/
         });
 
         medioButton.setOnClickListener(v -> {
@@ -39,6 +46,18 @@ public class Actividad_play extends AppCompatActivity {
             Intent intentEasy = new Intent(Actividad_play.this, Actividad_medium.class);
             intentEasy.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentEasy);
+            /*
+            *  Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                intent.putExtra("clave", "Media");
+                intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+                startActivity(intent);*/
+        });
+        dificilButton.setOnClickListener(v->{
+            /*
+            *  Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                intent.putExtra("clave", "Dificil");
+                intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
+                startActivity(intent);*/
         });
         // Configurar el clic para mostrar el menú
         imagenOpciones.setOnClickListener(v -> {

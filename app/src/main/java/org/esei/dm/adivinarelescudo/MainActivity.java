@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                 Intent intent = new Intent(org.esei.dm.adivinarelescudo.MainActivity.this, ActividadHome.class);
-                startActivity(intent);
+       // Intent intent = new Intent(org.esei.dm.adivinarelescudo.MainActivity.this, Actividad_login.class);
+
+        startActivity(intent);
                 finish();
             }
 

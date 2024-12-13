@@ -14,11 +14,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivities.Actividad_login"
+            android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name="org.esei.dm.adivinarelescudo.GameActivities.Actividad_hard"
-            android:exported="false" />
+
         <activity
             android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_details"
             android:exported="false" />
@@ -47,15 +45,11 @@
         <activity
             android:name=".HomeActivities.Actividad_classification"
             android:exported="false" />
-        <activity
-            android:name=".GameActivities.Actividad_medium"
-            android:exported="false" />
+
         <activity
             android:name=".GameActivities.Actividad_final"
             android:exported="false" />
-        <activity
-            android:name=".GameActivities.Actividad_easy"
-            android:exported="false" />
+
         <activity
             android:name=".GameActivities.Actividad_play"
             android:exported="false" />
@@ -72,7 +66,7 @@
             android:name=".LoginActivities.Actividad_register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivities.Actividad_login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

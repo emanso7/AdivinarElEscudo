@@ -11,8 +11,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+//import com.example.myapplication.R;
 
+import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.database.UserDetails;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;

@@ -19,7 +19,6 @@ package org.esei.dm.adivinarelescudo;
         import androidx.core.view.ViewCompat;
         import androidx.core.view.WindowInsetsCompat;
 
-        import org.esei.dm.adivinarelescudo.GameActivities.Actividad_final;
         import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
         import org.esei.dm.adivinarelescudo.database.Question;
         import org.esei.dm.adivinarelescudo.database.QuestionFacade;
@@ -56,10 +55,10 @@ public class Prueba extends AppCompatActivity {
 
 
         imageView = findViewById(R.id.id_img_escudo);
-        btnOption1 = findViewById(R.id.id_op1);
-        btnOption2 = findViewById(R.id.id_op2);
-        btnOption3 = findViewById(R.id.id_op3);
-        btnOption4 = findViewById(R.id.id_op4);
+        btnOption1 = findViewById(R.id.button_option1);
+        btnOption2 = findViewById(R.id.button_option2);
+        btnOption3 = findViewById(R.id.button_option3);
+        btnOption4 = findViewById(R.id.button_option4);
 
         Adivinar app = (Adivinar) getApplication();
         questionFacade = new QuestionFacade(app);

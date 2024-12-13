@@ -47,12 +47,11 @@
                 android:id="@+id/titulo_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/difficulty_title"
                 android:textColor="@color/azul_oscuro"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:gravity="center"
-               />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -60,19 +59,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
+            android:gravity="center"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/button_easy"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:text="@string/difficulty_easy"
-                android:backgroundTint="@color/azul_oscuro"/>
+                android:backgroundTint="@color/azul_oscuro"
+                android:text="@string/difficulty_easy" />
 
             <Button
                 android:id="@+id/button_medium"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:backgroundTint="@color/azul_oscuro"
@@ -80,7 +79,7 @@
 
             <Button
                 android:id="@+id/button_hard"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:text="@string/difficulty_hard"

@@ -14,6 +14,7 @@ public class Preguntas_medium {
     public Preguntas_medium(Context context) {
         preguntas = new ArrayList<>();
         AppDatabaseManager gameDatabase = new AppDatabaseManager(context);
+        gameDatabase.open();
         // Configurar las 8 preguntas manualmente
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Granada"), // ID del escudo
@@ -21,18 +22,18 @@ public class Preguntas_medium {
                 "Granada"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("Zaragoza"), // ID del escudo
+                gameDatabase.getEscudoIdByName("Real Zaragoza"), // ID del escudo
                 Arrays.asList("Deportivo La Coruña", "Real Zaragoza", "Real Valladolid", "Celta"),
                 "Real Zaragoza"
         ));
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Albacete"), // ID del escudo
-                Arrays.asList("Albacete Balompié", "CD Lugo", "SD Ponferradina", "CD Mirandés"),
+                Arrays.asList("CD Mirandés", "CD Lugo", "SD Ponferradina", "Albacete Balompié"),
                 "Albacete Balompié"
         ));
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Cádiz"), // ID del escudo
-                Arrays.asList("Cádiz CF", "UD Las Palmas", "Málaga CF", "Granada"),
+                Arrays.asList("Málaga CF", "UD Las Palmas", "Cádiz CF", "Granada"),
                 "Cádiz CF"
         ));
         preguntas.add(new Pregunta(
@@ -42,17 +43,17 @@ public class Preguntas_medium {
         ));
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Oviedo"), // ID del escudo
-                Arrays.asList("Real Oviedo", "Racing de Santander", "CD Numancia", "UD Logroñés"),
+                Arrays.asList("UD Logroñés", "Racing de Santander", "CD Numancia", "Real Oviedo"),
                 "Real Oviedo"
         ));
         preguntas.add(new Pregunta(
-                gameDatabase.getEscudoIdByName("Gijón"), // ID del escudo
-                Arrays.asList("Sporting Gijón", "Cádiz", "Zaragoza", "Granada"),
+                gameDatabase.getEscudoIdByName("Sporting Gijón"), // ID del escudo
+                Arrays.asList("Cádiz", "Sporting Gijón", "Zaragoza", "Granada"),
                 "Sporting Gijón"
         ));
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Tenerife"), // ID del escudo
-                Arrays.asList("Tenerife", "Mallorca", "Córdoba", "Zaragoza"),
+                Arrays.asList("Zaragoza", "Mallorca", "Córdoba", "Tenerife"),
                 "Tenerife"
         ));
     }

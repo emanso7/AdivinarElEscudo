@@ -3,10 +3,14 @@ package org.esei.dm.adivinarelescudo.database;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AppDatabaseManager {
@@ -113,6 +117,27 @@ public class AppDatabaseManager {
         return null; // Si no se encuentra el usuario
     }
 
+    public int getUserPoints(String nombreUsuario) {
+        Cursor cursor = database.query(
+                AppDatabase.TABLE_USUARIOS,
+                new String[]{"puntaje"}, // Solo la columna de puntaje
+                "nombre_usuario = ?", // Condición WHERE
+                new String[]{nombreUsuario},
+                null, null, null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") int puntaje = cursor.getInt(cursor.getColumnIndex("puntaje"));
+            cursor.close();
+            return puntaje; // Devuelve directamente el puntaje
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return 0; // Retorna 0 si no se encuentra el usuario
+    }
 
     // Verificar si el correo está en uso
     public boolean isEmailInUse(String email) {
@@ -142,110 +167,38 @@ public class AppDatabaseManager {
         );
     }
 
-
-    // Métodos para Escudos
-
-    // Insertar un escudo
-    public long insertEscudo(String nombre, byte[] imagen) {
-        ContentValues values = new ContentValues();
-        values.put("nombre", nombre);
-        values.put("imagen", imagen);
-        return database.insert(AppDatabase.TABLE_ESCUDOS, null, values);
-    }
-
-    // Obtener un escudo por ID
-    public Escudo getEscudoById(int id) {
-        Cursor cursor = database.query(
-                AppDatabase.TABLE_ESCUDOS,
-                new String[]{"id", "nombre", "imagen"}, // Asegúrate de incluir las columnas correctas
-                "id = ?",
-                new String[]{String.valueOf(id)},
-                null, null, null
-        );
-
-        if (cursor != null && cursor.moveToFirst()) {
-            @SuppressLint("Range") int escudoId = cursor.getInt(cursor.getColumnIndex("id"));
-            @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
-            @SuppressLint("Range") byte[] imagen = cursor.getBlob(cursor.getColumnIndex("imagen"));
-
-            cursor.close();
-            return new Escudo(escudoId, nombre, imagen);
-        }
-
-        if (cursor != null) {
-            cursor.close();
-        }
-        return null; // Si no se encuentra el escudo
-    }
-
-
-    public Cursor obtenerEscudosPorDificultad(SQLiteDatabase db, String dificultad) {
-        return db.rawQuery(
-                "SELECT * FROM " + AppDatabase.TABLE_ESCUDOS + " WHERE dificultad = ?",
-                new String[]{dificultad}
-        );
-    }
-
-    // Obtener todos los escudos
-    public List<Escudo> getAllEscudos() {
-        List<Escudo> escudos = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM " + AppDatabase.TABLE_ESCUDOS, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
-                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
-                @SuppressLint("Range") byte[] imagen = cursor.getBlob(cursor.getColumnIndex("imagen"));
-                escudos.add(new Escudo(id, nombre, imagen));
-            } while (cursor.moveToNext());
-        }
-
-        cursor.close();
-        return escudos;
-    }
-
-    public int getEscudoIdByName(String nombre) {
-        Cursor cursor = database.query(
-                AppDatabase.TABLE_ESCUDOS,
-                new String[]{"id"}, // Solo necesitamos el ID
-                "nombre = ?", // Condición WHERE
-                new String[]{nombre},
-                null, null, null
-        );
-
-        if (cursor != null && cursor.moveToFirst()) {
-            @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("id"));
-            cursor.close();
-            return id; // Retorna el ID si se encuentra el escudo
-        }
-
-        if (cursor != null) {
-            cursor.close();
-        }
-        return -1; // Si no se encuentra, retorna un valor no válido
-    }
-
     // Método para obtener los 5 usuarios con más puntaje
     public List<Usuario> obtenerTopUsuarios() {
         List<Usuario> topUsuarios = new ArrayList<>();
 
         // Consulta SQL para obtener los 5 usuarios con más puntaje
-        String query = "SELECT nombre, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 5";
+        String query = "SELECT nombre_usuario, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 10";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                @SuppressLint("Range") String nombreUsuario = cursor.getString(cursor.getColumnIndex("nombre_usuario"));
                 @SuppressLint("Range") int puntaje = cursor.getInt(cursor.getColumnIndex("puntaje"));
 
                 // Agregar el usuario a la lista
-                topUsuarios.add(new Usuario(nombre, puntaje));
+                topUsuarios.add(new Usuario(nombreUsuario, puntaje));
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         return topUsuarios;
     }
+
+    public List<Usuario> obtenerTopUsuariosAscendente() {
+        // Obtener la lista de usuarios en orden descendente
+        List<Usuario> topUsuarios = obtenerTopUsuarios();
+
+        // Invertir la lista para que quede en orden ascendente
+        Collections.reverse(topUsuarios);
+
+        return topUsuarios;
+    }
+
 
 
 

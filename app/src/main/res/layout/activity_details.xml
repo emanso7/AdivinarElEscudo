@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_profile"
+    tools:context="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_details"
     android:background="@color/background_azul_claro">
 
     <LinearLayout
@@ -19,12 +19,13 @@
 
         <!-- Título -->
         <LinearLayout
+            android:id="@+id/LayoutTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            android:background="@drawable/border_rectangle"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/border_rectangle">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/perfil_textView"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
-                android:text="@string/mi_perfil"
+                android:text="@string/perfil_details"
                 android:textColor="@color/azul_oscuro"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -40,7 +41,7 @@
 
         <!-- Bloque de Nombre de Usuario -->
         <TextView
-            android:id="@+id/user_textView"
+            android:id="@+id/userDetails_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -63,7 +64,7 @@
 
         <!-- Bloque de Correo Electrónico -->
         <TextView
-            android:id="@+id/email_textView"
+            android:id="@+id/emailDetails_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -86,7 +87,7 @@
 
         <!-- Bloque de Puntos -->
         <TextView
-            android:id="@+id/points_textView"
+            android:id="@+id/pointsDetails_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -107,29 +108,29 @@
             android:textColor="@color/azul_oscuro"
             android:textSize="18sp" />
 
-        <!-- Botón Modificar Usuario -->
-        <Button
-            android:id="@+id/button_modificar_usuario"
+
+        <LinearLayout
+            android:id="@+id/LayoutVolver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/modify_user"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/azul_oscuro"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="1dp"
-            android:textStyle="bold" />
+            android:layout_weight="0.75"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_volverHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/azul_oscuro"
-            android:text="@string/go_back"
-            android:textColor="@color/white"
-            android:textStyle="bold">
+            <Button
+                android:id="@+id/button_volverHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/azul_oscuro"
+                android:text="@string/go_back"
+                android:textColor="@color/white"
+                android:textStyle="bold">
 
-        </Button>
+            </Button>
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

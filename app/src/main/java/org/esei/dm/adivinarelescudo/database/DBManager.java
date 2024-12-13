@@ -80,7 +80,9 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.i(DBManager.class.getSimpleName(), "onUpgrade call!");
+        // Elimina las tablas anteriores si hay cambios en la versión
+        db.execSQL("DROP TABLE IF EXISTS " + ADIVINAESCUDO_USR_TABLE_NAME);
+        onCreate(db);
     }
 
     private void executeSqlFromFile(SQLiteDatabase db, Context context, String fileName) {

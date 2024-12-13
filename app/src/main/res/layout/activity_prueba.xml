@@ -17,6 +17,24 @@
 
         <!-- Sección del Escudo -->
         <LinearLayout
+            android:id="@+id/puntaje_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/puntos_juego"
+                android:gravity="right"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul_oscuro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/LayoutEscudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +70,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/id_op1"
+                    android:id="@+id/button_option1"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
@@ -63,7 +81,7 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/id_op2"
+                    android:id="@+id/button_option2"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
@@ -82,7 +100,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/id_op3"
+                    android:id="@+id/button_option3"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
@@ -93,7 +111,7 @@
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/id_op4"
+                    android:id="@+id/button_option4"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"

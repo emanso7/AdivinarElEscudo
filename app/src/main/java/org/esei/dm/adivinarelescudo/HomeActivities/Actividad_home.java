@@ -1,12 +1,12 @@
 package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 //import com.example.myapplication.R;
@@ -14,7 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
 import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.database.AppDatabase;
-import org.esei.dm.adivinarelescudo.database.EmblemsDetails;
+import org.esei.dm.adivinarelescudo.database.DBManager;
+
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
@@ -31,28 +32,17 @@ public class Actividad_home extends AppCompatActivity {
         sesionManager = new SesionManager(this);
 
         // Verificar si hay una sesión activa
-        if (!sesionManager.verificarSesion()) {
+        if (!sesionManager.isSesionActiva()) {
             Intent intentLogin = new Intent(this, Actividad_login.class);
             startActivity(intentLogin);
             finish();
             return;
         }
 
-        // Obtener el usuario activo del Intent o de la sesión
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
-        if (nombreUsuarioActivo == null || nombreUsuarioActivo.isEmpty()) {
-            nombreUsuarioActivo = sesionManager.getNombreUsuario();
-        }
-
         // Inicializar la base de datos
-        AppDatabase appDatabase = new AppDatabase(this);
-
-        // Verificar si la tabla escudos está vacía e insertar datos iniciales si es necesario
-        if (appDatabase.isTablaEscudosVacia()) {
-            EmblemsDetails.insertarEquipos(this);
-        }
-        // Obtener el usuario activo del Intent
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+       //AppDatabase appDatabase = new AppDatabase(this);
+        DBManager dbHelper = new DBManager(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         // Referencia al botón del perfil
         ImageButton buttonPerfil = findViewById(R.id.imagen_perfil);
@@ -65,7 +55,6 @@ public class Actividad_home extends AppCompatActivity {
         // Configurar el click para ir a la actividad Jugar
         botonJugar.setOnClickListener(v -> {
             Intent intentJugar = new Intent(Actividad_home.this, Actividad_play.class);
-            intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentJugar);
         });
 
@@ -73,7 +62,6 @@ public class Actividad_home extends AppCompatActivity {
 
         botonClasificacion.setOnClickListener(v -> {
             Intent intentJugar = new Intent(Actividad_home.this, Actividad_classification.class);
-            intentJugar.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
             startActivity(intentJugar);
         });
         
@@ -92,10 +80,9 @@ public class Actividad_home extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId(); // Obtener el ID del ítem seleccionado
             if (itemId == opcionVerPerfil) {
-                // Abrir la actividad de perfil con resultado
+                // Abrir la actividad de perfil
                 Intent intentPerfil = new Intent(Actividad_home.this, Actividad_profile.class);
-                intentPerfil.putExtra("nombre_usuario_activo", nombreUsuarioActivo);
-                startActivityForResult(intentPerfil, 1);
+                startActivity(new Intent(Actividad_home.this, Actividad_profile.class));
                 return true;
             }  else if (itemId == opcionCerrarSesion) {
                 sesionManager.cerrarSesion(); // Cerrar la sesión
@@ -113,20 +100,5 @@ public class Actividad_home extends AppCompatActivity {
         popupMenu.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            // Recuperar el nombre de usuario modificado
-            String nombreUsuarioModificado = data.getStringExtra("nombre_usuario_modificado");
-
-            if (nombreUsuarioModificado != null) {
-                // Actualizar el nombre de usuario activo
-                nombreUsuarioActivo = nombreUsuarioModificado;
-                // Guardar el nuevo nombre en la sesión
-                sesionManager.iniciarSesion(nombreUsuarioModificado);
-            }
-        }
-    }
 }

@@ -2,7 +2,6 @@ package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.UserDetails;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.UserDetails;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
 public class Actividad_profile extends AppCompatActivity {

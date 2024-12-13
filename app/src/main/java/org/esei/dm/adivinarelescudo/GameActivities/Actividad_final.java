@@ -2,7 +2,6 @@ package org.esei.dm.adivinarelescudo.GameActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 

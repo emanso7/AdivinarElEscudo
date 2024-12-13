@@ -1,9 +1,7 @@
 package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.Usuario;
-import org.esei.dm.adivinarelescudo.Database.UsuarioAdapter;
-import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.Usuario;
+import org.esei.dm.adivinarelescudo.database.UsuarioAdapter;
 
 import java.util.List;
 

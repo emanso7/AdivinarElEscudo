@@ -1,23 +1,18 @@
 package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.UserDetails;
 import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
-import org.esei.dm.adivinarelescudo.Database.AppDatabase;
-import org.esei.dm.adivinarelescudo.Database.EmblemsDetails;
+import org.esei.dm.adivinarelescudo.database.AppDatabase;
+import org.esei.dm.adivinarelescudo.database.EmblemsDetails;
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 

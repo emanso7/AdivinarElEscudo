@@ -1,6 +1,6 @@
 package org.esei.dm.adivinarelescudo.LoginActivities;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Database.UserDetails;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
+import org.esei.dm.adivinarelescudo.database.UserDetails;
 
 public class Actividad_details extends AppCompatActivity {
 

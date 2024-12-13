@@ -45,7 +45,7 @@ public class Prueba extends AppCompatActivity {
     private int finMedia = 20;
     private int questionidDificil = 21;
     private int finDificil = 30;
-    private String nombreUsuarioActivo;
+    //private String nombreUsuario;
     AppDatabaseManager database;
     SesionManager sesionManager;
     private AppDatabaseManager userDatabase; // Instancia de UserDatabase
@@ -61,8 +61,8 @@ public class Prueba extends AppCompatActivity {
         });
 
 
-        userDatabase = new AppDatabaseManager(this);
-        userDatabase.open();
+       // userDatabase = new AppDatabaseManager(this);
+        //userDatabase.open();
 
         countPoints=findViewById(R.id.puntos_juego);
         imageView = findViewById(R.id.id_img_escudo);
@@ -73,23 +73,28 @@ public class Prueba extends AppCompatActivity {
 
         Adivinar app = (Adivinar) getApplication();
         questionFacade = new QuestionFacade(app);
+        userDatabase = new AppDatabaseManager(app);
         int puntuacionTest = 0;
 
-        nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
+        sesionManager = new SesionManager(this);
+        // Obtener el nombre del usuario activo
+        String nombreUsuario = sesionManager.getNombreUsuario();
+
+       // nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
         //recibe dificultad de anterior actividad
         //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
         String valorRecibido = getIntent().getStringExtra("clave");
         switch (valorRecibido){
             case "Facil":
-                cargapreguntadificultad(questionidFacil,puntuacionTest,finfacil);
+                cargapreguntadificultad(questionidFacil,puntuacionTest,finfacil,nombreUsuario);
                 break;
 
             case "Dificil":
-                cargapreguntadificultad(questionidDificil,puntuacionTest,finDificil);
+                cargapreguntadificultad(questionidDificil,puntuacionTest,finDificil,nombreUsuario);
                 break;
 
             case "Media":
-                cargapreguntadificultad(questionidMedia,puntuacionTest,finMedia);
+                cargapreguntadificultad(questionidMedia,puntuacionTest,finMedia,nombreUsuario);
                 break;
         }
 
@@ -97,9 +102,9 @@ public class Prueba extends AppCompatActivity {
     }
     //funcion que mete los textos en los botones
 //funcion que carga las preguntas segun la dificultad(Falta switch que reciba dificultad)
-    private void cargapreguntadificultad(int id, int puntuacion, int fin) {
+    private void cargapreguntadificultad(int id, int puntuacion, int fin,String usuario) {
          if(id >fin){
-            lanzaDialogo(puntuacion);
+            lanzaDialogo(puntuacion,usuario);
             return;
         }
 
@@ -119,23 +124,23 @@ public class Prueba extends AppCompatActivity {
         restaurarColoresBotones();
 
 
-        jugar(question, puntuacion,fin,id);
+        jugar(question, puntuacion,fin,id,usuario);
     }
 
 
-    private void jugar(Question question,int puntuacionTest,int fin,int id) {
+    private void jugar(Question question,int puntuacionTest,int fin,int id,String usuario) {
         btnOption1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op1= question.getOption1();
-                validar(btnOption1,op1,puntuacionTest,fin,id);
+                validar(btnOption1,op1,puntuacionTest,fin,id,usuario);
             }
         });
         btnOption2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op2 = question.getOption2();
-                validar(btnOption2,op2,puntuacionTest,fin,id);
+                validar(btnOption2,op2,puntuacionTest,fin,id,usuario);
 
             }
         });
@@ -143,21 +148,21 @@ public class Prueba extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String op3= question.getOption3();
-                validar(btnOption3,op3,puntuacionTest,fin,id);
+                validar(btnOption3,op3,puntuacionTest,fin,id,usuario);
             }
         });
         btnOption4.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op4= question.getOption4();
-                validar(btnOption4,op4,puntuacionTest,fin,id);
+                validar(btnOption4,op4,puntuacionTest,fin,id,usuario);
 
             }
         });
     }
 
     //funcion validar respuesta
-    public void validar(Button seleccion,String resp,int puntuacionTest,int fin,int id){
+    public void validar(Button seleccion,String resp,int puntuacionTest,int fin,int id,String usuario){
         int correcto = ContextCompat.getColor(this, R.color.correct_option);
         int incorrecto = ContextCompat.getColor(this, R.color.incorrect_option);
         if(resp.equals(respuestaCorrecta)){
@@ -169,7 +174,7 @@ public class Prueba extends AppCompatActivity {
             puntuacionTest-=5;
         }
         id++;
-        cargapreguntadificultad(id,puntuacionTest,fin);
+        cargapreguntadificultad(id,puntuacionTest,fin,usuario);
     }
     //funcion que carga imagenes en el imageView
     private void cargaImagenDeAssets(String nombre) {
@@ -192,29 +197,27 @@ public class Prueba extends AppCompatActivity {
             Toast.makeText(this,"Error Loading image",Toast.LENGTH_SHORT).show();
         }
     }
-    private void lanzaDialogo(int puntuacionFinal){
+    private void lanzaDialogo(int puntuacionFinal,String usuario){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Test Acabado:");
         builder.setMessage("Tu puntuacion es: "+puntuacionFinal+" puntos");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                /*Intent intent = new Intent(Prueba.this, ActividadHome.class);
+                Intent intent = new Intent(Prueba.this, Actividad_home.class);
                 startActivity(intent);
-                finish();*/
-                actualizaPunuacionUsuario(puntuacionFinal);
+                finish();
+               // actualizaPunuacionUsuario(puntuacionFinal,usuario);
             }
         });
         builder.create().show();
     }
-    public void actualizaPunuacionUsuario(int puntuacionFinal){
-        sesionManager = new SesionManager(this);
-        // Obtener el nombre del usuario activo
-        String nombreUsuario = sesionManager.getNombreUsuario();
+    public void actualizaPunuacionUsuario(int puntuacionFinal,String usuario){
+
         Intent intent = new Intent(Prueba.this, Actividad_home.class);
-        int puntosPrevios = database.getUserPoints(nombreUsuario);
+        int puntosPrevios = database.getUserPoints(usuario);
         int puntosTotales=puntosPrevios+puntuacionFinal;
-        database.updateScore(nombreUsuario, puntosTotales);
+        database.updateScore(usuario, puntosTotales);
         //intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar el usuario activo
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

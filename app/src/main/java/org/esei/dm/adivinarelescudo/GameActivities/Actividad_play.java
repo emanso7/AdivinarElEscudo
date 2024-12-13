@@ -31,7 +31,6 @@ public class Actividad_play extends AppCompatActivity {
         facilButton.setOnClickListener(v -> {
                 Intent intent = new Intent(Actividad_play.this, Prueba.class);
                 intent.putExtra("clave", "Facil");
-                //intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
                 startActivity(intent);
         });
 
@@ -39,14 +38,12 @@ public class Actividad_play extends AppCompatActivity {
         medioButton.setOnClickListener(v -> {
                 Intent intent = new Intent(Actividad_play.this, Prueba.class);
                 intent.putExtra("clave", "Media");
-                //intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
                 startActivity(intent);
         });
 
         dificilButton.setOnClickListener(v -> {
                 Intent intent = new Intent(Actividad_play.this, Prueba.class);
                 intent.putExtra("clave", "Dificil");
-                //intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar usuario activo
                 startActivity(intent);
         });
         // Configurar el clic para mostrar el menú

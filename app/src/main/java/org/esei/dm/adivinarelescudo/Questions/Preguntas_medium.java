@@ -2,8 +2,7 @@ package org.esei.dm.adivinarelescudo.Questions;
 
 import android.content.Context;
 
-import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
-import org.esei.dm.adivinarelescudo.Questions.Pregunta;
+import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;

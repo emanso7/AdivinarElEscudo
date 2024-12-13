@@ -10,12 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppDatabaseManager {
-    private AppDatabase dbHelper;
+    //private AppDatabase dbHelper;
+    private DBManager dbHelper;
     private SQLiteDatabase database;
 
-    public AppDatabaseManager(Context context) {
+    /*public AppDatabaseManager(Context context) {
         dbHelper = new AppDatabase(context);
+    }*/
+    public AppDatabaseManager(Context context) {
+        dbHelper = new DBManager(context);
     }
+
 
     public void open() {
         database = dbHelper.getWritableDatabase();

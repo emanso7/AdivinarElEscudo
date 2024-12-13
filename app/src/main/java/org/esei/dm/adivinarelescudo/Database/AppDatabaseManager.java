@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AppDatabaseManager {
@@ -250,7 +251,7 @@ public class AppDatabaseManager {
         List<Usuario> topUsuarios = new ArrayList<>();
 
         // Consulta SQL para obtener los 5 usuarios con más puntaje
-        String query = "SELECT nombre_usuario, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 5";
+        String query = "SELECT nombre_usuario, puntaje FROM usuarios ORDER BY puntaje DESC LIMIT 10";
         Cursor cursor = database.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
@@ -264,6 +265,16 @@ public class AppDatabaseManager {
         }
 
         cursor.close();
+        return topUsuarios;
+    }
+
+    public List<Usuario> obtenerTopUsuariosAscendente() {
+        // Obtener la lista de usuarios en orden descendente
+        List<Usuario> topUsuarios = obtenerTopUsuarios();
+
+        // Invertir la lista para que quede en orden ascendente
+        Collections.reverse(topUsuarios);
+
         return topUsuarios;
     }
 

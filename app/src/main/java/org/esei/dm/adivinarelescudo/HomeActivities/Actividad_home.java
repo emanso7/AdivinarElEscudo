@@ -1,6 +1,7 @@
 package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -40,16 +41,14 @@ public class Actividad_home extends AppCompatActivity {
             return;
         }
 
-
-        AppDatabaseManager appDatabaseManager = new AppDatabaseManager(this);
-
-    String usuarioActivo = sesionManager.getNombreUsuario();
         // Inicializar la base de datos
         AppDatabase appDatabase = new AppDatabase(this);
 
         // Verificar si la tabla escudos está vacía e insertar datos iniciales si es necesario
-            EmblemsDetails.insertarEquipos(this);
-
+       if (appDatabase.isTablaEscudosVacia()) {
+           //Insertar los equipos de las preguntas
+           EmblemsDetails.insertarEquipos(this);
+       }
 
         // Referencia al botón del perfil
         ImageButton buttonPerfil = findViewById(R.id.imagen_perfil);
@@ -107,17 +106,5 @@ public class Actividad_home extends AppCompatActivity {
         popupMenu.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            String nombreUsuarioModificado = data.getStringExtra("nombre_usuario_modificado");
-            if (nombreUsuarioModificado != null) {
-                nombreUsuarioActivo = nombreUsuarioModificado;
-                sesionManager.iniciarSesion(nombreUsuarioModificado);
-            }
-        }
-    }
 
 }

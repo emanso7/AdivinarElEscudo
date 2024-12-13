@@ -48,7 +48,7 @@ public class Preguntas_easy {
 
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Mallorca"), // ID del escudo
-                Arrays.asList("Mallorca", "Celta", "Villarreal", "Athletic"),
+                Arrays.asList("Athletic", "Celta", "Villarreal", "Mallorca"),
                 "Mallorca"
         ));
         preguntas.add(new Pregunta(
@@ -59,7 +59,7 @@ public class Preguntas_easy {
 
         preguntas.add(new Pregunta(
                 gameDatabase.getEscudoIdByName("Athletic"), // ID del escudo
-                Arrays.asList("Athletic", "Betis", "Real Madrid", "Valencia"),
+                Arrays.asList("Real Madrid", "Betis", "Athletic", "Valencia"),
                 "Athletic"
         ));
 

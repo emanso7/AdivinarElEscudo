@@ -1,12 +1,14 @@
 package org.esei.dm.adivinarelescudo.HomeActivities;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,8 @@ public class Actividad_classification extends AppCompatActivity {
     private UsuarioAdapter adapter;
     private List<Usuario> topUsuarios;
 
+    private boolean isAscending = false; // Estado inicial: descendente
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,9 @@ public class Actividad_classification extends AppCompatActivity {
         // Registrar el menú contextual
         registerForContextMenu(listViewClasificacion);
 
+        // Configurar el botón de orden
+        configurarBotonOrden();
+
         // Cargar los datos desde la base de datos
         cargarDatos();
     }
@@ -49,15 +56,8 @@ public class Actividad_classification extends AppCompatActivity {
         AppDatabaseManager databaseManager = new AppDatabaseManager(this);
         databaseManager.open();
 
-
         try {
             topUsuarios = databaseManager.obtenerTopUsuarios();
-
-            // Registrar los usuarios cargados
-            Log.d("Clasificacion", "Usuarios en la base de datos:");
-            for (Usuario usuario : topUsuarios) {
-                Log.d("Clasificacion", "Nombre: " + usuario.getNombre() + ", Puntos: " + usuario.getPuntuacion());
-            }
 
             if (topUsuarios == null || topUsuarios.isEmpty()) {
                 mostrarVistaVacia();
@@ -69,7 +69,6 @@ public class Actividad_classification extends AppCompatActivity {
                     adapter.clear();
                     adapter.addAll(topUsuarios);
                     adapter.notifyDataSetChanged();
-                    Log.d("Clasificacion", "Adapter actualizado con nuevos datos.");
                 }
             }
         } finally {
@@ -77,7 +76,45 @@ public class Actividad_classification extends AppCompatActivity {
         }
     }
 
+    private void configurarBotonOrden() {
+        Button btnOrdenarPorPuntos = findViewById(R.id.button_filtro);
 
+        btnOrdenarPorPuntos.setOnClickListener(v -> {
+            AppDatabaseManager databaseManager = new AppDatabaseManager(this);
+            databaseManager.open();
+
+            List<Usuario> usuarios;
+            try {
+                if (isAscending) {
+                    // Cambiar a orden descendente
+                    usuarios = databaseManager.obtenerTopUsuarios();
+                    btnOrdenarPorPuntos.setText(getString(R.string.filter_points_desc));
+                } else {
+                    // Cambiar a orden ascendente
+                    usuarios = databaseManager.obtenerTopUsuariosAscendente();
+                    btnOrdenarPorPuntos.setText(getString(R.string.filter_points_asc));
+                }
+
+                // Alternar el estado
+                isAscending = !isAscending;
+                adapter.setAscending(isAscending); // Actualizar el estado del adaptador
+                // Actualizar el ListView
+                adapter.clear();
+                adapter.addAll(usuarios);
+                adapter.notifyDataSetChanged();
+            } finally {
+                databaseManager.close();
+            }
+        });
+
+        Button volver = findViewById(R.id.button_vuelta);
+
+        volver.setOnClickListener(v -> {
+            Intent home = new Intent (Actividad_classification.this, Actividad_home.class);
+            startActivity(home);
+            finish();
+        });
+    }
 
     private void mostrarVistaVacia() {
         // Ocultar el ListView y mostrar un mensaje de vacío
@@ -125,3 +162,4 @@ public class Actividad_classification extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 }
+

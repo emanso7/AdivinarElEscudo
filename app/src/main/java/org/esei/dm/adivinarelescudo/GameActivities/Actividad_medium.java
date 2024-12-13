@@ -18,6 +18,7 @@ import org.esei.dm.adivinarelescudo.Database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.Database.Escudo;
 import org.esei.dm.adivinarelescudo.Database.UserDetails;
 import org.esei.dm.adivinarelescudo.Questions.Pregunta;
+import org.esei.dm.adivinarelescudo.Questions.Preguntas_hard;
 import org.esei.dm.adivinarelescudo.Questions.Preguntas_medium;
 
 import java.util.List;
@@ -137,6 +138,7 @@ public class Actividad_medium extends AppCompatActivity {
     private void mostrarResumenFinal() {
         // Crear un Intent para ir a la actividad final
         Intent intentFinal = new Intent(Actividad_medium.this, Actividad_final.class);
+        intentFinal.putExtra("puntajeFinal", puntajeActual);
         startActivity(intentFinal);
 
         // Finalizar la actividad actual

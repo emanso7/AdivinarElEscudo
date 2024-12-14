@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
 import org.esei.dm.adivinarelescudo.R;
-import org.esei.dm.adivinarelescudo.database.AppDatabase;
 import org.esei.dm.adivinarelescudo.database.DBManager;
 
 import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;

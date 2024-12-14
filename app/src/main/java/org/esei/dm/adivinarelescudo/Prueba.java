@@ -102,7 +102,7 @@ public class Prueba extends AppCompatActivity {
             btnOption3.setText(question.getOption3());
             btnOption4.setText(question.getOption4());
 
-            countPoints.setText(puntuacion);
+            countPoints.setText(String.valueOf(puntuacion));
 
         // Restaurar colores de los botones
         restaurarColoresBotones();

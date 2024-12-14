@@ -39,7 +39,7 @@ public class AppDatabaseManager {
     // Verificar si el nombre de usuario ya está en uso
     public boolean isUsernameInUse(String username) {
         Cursor cursor = database.query(
-                AppDatabase.TABLE_USUARIOS, // Tabla de usuarios
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME, // Tabla de usuarios
                 new String[]{"id"},         // Seleccionar solo el ID
                 "nombre_usuario = ?",       // Condición WHERE
                 new String[]{username},     // Argumento del WHERE
@@ -58,13 +58,13 @@ public class AppDatabaseManager {
         values.put("nombre_usuario", nombreUsuario);   // Nombre de usuario
         values.put("contraseña", contraseña);          // Contraseña (recomendado: encriptada)
         values.put("email", email);                    // Email
-        return database.insert(AppDatabase.TABLE_USUARIOS, null, values);
+        return database.insert(DBManager.ADIVINAESCUDO_USR_TABLE_NAME, null, values);
     }
 
 // Comprobar contraseña y nombre de usuario
     public boolean checkUser(String nombreUsuario, String contraseña) {
         Cursor cursor = database.query(
-                AppDatabase.TABLE_USUARIOS,
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,
                 new String[]{"id"}, // Solo necesitamos verificar si existe el ID
                 "nombre_usuario = ? AND contraseña = ?", // Condición WHERE
                 new String[]{nombreUsuario, contraseña}, // Argumentos del WHERE
@@ -86,7 +86,7 @@ public class AppDatabaseManager {
         values.put("puntaje", nuevoPuntaje);
 
         return database.update(
-                AppDatabase.TABLE_USUARIOS,
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,
                 values,
                 "nombre_usuario = ?", // Condición WHERE
                 new String[]{nombreUsuario}
@@ -95,7 +95,7 @@ public class AppDatabaseManager {
 
     public UserDetails getUserDetails(String nombreUsuario) {
         Cursor cursor = database.query(
-                AppDatabase.TABLE_USUARIOS,
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,
                 new String[]{"nombre", "nombre_usuario", "email", "puntaje"}, // Columnas necesarias
                 "nombre_usuario = ?", // Condición WHERE
                 new String[]{nombreUsuario},
@@ -119,7 +119,7 @@ public class AppDatabaseManager {
 
     public int getUserPoints(String nombreUsuario) {
         Cursor cursor = database.query(
-                AppDatabase.TABLE_USUARIOS,
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,
                 new String[]{"puntaje"}, // Solo la columna de puntaje
                 "nombre_usuario = ?", // Condición WHERE
                 new String[]{nombreUsuario},
@@ -142,7 +142,7 @@ public class AppDatabaseManager {
     // Verificar si el correo está en uso
     public boolean isEmailInUse(String email) {
         Cursor cursor = database.query(
-                AppDatabase.TABLE_USUARIOS,
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,
                 new String[]{"id"},
                 "email = ?",
                 new String[]{email},
@@ -160,7 +160,7 @@ public class AppDatabaseManager {
 
         // Actualizar el registro correspondiente
         return database.update(
-                AppDatabase.TABLE_USUARIOS,       // Tabla
+                DBManager.ADIVINAESCUDO_USR_TABLE_NAME,       // Tabla
                 values,                           // Nuevos valores
                 "nombre_usuario = ?",             // Condición WHERE
                 new String[]{oldUsername}         // Argumentos del WHERE

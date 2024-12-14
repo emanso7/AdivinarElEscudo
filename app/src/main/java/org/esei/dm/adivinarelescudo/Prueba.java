@@ -7,6 +7,8 @@ package org.esei.dm.adivinarelescudo;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.os.Bundle;
+        import android.os.Handler;
+        import android.os.Looper;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageView;
@@ -28,6 +30,7 @@ package org.esei.dm.adivinarelescudo;
 
         import java.io.IOException;
         import java.io.InputStream;
+
 
 
 public class Prueba extends AppCompatActivity {
@@ -143,8 +146,15 @@ public class Prueba extends AppCompatActivity {
             seleccion.setBackgroundColor(incorrecto);
             puntuacionTest-=5;
         }
-        id++;
-        cargapreguntadificultad(id,puntuacionTest,fin);
+        //id++;
+        //cargapreguntadificultad(id,puntuacionTest,fin);
+        final int finalPuntuacionTest = puntuacionTest; // Hacer la variable efectiva final
+        final int finalId = id; // Hacer la variable efectiva final
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            restaurarColoresBotones();;
+            cargapreguntadificultad(finalId + 1, finalPuntuacionTest, fin);
+        }, 1000);  // Esperar 1000 ms (1 segundo)
     }
     //funcion que carga imagenes en el imageView
     private void cargaImagenDeAssets(String nombre) {

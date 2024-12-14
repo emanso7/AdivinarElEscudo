@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prueba"
-    android:background="@color/background_azul_claro">
+    android:background="@color/background_azul_claro"
+    tools:context=".Prueba">
 
-     <LinearLayout
+    <LinearLayout
         android:id="@+id/LayoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,14 +26,15 @@
 
             <TextView
                 android:id="@+id/puntos_juego"
-                android:gravity="right"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/azul_oscuro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="right"
+                android:text="TextView"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/LayoutEscudo"
             android:layout_width="match_parent"
@@ -43,23 +44,24 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/id_img_escudo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/rounded_image"
-            android:padding="16dp"
-            tools:srcCompat="@tools:sample/avatars" />
-             </LinearLayout>
-  <!-- Contenedor de Botones -->
+            <ImageView
+                android:id="@+id/id_img_escudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.3"
+                android:background="@drawable/rounded_image"
+                android:padding="16dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+        <!-- Contenedor de Botones -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="0.60"
-            android:gravity="center"
             android:background="@drawable/button_background"
+            android:gravity="center"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <!-- Primera Fila de Botones -->
@@ -74,8 +76,8 @@
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
-                    android:elevation="4dp"
                     android:backgroundTint="@color/white"
+                    android:elevation="4dp"
                     android:gravity="center"
                     android:text="Opción 1"
                     android:textColor="@android:color/black"

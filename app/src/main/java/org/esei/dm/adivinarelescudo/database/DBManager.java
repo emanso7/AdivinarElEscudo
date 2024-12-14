@@ -16,7 +16,7 @@ public class DBManager extends SQLiteOpenHelper {
 
 
     private static String ADIVINAESCUDO_DATABASE_NAME = "adivina_db";
-    private static int ADIVINAESCUDO_DATABASE_VERSION =1;
+    private static int ADIVINAESCUDO_DATABASE_VERSION =2;
     public static final String ADIVINAESCUDO_USR_TABLE_NAME = "usuarios";
     public static final String ADIVINAESCUDO_USR_COLUMN_ID = "id";
     public static final String ADIVINAESCUDO_USR_COLUMN_EMAIL = "email";
@@ -54,7 +54,7 @@ public class DBManager extends SQLiteOpenHelper {
                     ADIVINAESCUDO_USR_COLUMN_NAME + " TEXT NOT NULL," +
                     ADIVINAESCUDO_USR_COLUMN_USER_NAME + " TEXT NOT NULL UNIQUE," +
                     ADIVINAESCUDO_USR_COLUMN_PASSWORD + " TEXT NOT NULL, " +
-                    ADIVINAESCUDO_USR_COLUMN_EMAIL +" EXT NOT NULL UNIQUE ," +
+                    ADIVINAESCUDO_USR_COLUMN_EMAIL +" TEXT NOT NULL UNIQUE ," +
                     ADIVINAESCUDO_USR_COLUMN_POINTS +" INTEGER DEFAULT 0"+
                     ")");
             db.execSQL("CREATE TABLE IF NOT EXISTS "+ADIVINAESCUDO_QUIZ_TABLE_NAME+"("+

@@ -65,6 +65,8 @@
     <string name="no_users_message">No hay usuarios registrados</string>
     <string name="filter_points_asc">Puntos ⬆️ </string>
     <string name="filter_points_desc">Puntos ⬇️</string>
+    <string name="titulo_dialogo_prueba">Test Acabado:</string>
+    <string name="texto_dialogo_prueba">Tu puntuacion es: </string>
 
 
 </resources>

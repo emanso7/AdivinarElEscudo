@@ -1,5 +1,6 @@
 package org.esei.dm.adivinarelescudo;
 
+        import android.annotation.SuppressLint;
         import android.content.DialogInterface;
         import android.content.Intent;
         import android.content.res.AssetManager;
@@ -168,8 +169,9 @@ public class Prueba extends AppCompatActivity {
     }
     private void lanzaDialogo(int puntuacionFinal){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Test Acabado:");
-        builder.setMessage("Tu puntuacion es: "+puntuacionFinal+" puntos");
+        String puntos=String.valueOf(puntuacionFinal);
+        builder.setTitle(R.string.titulo_dialogo_prueba);
+        builder.setMessage(getString(R.string.texto_dialogo_prueba)+" "+puntos+" "+getString(R.string.points));
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -177,22 +179,11 @@ public class Prueba extends AppCompatActivity {
                 intent.putExtra("puntajeFinal", puntuacionFinal);
                 startActivity(intent);
                 finish();
-               // actualizaPunuacionUsuario(puntuacionFinal,usuario);
             }
         });
         builder.create().show();
     }
-   /* public void actualizaPunuacionUsuario(int puntuacionFinal,String usuario){
 
-        Intent intent = new Intent(Prueba.this, Actividad_home.class);
-        int puntosPrevios = database.getUserPoints(usuario);
-        int puntosTotales=puntosPrevios+puntuacionFinal;
-        database.updateScore(usuario, puntosTotales);
-        //intent.putExtra("nombre_usuario_activo", nombreUsuarioActivo); // Pasar el usuario activo
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
-    }*/
     private void restaurarColoresBotones() {
         // Restaurar el color de fondo predeterminado de los botones usando ContextCompat
         int defaultColor = ContextCompat.getColor(this, R.color.default_option);

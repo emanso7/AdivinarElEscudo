@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivities.ActividadFinal"
+    android:background="@color/background_azul_claro">
+
+    <LinearLayout
+        android:id="@+id/LayoutPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/LayoutMensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/juegoTerminado_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/finished"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.55"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/puntuacion_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/finished_points"
+                android:textColor="@color/azul_oscuro"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/puntos_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/border_rectangle"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutVolver"
+            android:layout_width="match_parent"
+            android:layout_weight="0.1"
+            android:orientation="vertical"
+            android:layout_height="0dp"
+            >
+
+            <Button
+                android:id="@+id/button_volver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/azul_oscuro"
+                android:text="@string/go_back" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ package org.esei.dm.adivinarelescudo;
         import androidx.core.view.ViewCompat;
         import androidx.core.view.WindowInsetsCompat;
 
+        import org.esei.dm.adivinarelescudo.GameActivities.ActividadFinal;
         import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
         import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
         import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
@@ -45,10 +46,6 @@ public class Prueba extends AppCompatActivity {
     private int finMedia = 20;
     private int questionidDificil = 21;
     private int finDificil = 30;
-    //private String nombreUsuario;
-    AppDatabaseManager database;
-    SesionManager sesionManager;
-    private AppDatabaseManager userDatabase; // Instancia de UserDatabase
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +57,6 @@ public class Prueba extends AppCompatActivity {
             return insets;
         });
 
-
-       // userDatabase = new AppDatabaseManager(this);
-        //userDatabase.open();
-
         countPoints=findViewById(R.id.puntos_juego);
         imageView = findViewById(R.id.id_img_escudo);
         btnOption1 = findViewById(R.id.button_option1);
@@ -73,28 +66,22 @@ public class Prueba extends AppCompatActivity {
 
         Adivinar app = (Adivinar) getApplication();
         questionFacade = new QuestionFacade(app);
-        userDatabase = new AppDatabaseManager(app);
         int puntuacionTest = 0;
 
-        sesionManager = new SesionManager(this);
-        // Obtener el nombre del usuario activo
-        String nombreUsuario = sesionManager.getNombreUsuario();
-
-       // nombreUsuarioActivo = getIntent().getStringExtra("nombre_usuario_activo");
         //recibe dificultad de anterior actividad
         //switch de facil media dificil cargaPreguntadificultad(questionid,puntuacionTest,fin)
         String valorRecibido = getIntent().getStringExtra("clave");
         switch (valorRecibido){
             case "Facil":
-                cargapreguntadificultad(questionidFacil,puntuacionTest,finfacil,nombreUsuario);
+                cargapreguntadificultad(questionidFacil,puntuacionTest,finfacil);
                 break;
 
             case "Dificil":
-                cargapreguntadificultad(questionidDificil,puntuacionTest,finDificil,nombreUsuario);
+                cargapreguntadificultad(questionidDificil,puntuacionTest,finDificil);
                 break;
 
             case "Media":
-                cargapreguntadificultad(questionidMedia,puntuacionTest,finMedia,nombreUsuario);
+                cargapreguntadificultad(questionidMedia,puntuacionTest,finMedia);
                 break;
         }
 
@@ -102,9 +89,9 @@ public class Prueba extends AppCompatActivity {
     }
     //funcion que mete los textos en los botones
 //funcion que carga las preguntas segun la dificultad(Falta switch que reciba dificultad)
-    private void cargapreguntadificultad(int id, int puntuacion, int fin,String usuario) {
+    private void cargapreguntadificultad(int id, int puntuacion, int fin) {
          if(id >fin){
-            lanzaDialogo(puntuacion,usuario);
+            lanzaDialogo(puntuacion);
             return;
         }
 
@@ -123,24 +110,23 @@ public class Prueba extends AppCompatActivity {
         // Restaurar colores de los botones
         restaurarColoresBotones();
 
-
-        jugar(question, puntuacion,fin,id,usuario);
+        jugar(question, puntuacion,fin,id);
     }
 
 
-    private void jugar(Question question,int puntuacionTest,int fin,int id,String usuario) {
+    private void jugar(Question question,int puntuacionTest,int fin,int id) {
         btnOption1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op1= question.getOption1();
-                validar(btnOption1,op1,puntuacionTest,fin,id,usuario);
+                validar(btnOption1,op1,puntuacionTest,fin,id);
             }
         });
         btnOption2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op2 = question.getOption2();
-                validar(btnOption2,op2,puntuacionTest,fin,id,usuario);
+                validar(btnOption2,op2,puntuacionTest,fin,id);
 
             }
         });
@@ -148,21 +134,21 @@ public class Prueba extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String op3= question.getOption3();
-                validar(btnOption3,op3,puntuacionTest,fin,id,usuario);
+                validar(btnOption3,op3,puntuacionTest,fin,id);
             }
         });
         btnOption4.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String op4= question.getOption4();
-                validar(btnOption4,op4,puntuacionTest,fin,id,usuario);
+                validar(btnOption4,op4,puntuacionTest,fin,id);
 
             }
         });
     }
 
     //funcion validar respuesta
-    public void validar(Button seleccion,String resp,int puntuacionTest,int fin,int id,String usuario){
+    public void validar(Button seleccion,String resp,int puntuacionTest,int fin,int id){
         int correcto = ContextCompat.getColor(this, R.color.correct_option);
         int incorrecto = ContextCompat.getColor(this, R.color.incorrect_option);
         if(resp.equals(respuestaCorrecta)){
@@ -174,7 +160,7 @@ public class Prueba extends AppCompatActivity {
             puntuacionTest-=5;
         }
         id++;
-        cargapreguntadificultad(id,puntuacionTest,fin,usuario);
+        cargapreguntadificultad(id,puntuacionTest,fin);
     }
     //funcion que carga imagenes en el imageView
     private void cargaImagenDeAssets(String nombre) {
@@ -197,14 +183,15 @@ public class Prueba extends AppCompatActivity {
             Toast.makeText(this,"Error Loading image",Toast.LENGTH_SHORT).show();
         }
     }
-    private void lanzaDialogo(int puntuacionFinal,String usuario){
+    private void lanzaDialogo(int puntuacionFinal){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Test Acabado:");
         builder.setMessage("Tu puntuacion es: "+puntuacionFinal+" puntos");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Prueba.this, Actividad_home.class);
+                Intent intent = new Intent(Prueba.this, ActividadFinal.class);
+                intent.putExtra("puntajeFinal", puntuacionFinal);
                 startActivity(intent);
                 finish();
                // actualizaPunuacionUsuario(puntuacionFinal,usuario);
@@ -212,7 +199,7 @@ public class Prueba extends AppCompatActivity {
         });
         builder.create().show();
     }
-    public void actualizaPunuacionUsuario(int puntuacionFinal,String usuario){
+   /* public void actualizaPunuacionUsuario(int puntuacionFinal,String usuario){
 
         Intent intent = new Intent(Prueba.this, Actividad_home.class);
         int puntosPrevios = database.getUserPoints(usuario);
@@ -222,7 +209,7 @@ public class Prueba extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
-    }
+    }*/
     private void restaurarColoresBotones() {
         // Restaurar el color de fondo predeterminado de los botones usando ContextCompat
         int defaultColor = ContextCompat.getColor(this, R.color.default_option);
@@ -232,12 +219,12 @@ public class Prueba extends AppCompatActivity {
         btnOption4.setBackgroundColor(defaultColor);
     }
 
-    @Override
+   /* @Override
     protected void onDestroy() {
         super.onDestroy();
         // Cerrar la base de datos al destruir la actividad
         if (userDatabase != null) {
             userDatabase.close();
         }
-    }
+    }*/
 }

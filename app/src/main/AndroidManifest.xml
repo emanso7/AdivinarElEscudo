@@ -16,40 +16,18 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
-        <activity
-            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_details"
-            android:exported="false" />
-        <activity
-            android:name="org.esei.dm.adivinarelescudo.HomeActivities.Actividad_classification"
-
-            android:exported="false" />
-        <activity
-            android:name=".ActividadSeleccionDificultad"
-            android:exported="false" />
         <activity
             android:name=".Prueba"
             android:exported="false" />
         <activity
-            android:name=".ActividadModificarPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".ActividadPerfil"
-            android:exported="false" />
-        <activity
-            android:name=".ActividadHome"
-            android:exported="false" />
-        <activity
-            android:name=".ActividadRegistro"
+            android:name=".HomeActivities.Actividad_details"
             android:exported="false" />
         <activity
             android:name=".HomeActivities.Actividad_classification"
             android:exported="false" />
-
         <activity
-            android:name=".GameActivities.Actividad_final"
+            android:name=".GameActivities.ActividadFinal"
             android:exported="false" />
-
         <activity
             android:name=".GameActivities.Actividad_play"
             android:exported="false" />

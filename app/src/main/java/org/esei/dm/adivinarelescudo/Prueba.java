@@ -22,9 +22,6 @@ package org.esei.dm.adivinarelescudo;
         import androidx.core.view.WindowInsetsCompat;
 
         import org.esei.dm.adivinarelescudo.GameActivities.ActividadFinal;
-        import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
-        import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
-        import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
         import org.esei.dm.adivinarelescudo.database.Question;
         import org.esei.dm.adivinarelescudo.database.QuestionFacade;
 
@@ -40,12 +37,12 @@ public class Prueba extends AppCompatActivity {
     private String respuestaCorrecta;
     private QuestionFacade questionFacade;
 
-    private int questionidFacil = 1;
-    private int finfacil = 10;
-    private int questionidMedia = 11;
-    private int finMedia = 20;
-    private int questionidDificil = 21;
-    private int finDificil = 30;
+    private final int questionidFacil = 1;
+    private final int finfacil = 10;
+    private final int questionidMedia = 11;
+    private final int finMedia = 20;
+    private final int questionidDificil = 21;
+    private final int finDificil = 30;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,35 +112,21 @@ public class Prueba extends AppCompatActivity {
 
 
     private void jugar(Question question,int puntuacionTest,int fin,int id) {
-        btnOption1.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnOption1.setOnClickListener( v -> {
                 String op1= question.getOption1();
                 validar(btnOption1,op1,puntuacionTest,fin,id);
-            }
         });
-        btnOption2.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String op2 = question.getOption2();
+        btnOption2.setOnClickListener( v -> {
+                 String op2 = question.getOption2();
                 validar(btnOption2,op2,puntuacionTest,fin,id);
-
-            }
         });
-        btnOption3.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnOption3.setOnClickListener( v -> {
                 String op3= question.getOption3();
                 validar(btnOption3,op3,puntuacionTest,fin,id);
-            }
         });
-        btnOption4.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnOption4.setOnClickListener( v -> {
                 String op4= question.getOption4();
                 validar(btnOption4,op4,puntuacionTest,fin,id);
-
-            }
         });
     }
 
@@ -218,13 +201,4 @@ public class Prueba extends AppCompatActivity {
         btnOption3.setBackgroundColor(defaultColor);
         btnOption4.setBackgroundColor(defaultColor);
     }
-
-   /* @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // Cerrar la base de datos al destruir la actividad
-        if (userDatabase != null) {
-            userDatabase.close();
-        }
-    }*/
 }

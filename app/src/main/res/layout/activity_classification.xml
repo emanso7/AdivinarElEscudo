@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LayoutPrincipal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_azul_claro"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/Clasificacion_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:background="@drawable/border_rectangle"
+        android:text="@string/classification"
+        android:textSize="50sp"
+        android:textColor="@color/azul_oscuro"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_filtro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/azul_oscuro"
+            android:text="@string/filter_points_desc" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_view_clasificacion"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_weight="0.60"
+        android:background="@drawable/border_rectangle">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/vista_vacia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/no_users_message"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_vuelta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/azul_oscuro"
+            android:text="@string/go_back" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

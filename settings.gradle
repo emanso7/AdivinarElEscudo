@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Adivinar El Escudo"
+rootProject.name = "My Application"
 include ':app'

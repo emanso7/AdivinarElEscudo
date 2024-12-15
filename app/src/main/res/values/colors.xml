@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_azul_claro">#ADD8E6</color> <!-- Azul claro estándar para el fondo de pantalla-->
+    <color name="azul_oscuro">#00008B</color> <!-- Azul oscuro -->
+    <color name="gris_claro">#D3D3D3</color>
+    <color name="correct_option">#4CAF50</color> <!-- Verde -->
+    <color name="incorrect_option">#F44336</color> <!-- Rojo -->
+    <color name="default_option">#FFFFFFFF</color>
+
 </resources>

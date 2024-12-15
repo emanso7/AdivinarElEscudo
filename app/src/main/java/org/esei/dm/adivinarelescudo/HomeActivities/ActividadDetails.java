@@ -13,7 +13,7 @@ import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.database.UserDetails;
 
-public class Actividad_details extends AppCompatActivity {
+public class ActividadDetails extends AppCompatActivity {
 
     private AppDatabaseManager userDatabase; // Base de datos de usuarios
     private static String usuarioSeleccionado; // Usuario seleccionado
@@ -36,7 +36,7 @@ public class Actividad_details extends AppCompatActivity {
 
 
         volver.setOnClickListener(v -> {
-            startActivity(new Intent(Actividad_details.this, Actividad_classification.class));
+            startActivity(new Intent(ActividadDetails.this, ActividadClassification.class));
             finish();
         });
 

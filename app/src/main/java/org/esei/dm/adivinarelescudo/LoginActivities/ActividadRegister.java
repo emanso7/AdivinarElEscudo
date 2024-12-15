@@ -22,7 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 //import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
-public class Actividad_register extends AppCompatActivity {
+public class ActividadRegister extends AppCompatActivity {
 
     private AppDatabaseManager userDatabase; // Base de datos de usuarios
     private CheckBox checkBoxAcepto; // Checkbox para aceptar las condiciones
@@ -65,7 +65,7 @@ public class Actividad_register extends AppCompatActivity {
         checkBoxAcepto.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 // Abrir la actividad de condiciones de uso
-                Intent intent = new Intent(Actividad_register.this, Actividad_conditions.class);
+                Intent intent = new Intent(ActividadRegister.this, ActividadConditions.class);
                 conditionsLauncher.launch(intent);
             }
             return true; // Interceptamos el evento

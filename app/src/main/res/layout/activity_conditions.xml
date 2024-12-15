@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@color/background_azul_claro"
-    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_conditions">
+    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.ActividadConditions">
 
     <!-- ScrollView para contenido extenso -->
     <ScrollView

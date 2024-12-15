@@ -20,7 +20,7 @@ import org.esei.dm.adivinarelescudo.database.UsuarioAdapter;
 
 import java.util.List;
 
-public class Actividad_classification extends AppCompatActivity {
+public class ActividadClassification extends AppCompatActivity {
 
     private ListView listViewClasificacion;
     private UsuarioAdapter adapter;
@@ -108,7 +108,7 @@ public class Actividad_classification extends AppCompatActivity {
         Button volver = findViewById(R.id.button_vuelta);
 
         volver.setOnClickListener(v -> {
-            Intent home = new Intent (Actividad_classification.this, Actividad_home.class);
+            Intent home = new Intent (ActividadClassification.this, ActividadHome.class);
             startActivity(home);
             finish();
         });
@@ -150,8 +150,8 @@ public class Actividad_classification extends AppCompatActivity {
 
             if (item.getItemId() == R.id.menu_ver_perfil) {
                 // Abrir la actividad de perfil sin enviar datos
-                Actividad_details.setUsuarioSeleccionado(usuarioSeleccionado.getNombre());
-                Intent intent = new Intent(this, Actividad_details.class);
+                ActividadDetails.setUsuarioSeleccionado(usuarioSeleccionado.getNombre());
+                Intent intent = new Intent(this, ActividadDetails.class);
                 startActivity(intent);
                 finish();
                 return true;

@@ -11,14 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 //import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.GameActivities.Actividad_play;
+import org.esei.dm.adivinarelescudo.GameActivities.ActividadPlay;
 import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.database.DBManager;
 
-import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
+import org.esei.dm.adivinarelescudo.LoginActivities.ActividadLogin;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
-public class Actividad_home extends AppCompatActivity {
+public class ActividadHome extends AppCompatActivity {
 
     private String nombreUsuarioActivo; // Usuario activo pasado desde Login
     private SesionManager sesionManager;
@@ -32,7 +32,7 @@ public class Actividad_home extends AppCompatActivity {
 
         // Verificar si hay una sesión activa
         if (!sesionManager.isSesionActiva()) {
-            Intent intentLogin = new Intent(this, Actividad_login.class);
+            Intent intentLogin = new Intent(this, ActividadLogin.class);
             startActivity(intentLogin);
             finish();
             return;
@@ -53,14 +53,14 @@ public class Actividad_home extends AppCompatActivity {
 
         // Configurar el click para ir a la actividad Jugar
         botonJugar.setOnClickListener(v -> {
-            Intent intentJugar = new Intent(Actividad_home.this, Actividad_play.class);
+            Intent intentJugar = new Intent(ActividadHome.this, ActividadPlay.class);
             startActivity(intentJugar);
         });
 
         Button botonClasificacion = findViewById(R.id.button_clasificacion);
 
         botonClasificacion.setOnClickListener(v -> {
-            Intent intentJugar = new Intent(Actividad_home.this, Actividad_classification.class);
+            Intent intentJugar = new Intent(ActividadHome.this, ActividadClassification.class);
             startActivity(intentJugar);
         });
         
@@ -80,12 +80,12 @@ public class Actividad_home extends AppCompatActivity {
             int itemId = item.getItemId(); // Obtener el ID del ítem seleccionado
             if (itemId == opcionVerPerfil) {
                 // Abrir la actividad de perfil
-                Intent intentPerfil = new Intent(Actividad_home.this, Actividad_profile.class);
-                startActivity(new Intent(Actividad_home.this, Actividad_profile.class));
+                Intent intentPerfil = new Intent(ActividadHome.this, ActividadProfile.class);
+                startActivity(new Intent(ActividadHome.this, ActividadProfile.class));
                 return true;
             }  else if (itemId == opcionCerrarSesion) {
                 sesionManager.cerrarSesion(); // Cerrar la sesión
-                Intent intentLogin = new Intent(Actividad_home.this, Actividad_login.class);
+                Intent intentLogin = new Intent(ActividadHome.this, ActividadLogin.class);
                 intentLogin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentLogin);
                 finish();

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login"
+    tools:context="org.esei.dm.adivinarelescudo.LoginActivities.ActividadLogin"
     android:background="@color/background_azul_claro">
 
     <LinearLayout

@@ -1,7 +1,6 @@
 package org.esei.dm.adivinarelescudo.LoginActivities;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.OnBackPressedCallback;
@@ -11,7 +10,7 @@ import org.esei.dm.adivinarelescudo.R;
 
 //import com.example.myapplication.R;
 
-public class Actividad_conditions extends AppCompatActivity {
+public class ActividadConditions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

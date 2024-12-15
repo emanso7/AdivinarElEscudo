@@ -18,7 +18,7 @@ import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.database.UserDetails;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
-public class Actividad_profile extends AppCompatActivity {
+public class ActividadProfile extends AppCompatActivity {
 
     private AppDatabaseManager userDatabase;
     private SesionManager sesionManager; // Gestor de sesión
@@ -47,7 +47,7 @@ public class Actividad_profile extends AppCompatActivity {
 
         // Configurar botón "Volver"
         buttonVolverHome.setOnClickListener(v -> {
-            startActivity(new Intent(Actividad_profile.this, Actividad_home.class));
+            startActivity(new Intent(ActividadProfile.this, ActividadHome.class));
             finish();
         });
 

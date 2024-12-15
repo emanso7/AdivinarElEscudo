@@ -15,13 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 //import com.example.myapplication.R;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
+import org.esei.dm.adivinarelescudo.HomeActivities.ActividadHome;
 import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
 import org.esei.dm.adivinarelescudo.Language.IdiomaManager;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 
-public class Actividad_login extends AppCompatActivity {
+public class ActividadLogin extends AppCompatActivity {
     private TextView registro;
     private EditText editUsuario, editContraseña;
     private Button iniciarSesion;
@@ -46,7 +46,7 @@ public class Actividad_login extends AppCompatActivity {
         // Verificar si ya hay una sesión activa
         if (sesionManager.isSesionActiva()) {
             // Ir directamente a la actividad Home si hay sesión activa
-            Intent intent = new Intent(this, Actividad_home.class);
+            Intent intent = new Intent(this, ActividadHome.class);
             startActivity(intent);
             finish(); // Cierra la actividad de login
             return;
@@ -71,7 +71,7 @@ public class Actividad_login extends AppCompatActivity {
 
         // Redirigir al registro si el usuario no tiene cuenta
         registro.setOnClickListener(v -> {
-            Intent intent = new Intent(Actividad_login.this, Actividad_register.class);
+            Intent intent = new Intent(ActividadLogin.this, ActividadRegister.class);
             startActivity(intent);
         });
 
@@ -105,7 +105,7 @@ public class Actividad_login extends AppCompatActivity {
                 sesionManager.iniciarSesion(usuario);
 
                 // Ir a la actividad Home
-                Intent intent = new Intent(Actividad_login.this, Actividad_home.class);
+                Intent intent = new Intent(ActividadLogin.this, ActividadHome.class);
                 startActivity(intent);
                 finish();
             } else {

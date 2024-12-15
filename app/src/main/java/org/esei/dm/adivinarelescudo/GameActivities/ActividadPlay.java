@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 //import com.example.myapplication.R;
 
-import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
-import org.esei.dm.adivinarelescudo.LoginActivities.Actividad_login;
+import org.esei.dm.adivinarelescudo.HomeActivities.ActividadHome;
+import org.esei.dm.adivinarelescudo.LoginActivities.ActividadLogin;
 import org.esei.dm.adivinarelescudo.Prueba;
 import org.esei.dm.adivinarelescudo.R;
 
-public class Actividad_play extends AppCompatActivity {
+public class ActividadPlay extends AppCompatActivity {
     private String nombreUsuarioActivo; // Usuario activo recibido desde Home
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +29,20 @@ public class Actividad_play extends AppCompatActivity {
         Button dificilButton = findViewById(R.id.button_hard);
         // Configurar el clic para ir a la actividad fácil
         facilButton.setOnClickListener(v -> {
-                Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                Intent intent = new Intent(ActividadPlay.this, Prueba.class);
                 intent.putExtra("clave", "Facil");
                 startActivity(intent);
         });
 
 
         medioButton.setOnClickListener(v -> {
-                Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                Intent intent = new Intent(ActividadPlay.this, Prueba.class);
                 intent.putExtra("clave", "Media");
                 startActivity(intent);
         });
 
         dificilButton.setOnClickListener(v -> {
-                Intent intent = new Intent(Actividad_play.this, Prueba.class);
+                Intent intent = new Intent(ActividadPlay.this, Prueba.class);
                 intent.putExtra("clave", "Dificil");
                 startActivity(intent);
         });
@@ -56,13 +56,13 @@ public class Actividad_play extends AppCompatActivity {
                 int id = item.getItemId();
                 if (id == R.id.opcion_inicio) {
                     // Acción para ir al inicio
-                    Intent intentInicio = new Intent(Actividad_play.this, Actividad_home.class);
+                    Intent intentInicio = new Intent(ActividadPlay.this, ActividadHome.class);
                     startActivity(intentInicio);
                     finish();
                     return true;
                 } else if (id == R.id.opcion_cerrar_sesion) {
                     // Acción para cerrar sesión
-                    Intent intentCerrarSesion = new Intent(Actividad_play.this, Actividad_login.class);
+                    Intent intentCerrarSesion = new Intent(ActividadPlay.this, ActividadLogin.class);
                     intentCerrarSesion.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intentCerrarSesion);
                     finish();

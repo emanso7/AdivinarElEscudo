@@ -19,31 +19,31 @@
             android:name=".Prueba"
             android:exported="false" />
         <activity
-            android:name=".HomeActivities.Actividad_details"
+            android:name=".HomeActivities.ActividadDetails"
             android:exported="false" />
         <activity
-            android:name=".HomeActivities.Actividad_classification"
+            android:name=".HomeActivities.ActividadClassification"
             android:exported="false" />
         <activity
             android:name=".GameActivities.ActividadFinal"
             android:exported="false" />
         <activity
-            android:name=".GameActivities.Actividad_play"
+            android:name=".GameActivities.ActividadPlay"
             android:exported="false" />
         <activity
-            android:name=".HomeActivities.Actividad_profile"
+            android:name=".HomeActivities.ActividadProfile"
             android:exported="false" />
         <activity
-            android:name=".HomeActivities.Actividad_home"
+            android:name=".HomeActivities.ActividadHome"
             android:exported="false" />
         <activity
-            android:name=".LoginActivities.Actividad_conditions"
+            android:name=".LoginActivities.ActividadConditions"
             android:exported="false" />
         <activity
-            android:name=".LoginActivities.Actividad_register"
+            android:name=".LoginActivities.ActividadRegister"
             android:exported="false" />
         <activity
-            android:name=".LoginActivities.Actividad_login"
+            android:name=".LoginActivities.ActividadLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import org.esei.dm.adivinarelescudo.HomeActivities.Actividad_home;
+import org.esei.dm.adivinarelescudo.HomeActivities.ActividadHome;
 import org.esei.dm.adivinarelescudo.R;
 import org.esei.dm.adivinarelescudo.SesionManager.SesionManager;
 import org.esei.dm.adivinarelescudo.database.AppDatabaseManager;
@@ -58,7 +54,7 @@ public class ActividadFinal extends AppCompatActivity {
 
             // Configurar el botón para volver al inicio
             buttonVolver.setOnClickListener(v -> {
-                Intent intent = new Intent(ActividadFinal.this, Actividad_home.class);
+                Intent intent = new Intent(ActividadFinal.this, ActividadHome.class);
                 startActivity(intent);
                 finish();
             });

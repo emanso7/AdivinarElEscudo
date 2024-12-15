@@ -64,8 +64,8 @@
     <string name="rank">Rank</string>
     <string name="perfil_details">Profile</string>
     <string name="no_users_message">There is no users yet</string>
-    <string name="filter_points_asc">Points ⬆️ </string>
-    <string name="filter_points_desc">Points ⬇️</string>
+    <string name="filter_points_asc">Points ⬇️ </string>
+    <string name="filter_points_desc">Points ⬆️</string>
     <string name="titulo_dialogo_prueba">Test Finish:</string>
     <string name="texto_dialogo_prueba">Your score is: </string>
 

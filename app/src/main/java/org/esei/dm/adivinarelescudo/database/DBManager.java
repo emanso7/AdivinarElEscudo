@@ -16,7 +16,7 @@ public class DBManager extends SQLiteOpenHelper {
 
 
     private static String ADIVINAESCUDO_DATABASE_NAME = "adivina_db";
-    private static int ADIVINAESCUDO_DATABASE_VERSION =3;
+    private static int ADIVINAESCUDO_DATABASE_VERSION =1;
     public static final String ADIVINAESCUDO_USR_TABLE_NAME = "usuarios";
     public static final String ADIVINAESCUDO_USR_COLUMN_ID = "id";
     public static final String ADIVINAESCUDO_USR_COLUMN_EMAIL = "email";
